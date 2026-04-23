@@ -394,7 +394,7 @@ function setHeights() {
   const chainH = chainEl.offsetHeight;
   document.documentElement.style.setProperty('--nav-h', navH + 'px');
   document.documentElement.style.setProperty('--chain-h', chainH + 'px');
-  document.documentElement.style.setProperty('--bar-total', (navH + chainH + 16) + 'px');
+  document.documentElement.style.setProperty('--bar-total', (navH + chainH + 20) + 'px');
 }
 setHeights();
 window.addEventListener('resize', setHeights);
