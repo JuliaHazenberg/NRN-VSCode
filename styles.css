@@ -242,7 +242,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 
 /* CHAIN NAV */
 .chain-bar{
-  position:sticky;top:var(--nav-height, 90px);z-index:90;
+  position:sticky;top:var(--nav-height, 80px);z-index:90;
   background:rgba(10,18,28,.97);
   backdrop-filter:blur(12px);
   border-bottom:2px solid rgba(245,166,35,.15);
