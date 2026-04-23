@@ -241,58 +241,78 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 .fc{font-size:.66rem;letter-spacing:.05em;color:var(--muted)}
 
 /* CHAIN NAV */
-.chain-bar{position:sticky;top:57px;z-index:90;background:rgba(10,18,28,.97);backdrop-filter:blur(12px);border-bottom:3px solid rgba(245,166,35,.25);display:flex}
-.chain-tabs{display:flex;align-items:center;width:100%}
+.chain-bar{
+  position:sticky;top:57px;z-index:90;
+  background:rgba(10,18,28,.97);
+  backdrop-filter:blur(12px);
+  border-bottom:2px solid rgba(245,166,35,.15);
+  display:flex;
+  padding:6px 0;
+}
+.chain-tabs{display:flex;align-items:center;width:100%;gap:0}
+
 .ctab-nav{
   flex:1;display:flex;align-items:center;justify-content:center;
   position:relative;
-  height:clamp(36px,3.5vw,48px);
-  padding:0 4px;
-  background:none;border:none;cursor:pointer;
+  /* Chain plate height */
+  height:34px;
+  margin:0 10px; /* gap between plates — this is where pins sit */
+  padding:0 8px;
+  cursor:pointer;outline:none;white-space:nowrap;
   font-family:'Barlow Condensed',sans-serif;font-weight:700;
   font-size:clamp(.55rem,.75vw,.85rem);
   letter-spacing:.14em;text-transform:uppercase;
   color:rgba(210,200,165,.85);
-  transition:color .15s,background .15s;
-  outline:none;white-space:nowrap;
-  /* Chain plate: thicker top/bottom edges */
-  border-top:3px solid rgba(245,166,35,.5);
-  border-bottom:3px solid rgba(245,166,35,.5);
-  /* Plate separation */
-  border-right:2px solid rgba(245,166,35,.2);
+  transition:color .15s,background .15s,border-color .15s;
+  /* Plate shape: amber outline, rounded ends like a chain outer plate */
+  background:rgba(245,166,35,.07);
+  border:2px solid rgba(245,166,35,.35);
+  border-radius:17px;
+  /* Indent the long sides slightly to mimic chain plate waist */
+  box-shadow:inset 0 4px 0 rgba(0,0,0,.25), inset 0 -4px 0 rgba(0,0,0,.25);
 }
-.ctab-nav:first-child{border-left:2px solid rgba(245,166,35,.2)}
-/* Roller pin — left side of every link */
+
+/* Left roller pin — sits in the gap before each plate */
 .ctab-nav::before{
-  content:'';position:absolute;
-  left:-7px;top:50%;transform:translateY(-50%);
-  width:13px;height:13px;border-radius:50%;
-  background:#f5a623;
-  border:2px solid #c07800;
-  box-shadow:0 0 6px rgba(245,166,35,.5);
+  content:'';
+  position:absolute;
+  left:-12px;top:50%;transform:translateY(-50%);
+  width:14px;height:14px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #ffd966, #c07800);
+  border:2px solid #8a5000;
+  box-shadow:0 2px 4px rgba(0,0,0,.6), inset 0 1px 2px rgba(255,255,255,.2);
   z-index:3;
 }
-.ctab-nav:hover{color:#fff;background:rgba(245,166,35,.08)}
+
+/* Right roller pin — sits after each plate */
+.ctab-nav::after{
+  content:'';
+  position:absolute;
+  right:-12px;top:50%;transform:translateY(-50%);
+  width:14px;height:14px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #ffd966, #c07800);
+  border:2px solid #8a5000;
+  box-shadow:0 2px 4px rgba(0,0,0,.6), inset 0 1px 2px rgba(255,255,255,.2);
+  z-index:3;
+}
+
+.ctab-nav:hover{
+  color:#fff;
+  background:rgba(245,166,35,.15);
+  border-color:rgba(245,166,35,.7);
+}
+
 .ctab-nav.active{
-  background:var(--amber);color:#0d1b2a;
-  border-top-color:var(--amber2);
-  border-bottom-color:#c07800;
+  background:var(--amber);
+  color:#0d1b2a;
+  border-color:#c07800;
   font-weight:800;
+  box-shadow:inset 0 4px 0 rgba(0,0,0,.2), inset 0 -4px 0 rgba(0,0,0,.2), 0 0 12px rgba(245,166,35,.3);
 }
-.ctab-nav.active::before{
-  background:#c07800;
-  border-color:#8a5000;
-  box-shadow:0 0 8px rgba(192,119,0,.7);
-}
-/* Roller pin — right edge of last link */
-.ctab-nav:last-child::after{
-  content:'';position:absolute;
-  right:-7px;top:50%;transform:translateY(-50%);
-  width:13px;height:13px;border-radius:50%;
-  background:#f5a623;
-  border:2px solid #c07800;
-  box-shadow:0 0 6px rgba(245,166,35,.5);
-  z-index:3;
+.ctab-nav.active::before,
+.ctab-nav.active::after{
+  background:radial-gradient(circle at 35% 35%, #c07800, #6b3800);
+  border-color:#4a2800;
 }
 .tab-panels{position:relative}
 .tab-panel{display:none}
