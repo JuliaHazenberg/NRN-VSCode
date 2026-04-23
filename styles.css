@@ -1,5 +1,5 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{  --nav-height: 90px;--bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;--amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--coral:#ff6b5b;--sky:#4db8ff;--text:#eef2f7;--muted:#7a9ab8}
+:root{--bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;--amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--coral:#ff6b5b;--sky:#4db8ff;--text:#eef2f7;--muted:#7a9ab8}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--amber);border-radius:2px}
@@ -242,7 +242,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 
 /* CHAIN NAV */
 .chain-bar{
-  position:sticky;top:var(--nav-height, 100px);z-index:90;
+  position:sticky;top:90px;z-index:90;
   background:rgba(10,18,28,.97);
   backdrop-filter:blur(12px);
   border-bottom:2px solid rgba(245,166,35,.15);
