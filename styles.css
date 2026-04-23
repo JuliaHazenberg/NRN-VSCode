@@ -1,5 +1,5 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;--amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--coral:#ff6b5b;--sky:#4db8ff;--text:#eef2f7;--muted:#7a9ab8}
+:root{--bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;--amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--coral:#ff6b5b;--sky:#4db8ff;--text:#eef2f7;--muted:#7a9ab8;--nav-h:64px}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--amber);border-radius:2px}
@@ -16,7 +16,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* CHAIN NAV */
 .chain-bar{
-  position:fixed;top:72px;left:0;right:0;z-index:99;
+  position:fixed;top:var(--nav-h);left:0;right:0;z-index:99;
   background:rgba(10,18,28,.97);
   backdrop-filter:blur(12px);
   border-bottom:2px solid rgba(245,166,35,.15);
@@ -245,7 +245,7 @@ h2 em{font-style:normal;color:var(--amber)}
 .pe-title{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:flex;align-items:center;gap:7px}
 .pe-steps{display:flex;gap:0}
 .pe-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;padding:0 6px}
-.pe-step:not(:last-child)::after{content:'→';position:absolute;right:-9px;top:11px;font-size:.75rem;color:var(--muted)}
+.pe-step:not(:last-child)::after{content:'â†’';position:absolute;right:-9px;top:11px;font-size:.75rem;color:var(--muted)}
 .pe-n{width:26px;height:26px;border-radius:50%;background:rgba(0,201,167,.14);border:1px solid rgba(0,201,167,.28);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:.85rem;color:var(--teal);margin:0 auto 6px}
 .pe-t{font-size:.67rem;color:var(--muted);line-height:1.4}
 .join-banner{background:linear-gradient(130deg,rgba(245,166,35,.07),rgba(0,201,167,.05));border:1px solid rgba(245,166,35,.17);border-radius:9px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:18px}
@@ -552,7 +552,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
   .nrn-t-city{font-size:1.6rem!important}
   .nrn-t-num{font-size:1.6rem!important}
   .nrn-hub-btn{padding:12px!important;font-size:.82rem!important}
-  .chain-bar{top:61px}
   .chain-tabs{overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .chain-tabs::-webkit-scrollbar{display:none}
   .ctab-nav{margin:0 6px;font-size:.68rem;letter-spacing:.12em}
