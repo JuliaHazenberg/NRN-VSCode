@@ -16,7 +16,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* CHAIN NAV */
 .chain-bar{
-  position:fixed;top:57px;left:0;right:0;z-index:99;
+  position:fixed;top:72px;left:0;right:0;z-index:99;
   background:rgba(10,18,28,.97);
   backdrop-filter:blur(12px);
   border-bottom:2px solid rgba(245,166,35,.15);
@@ -552,7 +552,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
   .nrn-t-city{font-size:1.6rem!important}
   .nrn-t-num{font-size:1.6rem!important}
   .nrn-hub-btn{padding:12px!important;font-size:.82rem!important}
-  .chain-bar{top:49px}
+  .chain-bar{top:61px}
   .chain-tabs{overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .chain-tabs::-webkit-scrollbar{display:none}
   .ctab-nav{margin:0 6px;font-size:.68rem;letter-spacing:.12em}
