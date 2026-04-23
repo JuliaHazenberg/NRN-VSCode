@@ -503,5 +503,19 @@
 <script src="map.js"></script>
 <script src="app.js"></script>
 
+<script>
+  const nav = document.querySelector('nav');
+  const chainBar = document.querySelector('.chain-bar');
+  const setHeights = () => {
+    const navH = nav.offsetHeight;
+    const chainH = chainBar.offsetHeight;
+    document.documentElement.style.setProperty('--nav-h', navH + 'px');
+    document.documentElement.style.setProperty('--chain-h', chainH + 'px');
+    document.documentElement.style.setProperty('--bar-total', (navH + chainH + 16) + 'px');
+  };
+  setHeights();
+  window.addEventListener('resize', setHeights);
+</script>
+
 </body>
 </html>

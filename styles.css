@@ -1,5 +1,5 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;--amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--coral:#ff6b5b;--sky:#4db8ff;--text:#eef2f7;--muted:#7a9ab8;--nav-h:64px}
+:root{--bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;--amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--coral:#ff6b5b;--sky:#4db8ff;--text:#eef2f7;--muted:#7a9ab8;--nav-h:64px;--chain-h:46px;--bar-total:110px}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--amber);border-radius:2px}
@@ -245,7 +245,7 @@ h2 em{font-style:normal;color:var(--amber)}
 .pe-title{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:flex;align-items:center;gap:7px}
 .pe-steps{display:flex;gap:0}
 .pe-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;padding:0 6px}
-.pe-step:not(:last-child)::after{content:'â†’';position:absolute;right:-9px;top:11px;font-size:.75rem;color:var(--muted)}
+.pe-step:not(:last-child)::after{content:'→';position:absolute;right:-9px;top:11px;font-size:.75rem;color:var(--muted)}
 .pe-n{width:26px;height:26px;border-radius:50%;background:rgba(0,201,167,.14);border:1px solid rgba(0,201,167,.28);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:.85rem;color:var(--teal);margin:0 auto 6px}
 .pe-t{font-size:.67rem;color:var(--muted);line-height:1.4}
 .join-banner{background:linear-gradient(130deg,rgba(245,166,35,.07),rgba(0,201,167,.05));border:1px solid rgba(245,166,35,.17);border-radius:9px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:18px}
@@ -525,6 +525,15 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 .nrn-hub-btn{width:100%;background:#f5a623;color:#0d1b2a;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:8px;border:none;cursor:pointer;border-radius:3px}
 .nrn-hub-btn:hover{background:#ffc04d}
 #nrn-hint{position:absolute;bottom:12px;left:14px;font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(238,242,247,.28);pointer-events:none}
+
+/* NON-HOME TAB OFFSET — pushes content below fixed nav + chain bar */
+#tab-rides > div,
+#tab-routes > div,
+#tab-races .races-list,
+#tab-partners .partners-grid,
+#tab-store .store-hero{
+  padding-top:var(--bar-total) !important;
+}
 
 /* RESPONSIVE */
 @media(max-width:900px){
