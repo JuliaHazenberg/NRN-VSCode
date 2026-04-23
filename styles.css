@@ -5,7 +5,7 @@ body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--amber);border-radius:2px}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:clamp(10px,1.2vw,18px) clamp(18px,4vw,64px);background:rgba(13,27,42,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,166,35,.1)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:clamp(14px,1.6vw,22px) clamp(18px,4vw,64px);background:rgba(13,27,42,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,166,35,.1)}
 .logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(.9rem,1.4vw,1.4rem);letter-spacing:.18em}
 .logo span{color:var(--amber)}
 .nav-links{display:flex;gap:22px}
@@ -242,7 +242,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 
 /* CHAIN NAV */
 .chain-bar{
-  position:sticky;top:57px;z-index:90;
+  position:sticky;top:68px;z-index:90;
   background:rgba(10,18,28,.97);
   backdrop-filter:blur(12px);
   border-bottom:2px solid rgba(245,166,35,.15);
