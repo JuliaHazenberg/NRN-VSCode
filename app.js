@@ -366,3 +366,35 @@ function syncDisconnect(){
   if(currentCard){currentCard.classList.remove('sc-connected');currentCard.querySelector('.sconn-btn').textContent='Connect';}
   syncModalClose();
 }
+// ── Nav + chain bar height tracking ──────────────────────────────────────────
+function smoothScrollTo(id, offset) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const target = el.getBoundingClientRect().top + window.scrollY - offset;
+  const start = window.scrollY;
+  const distance = target - start;
+  const duration = 700;
+  let startTime = null;
+  function ease(t) { return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start + distance * ease(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function setHeights() {
+  const navEl = document.querySelector('nav');
+  const chainEl = document.querySelector('.chain-bar');
+  if (!navEl || !chainEl) return;
+  const navH = navEl.offsetHeight;
+  const chainH = chainEl.offsetHeight;
+  document.documentElement.style.setProperty('--nav-h', navH + 'px');
+  document.documentElement.style.setProperty('--chain-h', chainH + 'px');
+  document.documentElement.style.setProperty('--bar-total', (navH + chainH + 16) + 'px');
+}
+setHeights();
+window.addEventListener('resize', setHeights);
