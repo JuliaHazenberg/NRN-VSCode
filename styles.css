@@ -107,8 +107,9 @@ h1 .hollow{-webkit-text-stroke:2px var(--teal);color:transparent}
 .value-card:hover .vs-portrait{opacity:1}
 .value-silhouette svg{width:100%;height:100%}
 .value-text{min-width:0}
-.value-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin-bottom:6px}
-.value-statement{font-size:.76rem;line-height:1.6;color:var(--muted);font-style:italic}
+.value-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin-bottom:3px}
+.value-who{font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:400;letter-spacing:.06em;color:var(--amber);margin-bottom:8px}
+.value-statement{font-size:.72rem;line-height:1.6;color:var(--muted);font-style:italic}
 @media(max-width:860px){
   .values-inner{flex-wrap:wrap;gap:14px}
   .value-card{flex:1 1 44%;max-width:none}
