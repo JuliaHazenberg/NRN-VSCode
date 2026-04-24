@@ -110,6 +110,20 @@ h1 .hollow{-webkit-text-stroke:2px var(--teal);color:transparent}
 .value-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin-bottom:3px}
 .value-who{font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:400;letter-spacing:.06em;color:var(--amber);margin-bottom:8px}
 .value-statement{font-size:.72rem;line-height:1.6;color:var(--muted);font-style:italic}
+
+/* EXPANDABLE VALUE CARDS */
+.value-card-expandable{position:relative}
+.value-expand-btn{position:absolute;top:10px;right:10px;width:22px;height:22px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);color:var(--muted);font-size:.85rem;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;padding:0}
+.value-expand-btn:hover{border-color:var(--amber);color:var(--amber);background:rgba(245,166,35,.08)}
+.value-expand-btn.open{transform:rotate(45deg);border-color:var(--amber);color:var(--amber)}
+.value-detail{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease;opacity:0}
+.value-detail.open{max-height:300px;opacity:1}
+.value-detail-inner{padding:14px 0 4px;border-top:1px solid rgba(255,255,255,.06);margin-top:12px;text-align:center}
+.value-saved-amount{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--teal);line-height:1}
+.value-saved-label{font-family:'Barlow Condensed',sans-serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.value-saved-quote{font-size:.68rem;line-height:1.55;color:var(--muted);font-style:italic;margin:0 0 10px}
+.value-saved-items{display:flex;flex-wrap:wrap;justify-content:center;gap:5px}
+.value-saved-chip{font-size:.54rem;padding:3px 8px;border-radius:100px;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.15);color:var(--amber);white-space:nowrap}
 @media(max-width:860px){
   .values-inner{flex-wrap:wrap;gap:14px}
   .value-card{flex:1 1 44%;max-width:none}
