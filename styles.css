@@ -398,6 +398,20 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 .race-reg:hover{background:var(--amber2)}
 .race-reg.registered{background:var(--teal);color:#0d1b2a}
 
+/* RACES TIMELINE */
+.races-hero{padding:52px 48px 0;max-width:900px;margin:0 auto;text-align:center}
+.races-timeline{max-width:900px;margin:0 auto;padding:28px 48px 52px;position:relative}
+.race-month-group{position:relative;padding-left:32px;margin-bottom:32px}
+.race-month-group:last-child{margin-bottom:0}
+.race-month-group::before{content:'';position:absolute;left:7px;top:8px;bottom:0;width:1px;background:linear-gradient(180deg,var(--amber) 0%,rgba(245,166,35,.1) 100%)}
+.race-month-group:last-child::before{bottom:20px}
+.race-month-marker{display:flex;align-items:center;gap:12px;margin-bottom:14px;margin-left:-32px}
+.race-month-dot{width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--amber);flex-shrink:0;position:relative;z-index:1}
+.race-month-dot::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:6px;height:6px;border-radius:50%;background:var(--amber)}
+.race-month-label{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.08em;color:var(--amber)}
+.race-month-races{display:flex;flex-direction:column;gap:10px}
+.race-weekday{font-family:'Barlow Condensed',sans-serif;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+
 /* PARTNERS */
 .partners-hero{padding:52px 48px;max-width:1240px;margin:0 auto;text-align:center}
 #tab-partners .partners-hero{padding-top:var(--bar-total) !important}
@@ -560,7 +574,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 /* NON-HOME TAB OFFSET â€” pushes content below fixed nav + chain bar */
 #tab-rides > div,
 #tab-routes > div,
-#tab-races .races-list,
+#tab-races .races-hero,
 #tab-store .store-hero{
   padding-top:var(--bar-total) !important;
 }
