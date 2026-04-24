@@ -572,7 +572,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 #nrn-hint{position:absolute;bottom:12px;left:14px;font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(238,242,247,.28);pointer-events:none}
 
 /* NON-HOME TAB OFFSET â€” pushes content below fixed nav + chain bar */
-#tab-rides > div,
 /* TAB HERO HEADERS */
 .tab-hero{padding:52px 48px 28px;max-width:1240px;margin:0 auto;text-align:center}
 .tab-hero+div{padding-top:0 !important}
