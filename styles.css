@@ -399,6 +399,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 .race-reg.registered{background:var(--teal);color:#0d1b2a}
 
 /* PARTNERS */
+.partners-hero{padding:52px 48px;max-width:1240px;margin:0 auto;text-align:center}
+#tab-partners .partners-hero{padding-top:var(--bar-total) !important}
 .partners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:52px 48px;max-width:1240px;margin:0 auto}
 .partner-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:22px 18px;text-align:center;cursor:pointer;transition:transform .18s,border-color .18s}
 .partner-card:hover{transform:translateY(-3px);border-color:rgba(245,166,35,.3)}
