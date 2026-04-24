@@ -29,7 +29,6 @@
   <button class="nav-cta" onclick="switchTab('home',null);setTimeout(()=>smoothScrollTo('membership',25),150)">Join — $99/yr</button>
 </nav>
 
-<!-- CHAIN NAV -->
 <div class="chain-bar">
   <div class="chain-tabs" id="chain-tabs">
     <button class="ctab-nav active" data-tab="home" onclick="switchTab('home',this)">Home</button>
@@ -43,9 +42,7 @@
 
 <div class="tab-panels">
 
-  <!-- ═══════════════════════════════ HOME TAB ═══════════════════════════════ -->
   <div class="tab-panel tab-active" id="tab-home">
-
     <div class="hero">
       <div class="hero-glow"></div>
       <div class="hero-grid"></div>
@@ -59,7 +56,6 @@
         </div>
       </div>
 
-      <!-- PEOPLE / VALUES -->
       <div class="values-strip">
         <div class="values-inner">
           <div class="value-card" style="animation-delay:.2s">
@@ -97,14 +93,10 @@
         </div>
       </div>
 
-      <div class="map-wrap" style="margin-top:44px;animation:up 1s .72s both">
-        <div class="map-stage" style="position:relative;max-width:1120px;margin:0 auto;padding:0 40px">
+      <div class="map-wrap">
+        <div class="map-stage">
           <div id="nrn-map-wrap" style="position:relative;width:100%;background:#0d1b2a;border-radius:12px;overflow:hidden;font-family:'Barlow Condensed',sans-serif;user-select:none;touch-action:none;filter:drop-shadow(0 28px 72px rgba(0,0,0,.55))">
             <svg id="nrn-map-svg" viewBox="0 0 960 600" style="display:block;width:100%;height:auto;cursor:grab"></svg>
-            <div class="nrn-nav-arrow" id="nrn-nav-up"    style="display:none!important"></div>
-            <div class="nrn-nav-arrow" id="nrn-nav-down"  style="display:none!important"></div>
-            <div class="nrn-nav-arrow" id="nrn-nav-left"  style="display:none!important"></div>
-            <div class="nrn-nav-arrow" id="nrn-nav-right" style="display:none!important"></div>
             <button id="nrn-back-btn" style="position:absolute;top:12px;left:14px;background:rgba(8,16,28,.82);border:1px solid #254060;border-radius:3px;padding:4px 10px;color:#7a9ab8;font-family:'Barlow Condensed',sans-serif;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s;z-index:40;white-space:nowrap">← full map</button>
             <div style="position:absolute;bottom:40px;right:14px;display:flex;flex-direction:column;gap:4px;z-index:40">
               <button class="nrn-zc-btn" id="nrn-zc-in">+</button>
@@ -160,15 +152,12 @@
         </div>
       </div>
       <div class="scroll-hint"><div class="scroll-bar"></div><div class="scroll-txt">Explore below</div></div>
-    </div><!-- /hero -->
+    </div>
 
-    <!-- TICKER -->
     <div class="ticker"><div class="ticker-inner">
-      <a class="tk tk-link" onclick="switchToCity('sandiego')">San Diego</a><span class="tks">◆</span><a class="tk tk-link" onclick="switchToCity('chicago')">Chicago</a><span class="tks">◆</span><a class="tk tk-link" onclick="switchToCity('milwaukee')">Milwaukee</a><span class="tks">◆</span><a class="tk tk-link" onclick="switchToCity('madison')">Madison</a><span class="tks">◆</span><a class="tk tk-link" onclick="switchToCity('desmoines')">Des Moines</a><span class="tks">◆</span><span class="tk">Road · Gravel · MTB</span><span class="tks">◆</span><span class="tk">Hub Passport</span><span class="tks">◆</span><span class="tk">Ride Insurance</span><span class="tks">◆</span><span class="tk">Partner Portal</span><span class="tks">◆</span><span class="tk">$99 / Year</span><span class="tks">◆</span>
       <a class="tk tk-link" onclick="switchToCity('sandiego')">San Diego</a><span class="tks">◆</span><a class="tk tk-link" onclick="switchToCity('chicago')">Chicago</a><span class="tks">◆</span><a class="tk tk-link" onclick="switchToCity('milwaukee')">Milwaukee</a><span class="tks">◆</span><a class="tk tk-link" onclick="switchToCity('madison')">Madison</a><span class="tks">◆</span><a class="tk tk-link" onclick="switchToCity('desmoines')">Des Moines</a><span class="tks">◆</span><span class="tk">Road · Gravel · MTB</span><span class="tks">◆</span><span class="tk">Hub Passport</span><span class="tks">◆</span><span class="tk">Ride Insurance</span><span class="tks">◆</span><span class="tk">Partner Portal</span><span class="tks">◆</span><span class="tk">$99 / Year</span><span class="tks">◆</span>
     </div></div>
 
-    <!-- CITY EXPLORER -->
     <section class="sec" id="cities" style="padding-top:0"><div class="wrap">
       <div class="sec-eye rev">City Hubs</div>
       <div style="display:flex;justify-content:space-between;align-items:flex-end">
@@ -183,352 +172,82 @@
           <div class="ctab" onclick="switchCity('milwaukee',this)"><span style="font-size:1.3rem">🍺</span><div><div class="ctab-nm">Milwaukee</div><div class="ctab-sub">Wisconsin · 19 rides/wk</div></div><span class="ctab-live"></span></div>
         </div>
 
-        <!-- SAN DIEGO PANEL -->
         <div id="panel-sandiego" class="cpanel active">
           <div class="cp-head"><div><div class="cp-city">San Diego</div><div class="cp-state">California, USA</div></div><div class="cp-stats"><div><div class="cpn">24</div><div class="cpl">Weekly Rides</div></div><div><div class="cpn">312</div><div class="cpl">Members</div></div></div></div>
           <div class="cp-grid">
-            <div class="cpb"><div class="cpb-title"><span>🚴</span>Weekly Rides</div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Pacific Coast Saturday</div><div class="pi-desc">Sat 7am · Oceanside Pier · 38 riders · Road</div></div></div><div class="pi"><div class="rdot dg"></div><div><div class="pi-nm">Laguna Mountains Gravel</div><div class="pi-desc">Sun 6:30am · Mission Valley · 18 riders</div></div></div><div class="pi"><div class="rdot dm"></div><div><div class="pi-nm">Sycamore Canyon Shred</div><div class="pi-desc">Sat 8am · Miramar · 12 riders · MTB</div></div></div></div>
-            <div class="cpb"><div class="cpb-title"><span>🏪</span>Preferred Bike Shop</div><div class="pi"><div class="piic ia">🔧</div><div><div class="pi-nm">Moment Cycle Sport</div><div class="pi-desc">4010 Goldfinch St · 0.3mi from ride start</div></div><span class="pi-badge bd">10% Off</span></div><div class="pi"><div class="piic it">🚲</div><div><div class="pi-nm">Trek Bicycle SD</div><div class="pi-desc">Rentals · Service</div></div><span class="pi-badge bp">Partner</span></div></div>
-            <div class="cpb"><div class="cpb-title"><span>☕</span>Preferred Cafés</div><div class="pi"><div class="piic ia">☕</div><div><div class="pi-nm">Bird Rock Coffee</div><div class="pi-desc">5627 La Jolla Blvd · Post-ride hangout</div></div><span class="pi-badge bd">Free Drip</span></div><div class="pi"><div class="piic it">🥐</div><div><div class="pi-nm">Communal Coffee</div><div class="pi-desc">North Park · Breakfast burritos</div></div><span class="pi-badge bp">Partner</span></div></div>
-            <div class="cpb"><div class="cpb-title"><span>🏨</span>Preferred Hotels</div><div class="pi"><div class="piic is">🏨</div><div><div class="pi-nm">Hilton Gaslamp</div><div class="pi-desc">401 K Street · Bike storage</div></div><span class="pi-badge bd">15% Off</span></div><div class="pi"><div class="piic ic">🛏️</div><div><div class="pi-nm">Hotel del Coronado</div><div class="pi-desc">Beach access</div></div><span class="pi-badge bp">Partner</span></div></div>
-            <div class="cpb lr"><div class="cpb-title"><span>🚲</span>Bike Rentals</div><div class="pi"><div class="piic it">🚲</div><div><div class="pi-nm">Cheap Rentals SD</div><div class="pi-desc">Day & week · E-bikes available</div></div><span class="pi-badge bd">20% Off</span></div></div>
-            <div class="cpb lr" style="border-right:none"><div class="cpb-title"><span>🍽️</span>Preferred Restaurants</div><div class="pi"><div class="piic ic">🌮</div><div><div class="pi-nm">Puesto</div><div class="pi-desc">The Headquarters · Post-ride tacos</div></div><span class="pi-badge bd">10% Off</span></div><div class="pi"><div class="piic ia">🥩</div><div><div class="pi-nm">Carnitas' Snack Shack</div><div class="pi-desc">North Park · Recovery meals</div></div><span class="pi-badge bp">Partner</span></div></div>
+            <div class="cpb"><div class="cpb-title"><span>🚴</span>Weekly Rides</div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Pacific Coast Saturday</div><div class="pi-desc">Sat 7am · Oceanside Pier · 38 riders · Road</div></div></div><div class="pi"><div class="rdot dg"></div><div><div class="pi-nm">Laguna Mountains Gravel</div><div class="pi-desc">Sun 6:30am · Mission Valley · 18 riders</div></div></div></div>
+            <div class="cpb"><div class="cpb-title"><span>🏪</span>Preferred Bike Shop</div><div class="pi"><div class="piic ia">🔧</div><div><div class="pi-nm">Moment Cycle Sport</div><div class="pi-desc">4010 Goldfinch St</div></div><span class="pi-badge bd">10% Off</span></div></div>
+            <div class="cpb"><div class="cpb-title"><span>☕</span>Preferred Cafés</div><div class="pi"><div class="piic ia">☕</div><div><div class="pi-nm">Bird Rock Coffee</div><div class="pi-desc">La Jolla Blvd</div></div><span class="pi-badge bd">Free Drip</span></div></div>
+            <div class="cpb"><div class="cpb-title"><span>🏨</span>Preferred Hotels</div><div class="pi"><div class="piic is">🏨</div><div><div class="pi-nm">Hilton Gaslamp</div><div class="pi-desc">Bike storage</div></div><span class="pi-badge bd">15% Off</span></div></div>
           </div>
           <div class="city-map-wrap"><div id="city-map-sandiego" class="city-map"></div></div>
         </div>
-
-        <!-- CHICAGO PANEL -->
-        <div id="panel-chicago" class="cpanel">
-          <div class="cp-head"><div><div class="cp-city">Chicago</div><div class="cp-state">Illinois, USA</div></div><div class="cp-stats"><div><div class="cpn">52</div><div class="cpl">Weekly Rides</div></div><div><div class="cpn">634</div><div class="cpl">Members</div></div></div></div>
-          <div class="cp-grid">
-            <div class="cpb"><div class="cpb-title"><span>🚴</span>Weekly Rides</div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Saturday Morning Fast Group</div><div class="pi-desc">Sat 6:30am · Lakefront Path · 28 riders</div></div></div><div class="pi"><div class="rdot dg"></div><div><div class="pi-nm">Forest Preserve Grinder</div><div class="pi-desc">Sun 7am · Millennium Park · 14 riders</div></div></div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Tuesday Twilight Worlds</div><div class="pi-desc">Tue 6pm · Grant Park · 41 riders</div></div></div></div>
-            <div class="cpb"><div class="cpb-title"><span>🏪</span>Preferred Bike Shop</div><div class="pi"><div class="piic ia">🔧</div><div><div class="pi-nm">Kozy's Cyclery</div><div class="pi-desc">601 S LaSalle · Near Millennium Park</div></div><span class="pi-badge bd">10% Off</span></div><div class="pi"><div class="piic it">🚲</div><div><div class="pi-nm">Performance Bicycle LP</div><div class="pi-desc">Lincoln Park · Full service + rentals</div></div><span class="pi-badge bp">Partner</span></div></div>
-            <div class="cpb"><div class="cpb-title"><span>☕</span>Preferred Cafés</div><div class="pi"><div class="piic ia">☕</div><div><div class="pi-nm">Intelligentsia Coffee</div><div class="pi-desc">Broadway · Classic Chicago stop</div></div><span class="pi-badge bd">Free Drip</span></div><div class="pi"><div class="piic it">🥐</div><div><div class="pi-nm">Bow Truss Coffee</div><div class="pi-desc">Logan Square · Pre-ride fuel</div></div><span class="pi-badge bp">Partner</span></div></div>
-            <div class="cpb"><div class="cpb-title"><span>🏨</span>Preferred Hotels</div><div class="pi"><div class="piic is">🏨</div><div><div class="pi-nm">Kimpton Gray Hotel</div><div class="pi-desc">Loop · Bike storage</div></div><span class="pi-badge bd">15% Off</span></div><div class="pi"><div class="piic ic">🛏️</div><div><div class="pi-nm">Ace Hotel Chicago</div><div class="pi-desc">Fulton Market</div></div><span class="pi-badge bp">Partner</span></div></div>
-            <div class="cpb lr"><div class="cpb-title"><span>🚲</span>Bike Rentals</div><div class="pi"><div class="piic it">🚲</div><div><div class="pi-nm">Bobby's Bike Hike</div><div class="pi-desc">Navy Pier · Road & hybrid rentals</div></div><span class="pi-badge bd">20% Off</span></div></div>
-            <div class="cpb lr" style="border-right:none"><div class="cpb-title"><span>🍽️</span>Preferred Restaurants</div><div class="pi"><div class="piic ic">🍖</div><div><div class="pi-nm">Au Cheval</div><div class="pi-desc">West Loop · Recovery burgers</div></div><span class="pi-badge bd">10% Off</span></div><div class="pi"><div class="piic ia">🍕</div><div><div class="pi-nm">Lou Malnati's</div><div class="pi-desc">Multiple · Deep dish carb load</div></div><span class="pi-badge bp">Partner</span></div></div>
-          </div>
-          <div class="city-map-wrap"><div id="city-map-chicago" class="city-map"></div></div>
-        </div>
-
-        <!-- MADISON PANEL -->
-        <div id="panel-madison" class="cpanel">
-          <div class="cp-head"><div><div class="cp-city">Madison</div><div class="cp-state">Wisconsin, USA</div></div><div class="cp-stats"><div><div class="cpn">22</div><div class="cpl">Weekly Rides</div></div><div><div class="cpn">261</div><div class="cpl">Members</div></div></div></div>
-          <div class="cp-grid">
-            <div class="cpb"><div class="cpb-title"><span>🚴</span>Weekly Rides</div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Capital City Criterium</div><div class="pi-desc">Sat 7am · State Capitol · 22 riders</div></div></div><div class="pi"><div class="rdot dg"></div><div><div class="pi-nm">Military Ridge Trail</div><div class="pi-desc">Sun 7:30am · Verona · 16 riders</div></div></div></div>
-            <div class="cpb"><div class="cpb-title"><span>🏪</span>Bike Shop</div><div class="pi"><div class="piic ia">🔧</div><div><div class="pi-nm">Budget Bicycle Center</div><div class="pi-desc">1127 S Park St</div></div><span class="pi-badge bd">10% Off</span></div><div class="pi"><div class="piic it">🚲</div><div><div class="pi-nm">Wheel & Sprocket</div><div class="pi-desc">Full service · Member perks</div></div><span class="pi-badge bp">Partner</span></div></div>
-            <div class="cpb"><div class="cpb-title"><span>☕</span>Cafés</div><div class="pi"><div class="piic ia">☕</div><div><div class="pi-nm">Cargo Coffee</div><div class="pi-desc">Willy Street · Bike-friendly patio</div></div><span class="pi-badge bd">Free Drip</span></div></div>
-            <div class="cpb"><div class="cpb-title"><span>🏨</span>Hotels</div><div class="pi"><div class="piic is">🏨</div><div><div class="pi-nm">Graduate Madison</div><div class="pi-desc">Near campus · Bike storage</div></div><span class="pi-badge bd">15% Off</span></div></div>
-            <div class="cpb lr"><div class="cpb-title"><span>🚲</span>Bike Rentals</div><div class="pi"><div class="piic it">🚲</div><div><div class="pi-nm">Machinery Row Bicycles</div><div class="pi-desc">John Nolen Dr · Lakeside rentals</div></div><span class="pi-badge bd">20% Off</span></div></div>
-            <div class="cpb lr" style="border-right:none"><div class="cpb-title"><span>🍽️</span>Restaurants</div><div class="pi"><div class="piic ic">🍔</div><div><div class="pi-nm">The Old Fashioned</div><div class="pi-desc">State St · Wisconsin comfort food</div></div><span class="pi-badge bd">10% Off</span></div></div>
-          </div>
-          <div class="city-map-wrap"><div id="city-map-madison" class="city-map"></div></div>
-        </div>
-
-        <!-- MILWAUKEE PANEL -->
-        <div id="panel-milwaukee" class="cpanel">
-          <div class="cp-head"><div><div class="cp-city">Milwaukee</div><div class="cp-state">Wisconsin, USA</div></div><div class="cp-stats"><div><div class="cpn">19</div><div class="cpl">Weekly Rides</div></div><div><div class="cpn">228</div><div class="cpl">Members</div></div></div></div>
-          <div class="cp-grid">
-            <div class="cpb"><div class="cpb-title"><span>🚴</span>Weekly Rides</div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Lake Michigan Loop</div><div class="pi-desc">Sat 7am · Bradford Beach · 24 riders</div></div></div><div class="pi"><div class="rdot dg"></div><div><div class="pi-nm">Oak Leaf Trail Gravel</div><div class="pi-desc">Sun 8am · Estabrook · 11 riders</div></div></div></div>
-            <div class="cpb"><div class="cpb-title"><span>🏪</span>Bike Shop</div><div class="pi"><div class="piic ia">🔧</div><div><div class="pi-nm">Wheel & Sprocket MKE</div><div class="pi-desc">5765 N Bayshore Dr · Expert fitting</div></div><span class="pi-badge bd">10% Off</span></div></div>
-            <div class="cpb"><div class="cpb-title"><span>☕</span>Cafés</div><div class="pi"><div class="piic ia">☕</div><div><div class="pi-nm">Anodyne Coffee</div><div class="pi-desc">Walker's Point · Post-ride staple</div></div><span class="pi-badge bd">Free Drip</span></div></div>
-            <div class="cpb"><div class="cpb-title"><span>🏨</span>Hotels</div><div class="pi"><div class="piic is">🏨</div><div><div class="pi-nm">Iron Horse Hotel</div><div class="pi-desc">500 W Florida St · Bike culture hotel</div></div><span class="pi-badge bd">15% Off</span></div></div>
-            <div class="cpb lr"><div class="cpb-title"><span>🚲</span>Bike Rentals</div><div class="pi"><div class="piic it">🚲</div><div><div class="pi-nm">Bublr Bikes</div><div class="pi-desc">City-wide docking · E-bike fleet</div></div><span class="pi-badge bd">20% Off</span></div></div>
-            <div class="cpb lr" style="border-right:none"><div class="cpb-title"><span>🍽️</span>Restaurants</div><div class="pi"><div class="piic ic">🍺</div><div><div class="pi-nm">Lakefront Brewery</div><div class="pi-desc">River West · Post-ride pints</div></div><span class="pi-badge bd">10% Off</span></div></div>
-          </div>
-          <div class="city-map-wrap"><div id="city-map-milwaukee" class="city-map"></div></div>
-        </div>
-
       </div>
     </div></section>
 
-    <!-- SYNC -->
-    <div class="sync-sec sec" id="sync" style="padding-top:0"><div class="wrap">
-      <div class="sync-grid">
-        <div>
-          <div class="sec-eye rev">Platform Sync</div>
-          <h2 class="rev d1">Connect Your <em>Gear</em></h2>
-          <p class="rev d2" style="color:var(--muted);font-size:.87rem;line-height:1.75;margin:13px 0 0;max-width:390px">One connection. Every platform you already ride with. NRN logs your rides, syncs achievements, and shares routes — automatically.</p>
-          <div class="sync-plat" id="sync-plat">
-            <div class="scard rev d2" onclick="syncConnect(this,'strava')" data-id="strava"><div class="slogo l1">🔥</div><div><div class="sname">Strava</div><div class="sdesc">Auto-log rides & segments</div></div><span class="sstatus sl">Live</span><span class="sconn-btn">Connect</span></div>
-            <div class="scard rev d3" onclick="syncConnect(this,'garmin')" data-id="garmin"><div class="slogo l2">⌚</div><div><div class="sname">Garmin</div><div class="sdesc">Device & Connect sync</div></div><span class="sstatus sl">Live</span><span class="sconn-btn">Connect</span></div>
-            <div class="scard rev d3" onclick="syncConnect(this,'trainingpeaks')" data-id="trainingpeaks"><div class="slogo l3">📊</div><div><div class="sname">TrainingPeaks</div><div class="sdesc">TSS & structured training</div></div><span class="sstatus sl">Live</span><span class="sconn-btn">Connect</span></div>
-            <div class="scard rev d4" onclick="syncConnect(this,'wahoo')" data-id="wahoo"><div class="slogo l4">⚡</div><div><div class="sname">Wahoo</div><div class="sdesc">ELEMNT & KICKR sync</div></div><span class="sstatus sb2">Beta</span><span class="sconn-btn">Connect</span></div>
-            <div class="scard rev d4" onclick="syncConnect(this,'ridewithgps')" data-id="ridewithgps"><div class="slogo l5">🗺️</div><div><div class="sname">RideWithGPS</div><div class="sdesc">Route planning & sharing</div></div><span class="sstatus sl">Live</span><span class="sconn-btn">Connect</span></div>
-            <div class="scard rev d4" onclick="syncConnect(this,'komoot')" data-id="komoot"><div class="slogo l6">🌍</div><div><div class="sname">Komoot</div><div class="sdesc">Adventure route discovery</div></div><span class="sstatus sb2">Beta</span><span class="sconn-btn">Connect</span></div>
-          </div>
-        </div>
-        <div class="sync-vis rev d3">
-          <div class="sv-rw"><div class="sv-r"></div><div class="sv-r"></div><div class="sv-r"></div></div>
-          <div style="position:relative;z-index:1">
-            <div style="font-size:2.6rem;margin-bottom:11px">🔄</div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:.06em;margin-bottom:7px">One Account, Every Platform</div>
-            <div style="font-size:.8rem;color:var(--muted);line-height:1.65">Connect once. Your NRN rides and achievements sync everywhere — no manual logging required.</div>
-            <div style="display:flex;justify-content:center;gap:24px;margin-top:20px">
-              <div style="text-align:center;font-size:.66rem;color:var(--muted)"><div style="font-size:1.3rem;margin-bottom:5px">🏅</div>Auto Badges</div>
-              <div style="text-align:center;font-size:.66rem;color:var(--muted)"><div style="font-size:1.3rem;margin-bottom:5px">📍</div>Route Share</div>
-              <div style="text-align:center;font-size:.66rem;color:var(--muted)"><div style="font-size:1.3rem;margin-bottom:5px">👥</div>Social Feed</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div></div>
-
-    <!-- JERSEYS -->
-    <section class="jersey-sec" id="jerseys">
-      <div class="jhead rev">
-        <div><div class="sec-eye">2026 Collection</div><h2 class="d1">City Series <em>Jerseys</em></h2></div>
-        <div style="text-align:right">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.55rem;color:var(--amber)">$65 Members · $89 Retail</div>
-          <div style="font-size:.76rem;color:var(--muted);margin-top:2px">Drag jersey to spin</div>
-        </div>
-      </div>
-      <div class="hs-out">
-        <div class="hs-track" id="hs">
-          <div class="jcard"><div class="jersey-3d-wrap"><canvas width="200" height="240" data-cola="#0a2840" data-colb="#ff6b5b" data-label="SAN DIEGO"></canvas><div class="j3d-hint">⟳ Drag to spin</div></div><div class="j-info-wrap"><div class="jcity">🌊 San Diego</div><div class="jtag">"Pacific navy. Sunset Cliffs coral."</div><div class="prow"><div class="pret">$89</div><div class="pmem">$65</div><div class="ptag">Members</div></div><button class="jbtn">Add to Cart</button></div></div>
-          <div class="jcard"><div class="jersey-3d-wrap"><canvas width="200" height="240" data-cola="#090d17" data-colb="#4db8ff" data-label="CHICAGO"></canvas><div class="j3d-hint">⟳ Drag to spin</div></div><div class="j-info-wrap"><div class="jcity">🌬️ Chicago</div><div class="jtag">"Steel grid. Lake Michigan midnight."</div><div class="prow"><div class="pret">$89</div><div class="pmem">$65</div><div class="ptag">Members</div></div><button class="jbtn">Add to Cart</button></div></div>
-          <div class="jcard"><div class="jersey-3d-wrap"><canvas width="200" height="240" data-cola="#122210" data-colb="#c5050c" data-label="MADISON"></canvas><div class="j3d-hint">⟳ Drag to spin</div></div><div class="j-info-wrap"><div class="jcity">🧀 Madison</div><div class="jtag">"Forest green. UW cardinal."</div><div class="prow"><div class="pret">$89</div><div class="pmem">$65</div><div class="ptag">Members</div></div><button class="jbtn">Add to Cart</button></div></div>
-          <div class="jcard"><div class="jersey-3d-wrap"><canvas width="200" height="240" data-cola="#180600" data-colb="#c43e00" data-label="MILWAUKEE"></canvas><div class="j3d-hint">⟳ Drag to spin</div></div><div class="j-info-wrap"><div class="jcity">🍺 Milwaukee</div><div class="jtag">"Deep rust-iron. Hoan Bridge diagonal."</div><div class="prow"><div class="pret">$89</div><div class="pmem">$65</div><div class="ptag">Members</div></div><button class="jbtn">Add to Cart</button></div></div>
-        </div>
-      </div>
-      <div class="hs-nav"><button class="hs-btn" id="hsL">←</button><button class="hs-btn" id="hsR">→</button></div>
-    </section>
-
-    <!-- INSURANCE -->
-    <section class="sec"><div class="wrap">
-      <div class="sec-eye rev">Member Benefit</div>
-      <h2 class="rev d1">Ride Protected. <em>Stay Covered.</em></h2>
-      <div class="ins-grid">
-        <div class="ins-card rev d1"><span class="ins-shield">🛡️</span><div class="ins-title">NRN Ride Insurance</div><ul class="ins-list"><li><span class="ins-chk">✓</span>Bicycle covered up to full replacement value on all NRN group rides</li><li><span class="ins-chk">✓</span>Personal liability coverage during NRN group rides</li><li><span class="ins-chk">✓</span>Emergency medical evacuation coverage</li><li><span class="ins-chk">✓</span>Crash damage repair — frame, components, and wheels</li><li><span class="ins-chk">✓</span>Coverage follows you to any NRN city nationwide</li></ul><button class="btn-a" style="width:100%;padding:14px;cursor:pointer">Get Covered with Membership →</button></div>
-      </div>
-    </div></section>
-
-    <!-- PASSPORT
-    <section class="sec" style="background:var(--bg2);border-top:1px solid var(--border)"><div class="wrap">
-      <div class="sec-eye rev">Gamification</div>
-      <h2 class="rev d1">The Hub <em>Passport</em></h2>
-      <div class="pass-grid">
-        <div>
-          <p class="rev d1" style="color:var(--muted);font-size:.88rem;line-height:1.78;margin:13px 0 24px">Every city you ride earns a stamp. Collect achievements, unlock city-specific jersey patches, and build a national riding identity that follows you everywhere.</p>
-          <div class="ach-list rev d2">
-            <div class="ach-row"><div class="ach-ic" style="background:rgba(245,166,35,.12)">🏆</div><div><div class="ach-nm">Rider of 5 Cities</div><div class="ach-sb">Complete a group ride in 5 NRN hubs</div></div><div class="ach-pill apy">Earned</div></div>
-            <div class="ach-row"><div class="ach-ic" style="background:rgba(0,201,167,.1)">⭐</div><div><div class="ach-nm">Top Local Contributor</div><div class="ach-sb">Lead 10+ rides in your home city</div></div><div class="ach-pill apy">Earned</div></div>
-            <div class="ach-row"><div class="ach-ic" style="background:rgba(77,184,255,.1)">🗺️</div><div><div class="ach-nm">Coast to Coast</div><div class="ach-sb">Ride on both the Atlantic and Pacific coasts</div></div><div class="ach-pill app">1 / 2</div></div>
-            <div class="ach-row"><div class="ach-ic" style="background:rgba(255,107,91,.1)">🎽</div><div><div class="ach-nm">Jersey Collector</div><div class="ach-sb">Own jerseys from 3 different NRN cities</div></div><div class="ach-pill app">2 / 3</div></div>
-          </div>
-        </div>
-        <div class="rev d2"><div class="pb-book"><div class="pb-hdr">◆ Your Hub Passport</div><div class="sg"><div class="stamp on"><span class="st-em">🌊</span><span class="st-nm">San Diego</span></div><div class="stamp on"><span class="st-em">🌬️</span><span class="st-nm">Chicago</span></div><div class="stamp on"><span class="st-em">🧀</span><span class="st-nm">Madison</span></div><div class="stamp on"><span class="st-em">🍺</span><span class="st-nm">Milwaukee</span></div><div class="stamp off"><span class="st-em">🌴</span><span class="st-nm">Los Angeles</span></div><div class="stamp off"><span class="st-em">🗽</span><span class="st-nm">New York</span></div><div class="stamp off"><span class="st-em">🎸</span><span class="st-nm">Nashville</span></div><div class="stamp off"><span class="st-em">☀️</span><span class="st-nm">Miami</span></div></div></div></div>
-      </div>
-    </div></section> -->
-
-    <!-- MEMBERSHIP -->
     <div class="mem-sec sec" id="membership"><div class="wrap">
       <div class="sec-eye rev">Pricing</div>
       <h2 class="rev d1">One Price. <em>Everything</em> Included.</h2>
       <div class="mem-cards">
-        <div class="mcard rev d1"><div class="mem-lbl">Free — Explorer</div><div class="mem-pr-row"><div class="mem-price">$0</div></div><div class="mem-period">Forever free</div><ul class="mem-perks"><li><span class="pchk pcy">✓</span>Browse rides in any NRN city</li><li><span class="pchk pcy">✓</span>View ride leader profiles & ratings</li><li><span class="pchk pcy">✓</span>RSVP to public rides</li><li class="perk-no"><span class="pchk pcn">✗</span>Hub Passport & achievements</li><li class="perk-no"><span class="pchk pcn">✗</span>Partner portal access</li><li class="perk-no"><span class="pchk pcn">✗</span>Members-only events & rides</li><li class="perk-no"><span class="pchk pcn">✗</span>Ride insurance add-on</li><li class="perk-no"><span class="pchk pcn">✗</span>City jerseys at member price</li></ul><button class="btn-out-full">Start for Free</button></div>
-        <div class="mcard feat rev d2"><span class="mem-badge">Best Value</span><div class="mem-lbl">Member — Rider</div><div class="mem-pr-row"><div class="mem-price">$99</div><div class="mem-ps">/year</div></div><div class="mem-period">Less than 50¢ per week</div><div class="mem-val">✦ The Tifosi 20% discount alone saves $18–$30 on a single pair of sunglasses. <strong>One purchase pays for your entire year.</strong></div><ul class="mem-perks"><li><span class="pchk pcy">✓</span>Everything in Free</li><li><span class="pchk pcy">✓</span>Hub Passport + city achievements</li><li><span class="pchk pcy">✓</span>All 6 partner portals</li><li><span class="pchk pcy">✓</span>Members-only rides & events in all cities</li><li><span class="pchk pcy">✓</span>Ride insurance coverage (add-on pricing)</li><li><span class="pchk pcy">✓</span>Custom city jerseys at $65 member price</li><li><span class="pchk pcy">✓</span>Strava, Garmin, TrainingPeaks, Wahoo sync</li><li><span class="pchk pcy">✓</span>City restaurant, café, hotel & rental discounts</li></ul><button class="btn-teal-full">Join the Network — $99/yr</button></div>
+        <div class="mcard rev d1"><div class="mem-lbl">Free — Explorer</div><div class="mem-pr-row"><div class="mem-price">$0</div></div><button class="btn-out-full">Start for Free</button></div>
+        <div class="mcard feat rev d2"><span class="mem-badge">Best Value</span><div class="mem-lbl">Member — Rider</div><div class="mem-pr-row"><div class="mem-price">$99</div><div class="mem-ps">/year</div></div><button class="btn-teal-full">Join the Network — $99/yr</button></div>
       </div>
     </div></div>
 
-    <!-- CTA -->
-    <div class="cta-sec"><div class="cta-inner">
-      <div class="sec-eye rev" style="justify-content:center">National Ride Network</div>
-      <h2 class="rev d1">Find Every Ride.<br><em>Rep Every City.</em></h2>
-      <p class="cta-sub rev d2">"Find every ride, unlock every city, earn every badge. Ride, collect, and rep your community — everywhere you go."</p>
-      <div class="rev d3"><button class="btn-a" style="padding:16px 48px;font-size:.86rem;cursor:pointer">Join for $99/year →</button></div>
-    </div></div>
-
-    <!-- FOOTER -->
     <footer>
-      <div style="display:flex;align-items:center;gap:9px">
-        <svg width="22" height="22" viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="13.5" stroke="#f5a623" stroke-width="1.1"/><circle cx="15" cy="15" r="2.8" fill="#f5a623"/><line x1="15" y1="1.5" x2="15" y2="12.2" stroke="#f5a623" stroke-width=".9"/><line x1="15" y1="17.8" x2="15" y2="28.5" stroke="#f5a623" stroke-width=".9"/><line x1="1.5" y1="15" x2="12.2" y2="15" stroke="#f5a623" stroke-width=".9"/><line x1="17.8" y1="15" x2="28.5" y2="15" stroke="#f5a623" stroke-width=".9"/></svg>
-        <span style="font-size:1.05rem;font-family:'Bebas Neue',sans-serif;letter-spacing:.18em">National <span style="color:#f5a623">Ride</span> Network</span>
-      </div>
       <div class="fc">© 2026 NRN · Find every ride, unlock every city, earn every badge.</div>
     </footer>
+  </div>
 
-  </div><!-- /tab-home -->
-
-  <!-- ═══════════════════════════════ RIDES TAB ══════════════════════════════ -->
-  <div class="tab-panel" id="tab-rides">
-    <div style="max-width:1240px;margin:0 auto;padding:80px 48px 52px">
-
-      <div class="rides-city-header" style="margin-top:0">
-        <span class="rides-city-emoji">🌊</span>
-        <div><div class="rides-city-name">San Diego</div><div class="rides-city-sub">California · 24 rides/week</div></div>
-      </div>
-      <div class="rides-grid" style="padding:0;margin-bottom:48px">
-        <div class="ride-card ride-road"><div class="ride-type ride-type-road">● Road</div><div class="ride-name">Pacific Coast Saturday</div><div class="ride-meta">Sat 7:00am · Oceanside Pier</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">62</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">18</div><div class="ride-stat-l">Avg mph</div></div></div></div>
-        <div class="ride-card ride-gravel"><div class="ride-type ride-type-gravel">● Gravel</div><div class="ride-name">Laguna Mountains Gravel</div><div class="ride-meta">Sun 6:30am · Mission Valley</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">55</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">15</div><div class="ride-stat-l">Avg mph</div></div></div></div>
-        <div class="ride-card ride-mtb"><div class="ride-type ride-type-mtb">● MTB</div><div class="ride-name">Sycamore Canyon Shred</div><div class="ride-meta">Sat 8:00am · Miramar</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">22</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">12</div><div class="ride-stat-l">Avg mph</div></div></div></div>
-      </div>
-
-      <div class="rides-city-header">
-        <span class="rides-city-emoji">🌬️</span>
-        <div><div class="rides-city-name">Chicago</div><div class="rides-city-sub">Illinois · 52 rides/week</div></div>
-      </div>
-      <div class="rides-grid" style="padding:0;margin-bottom:48px">
-        <div class="ride-card ride-road"><div class="ride-type ride-type-road">● Road</div><div class="ride-name">Saturday Morning Fast Group</div><div class="ride-meta">Sat 6:30am · Lakefront Path</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">45</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">21</div><div class="ride-stat-l">Avg mph</div></div></div></div>
-        <div class="ride-card ride-gravel"><div class="ride-type ride-type-gravel">● Gravel</div><div class="ride-name">Forest Preserve Grinder</div><div class="ride-meta">Sun 7:00am · Millennium Park</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">38</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">16</div><div class="ride-stat-l">Avg mph</div></div></div></div>
-        <div class="ride-card ride-road"><div class="ride-type ride-type-road">● Road</div><div class="ride-name">Tuesday Twilight Worlds</div><div class="ride-meta">Tue 6:00pm · Grant Park</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">28</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">22</div><div class="ride-stat-l">Avg mph</div></div></div></div>
-      </div>
-
-      <div class="rides-city-header">
-        <span class="rides-city-emoji">🧀</span>
-        <div><div class="rides-city-name">Madison</div><div class="rides-city-sub">Wisconsin · 22 rides/week</div></div>
-      </div>
-      <div class="rides-grid" style="padding:0;margin-bottom:48px">
-        <div class="ride-card ride-road"><div class="ride-type ride-type-road">● Road</div><div class="ride-name">Capital City Criterium</div><div class="ride-meta">Sat 7:00am · State Capitol</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">25</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">23</div><div class="ride-stat-l">Avg mph</div></div></div></div>
-        <div class="ride-card ride-gravel"><div class="ride-type ride-type-gravel">● Gravel</div><div class="ride-name">Military Ridge Trail</div><div class="ride-meta">Sun 7:30am · Verona Trailhead</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">52</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">15</div><div class="ride-stat-l">Avg mph</div></div></div></div>
-      </div>
-
-      <div class="rides-city-header">
-        <span class="rides-city-emoji">🍺</span>
-        <div><div class="rides-city-name">Milwaukee</div><div class="rides-city-sub">Wisconsin · 19 rides/week</div></div>
-      </div>
-      <div class="rides-grid" style="padding:0">
-        <div class="ride-card ride-road"><div class="ride-type ride-type-road">● Road</div><div class="ride-name">Lake Michigan Loop</div><div class="ride-meta">Sat 7:00am · Bradford Beach</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">44</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">19</div><div class="ride-stat-l">Avg mph</div></div></div></div>
-        <div class="ride-card ride-gravel"><div class="ride-type ride-type-gravel">● Gravel</div><div class="ride-name">Oak Leaf Trail Gravel</div><div class="ride-meta">Sun 8:00am · Estabrook Park</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">36</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">14</div><div class="ride-stat-l">Avg mph</div></div></div></div>
-      </div>
-
-    </div>
-  </div><!-- /tab-rides -->
-
-  <!-- ══════════════════════════════ ROUTES TAB ══════════════════════════════ -->
-  <div class="tab-panel" id="tab-routes">
-    <div style="max-width:1240px;margin:0 auto;padding:80px 48px 52px">
-
-      <div class="rides-city-header" style="margin-top:0">
-        <span class="rides-city-emoji">🌊</span>
-        <div><div class="rides-city-name">San Diego</div><div class="rides-city-sub">California · 2 routes</div></div>
-      </div>
-      <div class="routes-grid" style="padding:0;margin-bottom:48px">
-        <div class="route-card"><div class="route-map"><svg viewBox="0 0 310 110" style="width:100%;height:100%;display:block"><rect width="310" height="110" fill="#0d1b2a"/><polyline points="20,90 60,70 100,75 140,45 180,50 220,30 270,40 300,25" fill="none" stroke="#00c9a7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="90" r="5" fill="#f5a623"/><circle cx="300" cy="25" r="5" fill="#f5a623"/></svg></div><div class="route-body"><div class="route-name">Pacific Coast Highway</div><div class="route-stats"><div class="rstat"><strong>62mi</strong> Distance</div><div class="rstat"><strong>2,100ft</strong> Elev</div><div class="rstat"><strong>Mod</strong> Difficulty</div></div><div class="route-chips"><span class="route-chip">Road</span><span class="route-chip">Coastal</span></div><button class="route-save" onclick="saveRoute(this)">Save Route</button></div></div>
-        <div class="route-card"><div class="route-map"><svg viewBox="0 0 310 110" style="width:100%;height:100%;display:block"><rect width="310" height="110" fill="#0d1b2a"/><polyline points="20,85 50,65 85,72 115,50 150,60 185,38 220,55 255,42 290,30 300,28" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="85" r="5" fill="#f5a623"/><circle cx="300" cy="28" r="5" fill="#f5a623"/></svg></div><div class="route-body"><div class="route-name">Laguna Mountains Gravel</div><div class="route-stats"><div class="rstat"><strong>55mi</strong> Distance</div><div class="rstat"><strong>6,800ft</strong> Elev</div><div class="rstat"><strong>Epic</strong> Difficulty</div></div><div class="route-chips"><span class="route-chip">Gravel</span><span class="route-chip">Mountains</span></div><button class="route-save" onclick="saveRoute(this)">Save Route</button></div></div>
-      </div>
-
-      <div class="rides-city-header">
-        <span class="rides-city-emoji">🌬️</span>
-        <div><div class="rides-city-name">Chicago</div><div class="rides-city-sub">Illinois · 1 route</div></div>
-      </div>
-      <div class="routes-grid" style="padding:0;margin-bottom:48px">
-        <div class="route-card"><div class="route-map"><svg viewBox="0 0 310 110" style="width:100%;height:100%;display:block"><rect width="310" height="110" fill="#0d1b2a"/><polyline points="20,55 50,50 80,58 110,42 150,45 190,38 230,55 260,48 300,52" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="55" r="5" fill="#f5a623"/><circle cx="300" cy="52" r="5" fill="#f5a623"/></svg></div><div class="route-body"><div class="route-name">Lakefront Path North</div><div class="route-stats"><div class="rstat"><strong>28mi</strong> Distance</div><div class="rstat"><strong>320ft</strong> Elev</div><div class="rstat"><strong>Easy</strong> Difficulty</div></div><div class="route-chips"><span class="route-chip">Road</span><span class="route-chip">Flat</span></div><button class="route-save" onclick="saveRoute(this)">Save Route</button></div></div>
-      </div>
-
-      <div class="rides-city-header">
-        <span class="rides-city-emoji">🧀</span>
-        <div><div class="rides-city-name">Madison</div><div class="rides-city-sub">Wisconsin · 1 route</div></div>
-      </div>
-      <div class="routes-grid" style="padding:0;margin-bottom:48px">
-        <div class="route-card"><div class="route-map"><svg viewBox="0 0 310 110" style="width:100%;height:100%;display:block"><rect width="310" height="110" fill="#0d1b2a"/><polyline points="20,60 60,55 100,62 140,50 180,56 220,48 260,54 300,50" fill="none" stroke="#00c9a7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="60" r="5" fill="#f5a623"/><circle cx="300" cy="50" r="5" fill="#f5a623"/></svg></div><div class="route-body"><div class="route-name">Military Ridge Trail</div><div class="route-stats"><div class="rstat"><strong>52mi</strong> Distance</div><div class="rstat"><strong>1,400ft</strong> Elev</div><div class="rstat"><strong>Mod</strong> Difficulty</div></div><div class="route-chips"><span class="route-chip">Gravel</span><span class="route-chip">Trail</span></div><button class="route-save" onclick="saveRoute(this)">Save Route</button></div></div>
-      </div>
-
-      <div class="rides-city-header">
-        <span class="rides-city-emoji">🍺</span>
-        <div><div class="rides-city-name">Milwaukee</div><div class="rides-city-sub">Wisconsin · 1 route</div></div>
-      </div>
-      <div class="routes-grid" style="padding:0">
-        <div class="route-card"><div class="route-map"><svg viewBox="0 0 310 110" style="width:100%;height:100%;display:block"><rect width="310" height="110" fill="#0d1b2a"/><polyline points="20,50 60,48 95,65 130,42 165,58 200,35 240,52 280,45 300,48" fill="none" stroke="#ff6b5b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="50" r="5" fill="#f5a623"/><circle cx="300" cy="48" r="5" fill="#f5a623"/></svg></div><div class="route-body"><div class="route-name">Oak Leaf Trail Circuit</div><div class="route-stats"><div class="rstat"><strong>36mi</strong> Distance</div><div class="rstat"><strong>820ft</strong> Elev</div><div class="rstat"><strong>Easy</strong> Difficulty</div></div><div class="route-chips"><span class="route-chip">Mixed</span><span class="route-chip">Loop</span></div><button class="route-save" onclick="saveRoute(this)">Save Route</button></div></div>
-      </div>
-
-    </div>
-  </div><!-- /tab-routes -->
-
-  <!-- ═══════════════════════════════ RACES TAB ══════════════════════════════ -->
-  <div class="tab-panel" id="tab-races">
-    <div class="races-list">
-      <div class="race-row"><div class="race-date"><div class="race-month">Apr</div><div class="race-day">12</div></div><div class="race-divider"></div><div class="race-info"><div class="race-name">Capital City Criterium</div><div class="race-sub">Madison, WI · State Capitol Circuit · Cat 1–5</div><div class="race-tags"><span class="race-tag rtg-r">Road</span><span class="race-tag rtg-r">Criterium</span></div></div><div class="race-dist"><div class="race-mi">25</div><div class="race-mi-l">Miles</div></div><button class="race-reg" onclick="registerRace(this)">Register</button></div>
-      <div class="race-row"><div class="race-date"><div class="race-month">Apr</div><div class="race-day">19</div></div><div class="race-divider"></div><div class="race-info"><div class="race-name">San Diego Gran Fondo</div><div class="race-sub">San Diego, CA · Oceanside to La Jolla · Open</div><div class="race-tags"><span class="race-tag rtg-r">Road</span><span class="race-tag rtg-r">Gran Fondo</span></div></div><div class="race-dist"><div class="race-mi">80</div><div class="race-mi-l">Miles</div></div><button class="race-reg" onclick="registerRace(this)">Register</button></div>
-      <div class="race-row"><div class="race-date"><div class="race-month">May</div><div class="race-day">17</div></div><div class="race-divider"></div><div class="race-info"><div class="race-name">Lakefront Time Trial</div><div class="race-sub">Chicago, IL · Lakefront Path · Individual TT</div><div class="race-tags"><span class="race-tag rtg-r">Road</span><span class="race-tag rtg-r">Time Trial</span></div></div><div class="race-dist"><div class="race-mi">20</div><div class="race-mi-l">Miles</div></div><button class="race-reg" onclick="registerRace(this)">Register</button></div>
-      <div class="race-row"><div class="race-date"><div class="race-month">Jun</div><div class="race-day">07</div></div><div class="race-divider"></div><div class="race-info"><div class="race-name">Hoan Bridge MTB Challenge</div><div class="race-sub">Milwaukee, WI · Oak Leaf Trail · Open</div><div class="race-tags"><span class="race-tag rtg-m">MTB</span></div></div><div class="race-dist"><div class="race-mi">32</div><div class="race-mi-l">Miles</div></div><button class="race-reg" onclick="registerRace(this)">Register</button></div>
-    </div>
-  </div><!-- /tab-races -->
-
-  <!-- ══════════════════════════════ PARTNERS TAB ════════════════════════════ -->
   <div class="tab-panel" id="tab-partners">
     <div class="partners-hero">
       <div class="sec-eye" style="justify-content:center;margin-bottom:12px">Member Benefits</div>
       <h2 style="text-align:center;margin-bottom:0">Partner <em>Discounts</em></h2>
       <p style="text-align:center;color:var(--muted);font-size:.82rem;line-height:1.7;max-width:440px;margin:8px auto 20px">Exclusive deals from the brands cyclists trust most. All discounts unlock with an active NRN membership.</p>
 
-      <div class="pe-box" style="margin-bottom:0px">
+      <div class="pe-box">
         <div class="pe-title">🔒 How the Partner Portal Works</div>
         <div class="pe-steps">
-          <div class="pe-step"><div class="pe-n">1</div><div class="pe-t">Log in as a paid member</div></div>
+          <div class="pe-step"><div class="pe-n">1</div><div class="pe-t">Log in as member</div></div>
           <div class="pe-step"><div class="pe-n">2</div><div class="pe-t">Click "Shop Now"</div></div>
-          <div class="pe-step"><div class="pe-n">3</div><div class="pe-t">NRN sends a secure token</div></div>
-          <div class="pe-step"><div class="pe-n">4</div><div class="pe-t">Discount auto-applies</div></div>
-          <div class="pe-step"><div class="pe-n">5</div><div class="pe-t">Token expires in 30 min</div></div>
+          <div class="pe-step"><div class="pe-n">3</div><div class="pe-t">Token applies</div></div>
         </div>
       </div>
 
       <div class="partners-grid" style="padding:0">
-        <div class="partner-card"><span class="partner-logo">👓</span><div class="partner-name">Tifosi Optics</div><div class="partner-cat">Eyewear</div><div class="partner-disc">20%</div><div class="partner-off">off all eyewear</div><button class="partner-btn partner-btn-locked" disabled>🔓 Unlocks with membership</button></div>
-        <div class="partner-card"><span class="partner-logo">🧦</span><div class="partner-name">Velotoze</div><div class="partner-cat">Aero Accessories</div><div class="partner-disc">25%</div><div class="partner-off">off everything</div><button class="partner-btn partner-btn-locked" disabled>🔓 Unlocks with membership</button></div>
-        <div class="partner-card"><span class="partner-logo">🍫</span><div class="partner-name">Maurten</div><div class="partner-cat">Nutrition</div><div class="partner-disc">15%</div><div class="partner-off">off all products</div><button class="partner-btn partner-btn-locked" disabled>🔓 Unlocks with membership</button></div>
-        <div class="partner-card"><span class="partner-logo">🗺️</span><div class="partner-name">RideWithGPS</div><div class="partner-cat">Navigation</div><div class="partner-disc">30%</div><div class="partner-off">off premium plan</div><button class="partner-btn partner-btn-locked" disabled>🔓 Unlocks with membership</button></div>
-        <div class="partner-card"><span class="partner-logo">⚙️</span><div class="partner-name">SRAM</div><div class="partner-cat">Components</div><div class="partner-disc">10%</div><div class="partner-off">off SRAM products</div><button class="partner-btn partner-btn-locked" disabled>🔓 Unlocks with membership</button></div>
-        <div class="partner-card"><span class="partner-logo">✈️</span><div class="partner-name">Bike Flights</div><div class="partner-cat">Shipping</div><div class="partner-disc">15%</div><div class="partner-off">off first shipment</div><button class="partner-btn partner-btn-locked" disabled>🔓 Unlocks with membership</button></div>
-        <div class="partner-card" style="border-style:dashed;border-color:rgba(255,255,255,.1)"><span class="partner-logo">➕</span><div class="partner-name">Your Brand</div><div class="partner-cat">Become a Partner</div><div style="font-size:.72rem;color:var(--muted);margin-bottom:14px;line-height:1.6">Reach 2,000+ serious cyclists across 5 cities</div><button class="partner-btn" style="background:rgba(245,166,35,.1);border-color:rgba(245,166,35,.25);color:var(--amber)">Apply to Partner</button></div>
-        <div class="partner-card" style="border-style:dashed;border-color:rgba(255,255,255,.1)"><span class="partner-logo">🚲</span><div class="partner-name">Local Bike Shop</div><div class="partner-cat">City Preferred Shop</div><div style="font-size:.72rem;color:var(--muted);margin-bottom:14px;line-height:1.6">Get listed as the preferred shop in your city hub</div><button class="partner-btn" style="background:rgba(245,166,35,.1);border-color:rgba(245,166,35,.25);color:var(--amber)">Apply Now</button></div>
+        <div class="partner-card"><span class="partner-logo">👓</span><div class="partner-name">Tifosi Optics</div><div class="partner-disc">20%</div><button class="partner-btn partner-btn-locked" disabled>🔓 Unlocks with membership</button></div>
+        <div class="partner-card"><span class="partner-logo">🍫</span><div class="partner-name">Maurten</div><div class="partner-disc">15%</div><button class="partner-btn partner-btn-locked" disabled>🔓 Unlocks with membership</button></div>
+        <div class="partner-card"><span class="partner-logo">⚙️</span><div class="partner-name">SRAM</div><div class="partner-disc">10%</div><button class="partner-btn partner-btn-locked" disabled>🔓 Unlocks with membership</button></div>
+        <div class="partner-card"><span class="partner-logo">✈️</span><div class="partner-name">Bike Flights</div><div class="partner-disc">15%</div><button class="partner-btn partner-btn-locked" disabled>🔓 Unlocks with membership</button></div>
       </div>
-    </div>
-  </div><!-- /tab-partners -->
 
-  <!-- ════════════════════════════════ STORE TAB ═════════════════════════════ -->
-  <div class="tab-panel" id="tab-store">
-    <div class="store-hero">
-      <div class="sec-eye" style="justify-content:center;margin-bottom:12px">NRN Store</div>
-      <h2 style="margin-bottom:0">Gear Up. <em>Rep Your City.</em></h2>
-      <p class="store-coming">Members get exclusive pricing on everything. City jerseys, accessories, and limited drops — all in one place.</p>
-      <div class="store-grid">
-        <div class="store-cat" onclick="switchTab('home',null);setTimeout(()=>document.getElementById('jerseys').scrollIntoView({behavior:'smooth'}),150)"><span class="store-cat-ic">🎽</span><div class="store-cat-name">City Jerseys</div><div class="store-cat-sub">2026 Collection · 4 cities · $65 members / $89 retail</div></div>
-        <div class="store-cat"><span class="store-cat-ic">🧢</span><div class="store-cat-name">Caps & Kits</div><div class="store-cat-sub">Coming Q3 2026</div></div>
-        <div class="store-cat"><span class="store-cat-ic">🎒</span><div class="store-cat-name">Bags & Accessories</div><div class="store-cat-sub">Coming Q3 2026</div></div>
-      </div>
-    </div>
-  </div><!-- /tab-store -->
-
-</div><!-- /tab-panels -->
-
-<!-- SYNC OAUTH MODAL -->
-<div id="sync-modal">
-  <div id="sync-modal-bg" onclick="syncModalClose()"></div>
-  <div id="sync-modal-box">
-    <div class="sm-header">
-      <div class="sm-logo" id="sm-logo">🔥</div>
-      <div class="sm-titles"><div class="sm-app" id="sm-app">Strava</div><div class="sm-sub">Connect to NRN</div></div>
-      <button class="sm-close" onclick="syncModalClose()">✕</button>
-    </div>
-    <div class="sm-screen sm-active" id="sm-s1">
-      <div class="sm-nrn-badge"><div class="sm-nrn-icon">⊙</div><div class="sm-nrn-txt"><strong>National Ride Network</strong> is requesting access to your account to sync rides, routes, and achievements.</div></div>
-      <div class="sm-perms"><div class="sm-perms-title">NRN will be able to:</div><div id="sm-perms-list"></div></div>
-      <button class="sm-auth-btn sm-auth-primary" id="sm-auth-btn" onclick="syncAuthorize()">Authorize & Connect</button>
-      <button class="sm-auth-btn sm-auth-secondary" onclick="syncModalClose()">Cancel</button>
-      <div class="sm-fine">You can disconnect at any time from your NRN account settings.</div>
-    </div>
-    <div class="sm-screen" id="sm-s2">
-      <div class="sm-loading"><div class="sm-spinner"></div><div class="sm-load-title">Connecting…</div><ul class="sm-load-steps" id="sm-steps"></ul></div>
-    </div>
-    <div class="sm-screen" id="sm-s3">
-      <div class="sm-success">
-        <div class="sm-check">✓</div>
-        <div class="sm-conn-title" id="sm-conn-title">Connected</div>
-        <div class="sm-conn-sub" id="sm-conn-sub"></div>
-        <div class="sm-conn-stats" id="sm-conn-stats"></div>
-        <button class="sm-auth-btn sm-auth-primary" style="margin-bottom:10px" onclick="syncModalClose()">Done</button>
-        <button class="sm-disconnect" onclick="syncDisconnect()">Disconnect this account</button>
+      <div class="ins-wrap" style="margin-top: 84px; border-top: 1px solid var(--border); padding-top: 84px;">
+        <div class="sec-eye" style="justify-content:center">Member Benefit</div>
+        <h2 style="margin-top:10px">Ride Protected. <em>Stay Covered.</em></h2>
+        <div class="ins-grid" style="margin: 32px auto 0; text-align: left;">
+          <div class="ins-card">
+            <span class="ins-shield">🛡️</span>
+            <div class="ins-title">NRN Ride Insurance</div>
+            <ul class="ins-list">
+              <li><span class="ins-chk">✓</span>Bicycle covered up to full replacement value on all NRN group rides</li>
+              <li><span class="ins-chk">✓</span>Personal liability coverage during NRN group rides</li>
+              <li><span class="ins-chk">✓</span>Emergency medical evacuation coverage</li>
+              <li><span class="ins-chk">✓</span>Crash damage repair — frame, components, and wheels</li>
+              <li><span class="ins-chk">✓</span>Coverage follows you to any NRN city nationwide</li>
+            </ul>
+            <button class="btn-a" style="width:100%;padding:14px;cursor:pointer">Get Covered with Membership →</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script src="map.js"></script>
 <script src="app.js"></script>
-
 </body>
 </html>
