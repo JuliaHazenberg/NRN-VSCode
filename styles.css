@@ -31,7 +31,7 @@ h2 em{font-style:normal;color:var(--amber)}
 
 /* PARTNERS SECTION FIXES */
 .partners-hero {
-    padding: 52px 48px 0px !important; /* Stripped bottom padding */
+    padding: 52px 48px 10px !important; /* Stripped bottom padding */
     max-width: 1240px;
     margin: 0 auto;
     text-align: center;
@@ -45,8 +45,11 @@ h2 em{font-style:normal;color:var(--amber)}
     background: rgba(0,201,167,.04);
     border: 1px solid rgba(0,201,167,.14);
     border-radius: 7px;
-    padding: 18px 22px;
-    margin-bottom: 0px !important; /* Removed bottom margin */
+    padding: 16px 20px;
+    margin-bottom: 10px !important; /* Removed bottom margin */
+    max-width: 800px; /* Optional: narrows the box to look better on wide screens */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pe-title {
@@ -71,15 +74,15 @@ h2 em{font-style:normal;color:var(--amber)}
 .partners-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
+    gap: 16px;
     max-width: 1240px;
     margin: 0 auto;
     padding: 0px 48px 52px !important; /* Stripped top padding */
 }
 
 #tab-partners .partners-grid {
-    padding-top: 0 !important;
-    margin-top: -30px !important; /* Negative margin pulls cards up toward the box */
+    padding-top: 10px !important;
+    margin-top: 0px !important; /* Negative margin pulls cards up toward the box */
 }
 
 .partner-card {
