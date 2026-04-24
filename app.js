@@ -33,7 +33,7 @@ const cityMapData = {
     ]
   },
   madison: {
-    center: [43.073, -89.40], zoom: 13,
+    center: [43.073, -89.20], zoom: 13,
     pins: [
       { lat:43.075, lng:-89.384, type:'ride',  name:'State Capitol',          note:'Sat 7am ride start' },
       { lat:43.014, lng:-89.533, type:'ride',  name:'Verona Trailhead',       note:'Sun 7:30am ride start' },
