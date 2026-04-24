@@ -287,7 +287,7 @@ h2 em{font-style:normal;color:var(--amber)}
 .ins-list li{display:flex;align-items:flex-start;gap:9px;font-size:.84rem;line-height:1.55}
 .ins-chk{width:17px;height:17px;border-radius:50%;background:rgba(0,201,167,.13);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.52rem;flex-shrink:0;margin-top:1px}
 
-/* PASSPORT */
+/* PASSPORT
 .pass-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:48px}
 .pb-book{background:linear-gradient(145deg,#162e4a,#0f2036);border:1px solid rgba(0,201,167,.17);border-radius:10px;padding:34px;position:relative;overflow:hidden;box-shadow:0 28px 72px rgba(0,0,0,.42)}
 .pb-book::before{content:'';position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(to bottom,var(--teal),rgba(0,201,167,.28));border-radius:10px 0 0 10px}
@@ -309,7 +309,7 @@ h2 em{font-style:normal;color:var(--amber)}
 .ach-sb{font-size:.66rem;color:var(--muted);margin-top:1px}
 .ach-pill{margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-size:.53rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:100px;flex-shrink:0}
 .apy{background:rgba(0,201,167,.11);color:var(--teal);border:1px solid rgba(0,201,167,.2)}
-.app{background:rgba(245,166,35,.1);color:var(--amber);border:1px solid rgba(245,166,35,.2)}
+.app{background:rgba(245,166,35,.1);color:var(--amber);border:1px solid rgba(245,166,35,.2)} */
 
 /* MEMBERSHIP */
 .mem-sec{background:var(--bg2);border-top:1px solid var(--border)}
