@@ -104,6 +104,7 @@ h1 .hollow{-webkit-text-stroke:2px var(--teal);color:transparent}
 .value-card:hover{background:rgba(245,166,35,.04)}
 .value-silhouette{width:32px;height:32px;flex-shrink:0;opacity:.6;transition:opacity .3s}
 .value-card:hover .value-silhouette{opacity:1}
+.vs-portrait{width:38px;height:38px;opacity:.9;border-radius:50%;overflow:hidden;background:rgba(255,255,255,.04)}
 .value-silhouette svg{width:100%;height:100%}
 .value-text{min-width:0}
 .value-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text);margin-bottom:2px;white-space:nowrap}
