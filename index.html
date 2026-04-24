@@ -67,41 +67,110 @@
             <div class="value-text"><div class="value-name">The Explorer</div><p class="value-statement">Every city has a ride worth finding.</p></div>
           </div>
           <div class="value-card" style="animation-delay:.35s">
-            <div class="value-silhouette vs-portrait"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <!-- Neck / shoulders hint -->
-              <path d="M22 52 C22 46 27 43 32 43 C37 43 42 46 42 52" stroke="var(--coral)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-              <!-- Face -->
-              <ellipse cx="32" cy="32" rx="11" ry="13" fill="#f4c8a0" stroke="#d4a070" stroke-width=".6"/>
-              <!-- Hair – dark brown, parted, tucked under helmet -->
-              <path d="M21 30 C21 22 24 18 32 18 C40 18 43 22 43 30" fill="#3a2518" stroke="none"/>
-              <path d="M21 30 Q21 34 22 35" fill="#3a2518" stroke="none"/>
-              <path d="M43 30 Q43 34 42 35" fill="#3a2518" stroke="none"/>
-              <!-- Helmet shell – white -->
-              <path d="M18 28 C18 16 24 9 32 9 C40 9 46 16 46 28 C46 29 44 30 42 30 L22 30 C20 30 18 29 18 28Z" fill="#f0f0f0" stroke="#c8c8c8" stroke-width=".7"/>
-              <!-- Helmet vents -->
-              <line x1="27" y1="14" x2="28" y2="22" stroke="#d0d0d0" stroke-width=".8" stroke-linecap="round"/>
-              <line x1="32" y1="12" x2="32" y2="21" stroke="#d0d0d0" stroke-width=".8" stroke-linecap="round"/>
-              <line x1="37" y1="14" x2="36" y2="22" stroke="#d0d0d0" stroke-width=".8" stroke-linecap="round"/>
-              <!-- Visor – pink/purple gradient -->
-              <defs><linearGradient id="visor-g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e84393"/><stop offset="100%" stop-color="#8e44ad"/></linearGradient></defs>
-              <path d="M20 12 C22 8 26 6 32 6 C38 6 42 8 44 12 L42 14 C40 11 36 9.5 32 9.5 C28 9.5 24 11 22 14 Z" fill="url(#visor-g)" opacity=".85"/>
-              <!-- Eyes – blue -->
-              <circle cx="27.5" cy="32" r="1.6" fill="#4a90d9"/>
-              <circle cx="36.5" cy="32" r="1.6" fill="#4a90d9"/>
-              <circle cx="27.8" cy="31.6" r=".5" fill="#fff"/>
-              <circle cx="36.8" cy="31.6" r=".5" fill="#fff"/>
-              <!-- Eyebrows -->
-              <path d="M25 29.5 Q27.5 28.5 30 29.5" stroke="#3a2518" stroke-width=".7" fill="none" stroke-linecap="round"/>
-              <path d="M34 29.5 Q36.5 28.5 39 29.5" stroke="#3a2518" stroke-width=".7" fill="none" stroke-linecap="round"/>
-              <!-- Nose -->
-              <path d="M32 33 L31 36.5 Q32 37.2 33 36.5" stroke="#d4a070" stroke-width=".6" fill="none" stroke-linecap="round"/>
-              <!-- Smile -->
-              <path d="M27.5 39 Q32 43 36.5 39" stroke="#c0705a" stroke-width=".9" fill="none" stroke-linecap="round"/>
-              <!-- Necklace hint -->
-              <path d="M26 44 Q32 47 38 44" stroke="#e8c84a" stroke-width=".6" fill="none" stroke-linecap="round" opacity=".7"/>
-              <!-- Helmet strap -->
-              <path d="M22 30 L24 42" stroke="#333" stroke-width=".6" fill="none"/>
-              <path d="M42 30 L40 42" stroke="#333" stroke-width=".6" fill="none"/>
+            <div class="value-silhouette vs-portrait"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="skin" cx=".45" cy=".38" r=".55"><stop offset="0%" stop-color="#f7d4b0"/><stop offset="60%" stop-color="#e8b88a"/><stop offset="100%" stop-color="#d4996e"/></radialGradient>
+                <linearGradient id="visor" x1="0" y1="0" x2="1" y2=".3"><stop offset="0%" stop-color="#d63384"/><stop offset="50%" stop-color="#9b59b6"/><stop offset="100%" stop-color="#6f42c1"/></linearGradient>
+                <radialGradient id="helmet-g" cx=".5" cy=".3" r=".6"><stop offset="0%" stop-color="#fff"/><stop offset="70%" stop-color="#e8e8e8"/><stop offset="100%" stop-color="#ccc"/></radialGradient>
+                <linearGradient id="jersey" x1=".5" y1="0" x2=".5" y2="1"><stop offset="0%" stop-color="#2c3e6b"/><stop offset="100%" stop-color="#1a2744"/></linearGradient>
+                <radialGradient id="eye-l" cx=".4" cy=".35" r=".5"><stop offset="0%" stop-color="#6aafe6"/><stop offset="60%" stop-color="#3a7cc2"/><stop offset="100%" stop-color="#2a5a8f"/></radialGradient>
+                <clipPath id="face-clip"><ellipse cx="50" cy="54" rx="18.5" ry="22"/></clipPath>
+              </defs>
+              <!-- Neck -->
+              <path d="M42 74 L42 82 Q42 86 46 88 L54 88 Q58 86 58 82 L58 74" fill="url(#skin)"/>
+              <!-- Shoulders / jersey -->
+              <path d="M28 98 C28 88 36 84 50 84 C64 84 72 88 72 98 L72 102 L28 102 Z" fill="url(#jersey)"/>
+              <!-- Jersey zip line -->
+              <line x1="50" y1="84" x2="50" y2="100" stroke="#1a2040" stroke-width=".6" opacity=".5"/>
+              <!-- Jersey collar -->
+              <path d="M42 84 Q50 87 58 84" stroke="#3a5080" stroke-width=".6" fill="none"/>
+              <!-- Face base shape -->
+              <ellipse cx="50" cy="54" rx="18.5" ry="22" fill="url(#skin)"/>
+              <!-- Subtle face shadow / contour -->
+              <ellipse cx="50" cy="56" rx="17" ry="20" fill="none" stroke="#c8916a" stroke-width=".3" opacity=".4"/>
+              <!-- Cheek blush -->
+              <ellipse cx="36" cy="58" rx="5" ry="3.5" fill="#e8a088" opacity=".25"/>
+              <ellipse cx="64" cy="58" rx="5" ry="3.5" fill="#e8a088" opacity=".25"/>
+              <!-- Jaw contour -->
+              <path d="M32 60 Q35 72 50 76 Q65 72 68 60" fill="none" stroke="#c89070" stroke-width=".4" opacity=".3"/>
+              <!-- Hair – dark brown, visible at temples/sides under helmet -->
+              <g clip-path="url(#face-clip)">
+                <path d="M31.5 48 C31.5 36 37 30 50 30 C63 30 68.5 36 68.5 48 L68.5 52 C66 50 60 48 50 48 C40 48 34 50 31.5 52 Z" fill="#2e1a0e"/>
+                <!-- Hair strands texture -->
+                <path d="M35 42 Q40 38 45 42" stroke="#3d2415" stroke-width=".5" fill="none" opacity=".5"/>
+                <path d="M45 40 Q50 37 55 40" stroke="#3d2415" stroke-width=".5" fill="none" opacity=".5"/>
+                <path d="M55 42 Q60 38 65 42" stroke="#3d2415" stroke-width=".5" fill="none" opacity=".5"/>
+              </g>
+              <!-- Side hair wisps -->
+              <path d="M31 50 Q30 56 31.5 60" stroke="#2e1a0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <path d="M69 50 Q70 56 68.5 60" stroke="#2e1a0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <!-- Helmet -->
+              <path d="M27 44 C27 26 35 14 50 14 C65 14 73 26 73 44 C73 46 71 48 68 48 L32 48 C29 48 27 46 27 44 Z" fill="url(#helmet-g)"/>
+              <!-- Helmet edge/rim -->
+              <path d="M30 47 Q50 50 70 47" stroke="#b0b0b0" stroke-width=".7" fill="none"/>
+              <!-- Helmet structure lines -->
+              <path d="M38 18 Q40 30 39 44" stroke="#d5d5d5" stroke-width="1.2" fill="none" opacity=".6"/>
+              <path d="M50 15 L50 42" stroke="#d5d5d5" stroke-width="1.2" opacity=".6"/>
+              <path d="M62 18 Q60 30 61 44" stroke="#d5d5d5" stroke-width="1.2" fill="none" opacity=".6"/>
+              <!-- Helmet vents (dark slots) -->
+              <path d="M42 22 L43 34" stroke="#aaa" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+              <path d="M50 20 L50 33" stroke="#aaa" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+              <path d="M58 22 L57 34" stroke="#aaa" stroke-width="2" stroke-linecap="round" opacity=".35"/>
+              <!-- Visor – flipped up on top of helmet -->
+              <path d="M30 20 C33 12 40 8 50 8 C60 8 67 12 70 20 L67 24 C64 17 58 13 50 13 C42 13 36 17 33 24 Z" fill="url(#visor)" opacity=".82"/>
+              <path d="M30 20 C33 12 40 8 50 8 C60 8 67 12 70 20" stroke="#fff" stroke-width=".4" fill="none" opacity=".5"/>
+              <!-- Helmet straps -->
+              <path d="M33 47 Q34 60 37 68 Q38 70 40 70" stroke="#2a2a2a" stroke-width="1" fill="none" stroke-linecap="round"/>
+              <path d="M67 47 Q66 60 63 68 Q62 70 60 70" stroke="#2a2a2a" stroke-width="1" fill="none" stroke-linecap="round"/>
+              <!-- Strap buckle under chin -->
+              <rect x="39" y="69" width="22" height="3" rx="1.5" fill="#333" opacity=".5"/>
+              <!-- Eyebrows – natural arch -->
+              <path d="M37 48 Q41 45.5 45 47" stroke="#3a2010" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+              <path d="M55 47 Q59 45.5 63 48" stroke="#3a2010" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+              <!-- Eye whites -->
+              <ellipse cx="41" cy="52.5" rx="4.5" ry="3.2" fill="#f5f5f5"/>
+              <ellipse cx="59" cy="52.5" rx="4.5" ry="3.2" fill="#f5f5f5"/>
+              <!-- Iris -->
+              <circle cx="41.5" cy="52.5" r="2.6" fill="url(#eye-l)"/>
+              <circle cx="58.5" cy="52.5" r="2.6" fill="url(#eye-l)"/>
+              <!-- Pupil -->
+              <circle cx="41.5" cy="52.5" r="1.2" fill="#1a2a3a"/>
+              <circle cx="58.5" cy="52.5" r="1.2" fill="#1a2a3a"/>
+              <!-- Eye catchlight -->
+              <circle cx="42.4" cy="51.6" r=".8" fill="#fff" opacity=".85"/>
+              <circle cx="59.4" cy="51.6" r=".8" fill="#fff" opacity=".85"/>
+              <!-- Upper eyelid line -->
+              <path d="M36.5 51 Q41 49 45.5 51" stroke="#6b4530" stroke-width=".6" fill="none"/>
+              <path d="M54.5 51 Q59 49 63.5 51" stroke="#6b4530" stroke-width=".6" fill="none"/>
+              <!-- Lower lash subtle -->
+              <path d="M37 54 Q41 55.5 45 54" stroke="#8b6550" stroke-width=".35" fill="none" opacity=".5"/>
+              <path d="M55 54 Q59 55.5 63 54" stroke="#8b6550" stroke-width=".35" fill="none" opacity=".5"/>
+              <!-- Nose – soft, natural -->
+              <path d="M50 52 L48.5 62 Q50 63.5 51.5 62" stroke="#c8916a" stroke-width=".7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Nose shadow -->
+              <path d="M47 62 Q48.5 63 50 62.5" stroke="#c08060" stroke-width=".4" fill="none" opacity=".3"/>
+              <!-- Nostril hints -->
+              <circle cx="48" cy="62.5" r=".6" fill="#c08060" opacity=".35"/>
+              <circle cx="52" cy="62.5" r=".6" fill="#c08060" opacity=".35"/>
+              <!-- Smile – wide, natural, teeth showing -->
+              <path d="M39 67 Q44 72 50 72.5 Q56 72 61 67" stroke="#b5604a" stroke-width="1" fill="none" stroke-linecap="round"/>
+              <!-- Upper lip -->
+              <path d="M39 67 Q44 66 47 67.5 Q50 68.5 53 67.5 Q56 66 61 67" stroke="#c06858" stroke-width=".6" fill="none"/>
+              <!-- Teeth glimpse -->
+              <path d="M41 68 Q50 73 59 68" fill="#f8f4f0" stroke="none" opacity=".7"/>
+              <path d="M41 68 Q50 73 59 68" fill="none" stroke="#e0d0c8" stroke-width=".3"/>
+              <!-- Lower lip -->
+              <path d="M42 70 Q50 75 58 70" stroke="#c06858" stroke-width=".7" fill="none" stroke-linecap="round"/>
+              <!-- Lip highlight -->
+              <path d="M46 67.5 Q50 66.5 54 67.5" stroke="#e8a090" stroke-width=".3" fill="none" opacity=".5"/>
+              <!-- Necklace – gold chain -->
+              <path d="M38 78 Q44 82 50 82.5 Q56 82 62 78" stroke="#d4a840" stroke-width=".7" fill="none" stroke-linecap="round"/>
+              <path d="M40 79 Q46 83.5 50 84 Q54 83.5 60 79" stroke="#e8c050" stroke-width=".5" fill="none" stroke-linecap="round" opacity=".6"/>
+              <!-- Small necklace charms -->
+              <circle cx="44" cy="82" r=".7" fill="#d4a840" opacity=".7"/>
+              <circle cx="48" cy="83" r=".5" fill="#d4a840" opacity=".6"/>
+              <circle cx="52" cy="83" r=".5" fill="#d4a840" opacity=".6"/>
+              <circle cx="56" cy="82" r=".7" fill="#d4a840" opacity=".7"/>
             </svg></div>
             <div class="value-text"><div class="value-name">The Connector</div><p class="value-statement">The best part is who you share it with.</p></div>
           </div>
