@@ -573,6 +573,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 
 /* NON-HOME TAB OFFSET â€” pushes content below fixed nav + chain bar */
 #tab-rides > div,
+/* TAB HERO HEADERS */
+.tab-hero{padding:52px 48px 28px;max-width:1240px;margin:0 auto;text-align:center}
+.tab-hero+div{padding-top:0 !important}
+
+#tab-rides .tab-hero,
+#tab-routes .tab-hero,
 #tab-routes > div,
 #tab-races .races-hero,
 #tab-store .store-hero{
