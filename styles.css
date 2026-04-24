@@ -399,7 +399,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 .race-reg.registered{background:var(--teal);color:#0d1b2a}
 
 /* PARTNERS */
-.partners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:52px 48px;max-width:1240px;margin:0 auto}
+.partners-header{padding:52px 48px 0;max-width:1240px;margin:0 auto}
+.partners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:28px 48px 52px;max-width:1240px;margin:0 auto}
 .partner-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:22px 18px;text-align:center;cursor:pointer;transition:transform .18s,border-color .18s}
 .partner-card:hover{transform:translateY(-3px);border-color:rgba(245,166,35,.3)}
 .partner-logo{font-size:2.2rem;margin-bottom:10px;display:block}
@@ -409,6 +410,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 .partner-off{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 .partner-btn{width:100%;background:rgba(0,201,167,.1);border:1px solid rgba(0,201,167,.25);color:var(--teal);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:8px;border-radius:4px;cursor:pointer;transition:all .18s}
 .partner-btn:hover{background:var(--teal);color:#0d1b2a}
+.partner-btn-locked{cursor:default;opacity:.7;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1);color:var(--muted)}
+.partner-btn-locked:hover{background:rgba(255,255,255,.04);color:var(--muted)}
 
 /* STORE */
 .store-hero{padding:52px 48px;max-width:1240px;margin:0 auto;text-align:center}
