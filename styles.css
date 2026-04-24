@@ -579,7 +579,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 
 #tab-rides .tab-hero,
 #tab-routes .tab-hero,
-#tab-routes > div,
 #tab-races .races-hero,
 #tab-store .store-hero{
   padding-top:var(--bar-total) !important;
