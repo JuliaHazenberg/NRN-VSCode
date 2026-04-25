@@ -401,6 +401,7 @@ window.addEventListener('resize', setHeights);
 /* VALUE CARD EXPAND */
 function toggleValueCard(btn){
   const isOpen = btn.classList.toggle('open');
-  const detail = btn.parentElement.querySelector('.value-detail');
+  const card = btn.closest('.value-card');
+  const detail = card.querySelector('.value-detail');
   if(detail) detail.classList.toggle('open', isOpen);
 }
