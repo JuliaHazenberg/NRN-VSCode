@@ -125,11 +125,14 @@ h1 .hollow{-webkit-text-stroke:2px var(--teal);color:transparent}
 /* EXPANDABLE VALUE CARDS */
 .value-card-expandable{position:relative}
 .value-saved-row{
-  display:flex;align-items:center;justify-content:center;gap:8px;
+  position:relative;
   width:100%;margin-top:10px;padding-top:10px;
   border-top:1px solid rgba(255,255,255,.06);
+  text-align:center;
 }
+.value-saved-center{display:inline-block}
 .value-expand-btn{
+  position:absolute;right:0;top:50%;transform:translateY(-25%);
   width:20px;height:20px;border-radius:50%;
   border:1px solid rgba(245,166,35,.3);
   background:rgba(245,166,35,.08);
@@ -138,7 +141,7 @@ h1 .hollow{-webkit-text-stroke:2px var(--teal);color:transparent}
   cursor:pointer;transition:all .25s;padding:0;flex-shrink:0;
 }
 .value-expand-btn:hover{background:rgba(245,166,35,.18);border-color:var(--amber)}
-.value-expand-btn.open{transform:rotate(45deg)}
+.value-expand-btn.open{transform:translateY(-25%) rotate(45deg)}
 .value-detail{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease;opacity:0}
 .value-detail.open{max-height:300px;opacity:1}
 .value-detail-inner{padding:8px 0 4px}
