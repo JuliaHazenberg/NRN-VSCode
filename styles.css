@@ -1,5 +1,5 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;--amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--coral:#ff6b5b;--sky:#4db8ff;--text:#eef2f7;--muted:#7a9ab8;--nav-h:64px;--chain-h:56px;--bar-total:120px}
+:root{--bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;--amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--coral:#ff6b5b;--sky:#4db8ff;--text:#eef2f7;--muted:#7a9ab8;--nav-h:64px;--chain-h:52px;--bar-total:116px}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--amber);border-radius:2px}
@@ -19,45 +19,69 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   position:fixed;top:var(--nav-h);left:0;right:0;z-index:99;
   background:rgba(10,18,28,.97);
   backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.03);
+  border-bottom:2px solid rgba(245,166,35,.12);
   display:flex;
-  padding:6px 0;
+  padding:7px 0;
 }
-.chain-tabs{display:flex;align-items:center;width:100%;gap:0;padding:0 8px}
+.chain-tabs{display:flex;align-items:center;width:100%;gap:0}
 
-/* OUTER PLATE = nav button */
 .ctab-nav{
-  flex:1;position:relative;
-  height:48px;
-  display:flex;align-items:center;justify-content:center;
+  flex:1;display:flex;align-items:center;justify-content:center;
+  position:relative;
+  height:38px;
+  margin:0;
+  padding:0 22px;
   cursor:pointer;outline:none;white-space:nowrap;
-  background:none;border:none;
-  margin:0 -6px;
-  padding:0;
-  z-index:2;
-}
-.ctab-plate{
-  position:absolute;inset:0;width:100%;height:100%;
-  pointer-events:none;
-  filter:drop-shadow(0 2px 3px rgba(0,0,0,.4));
-}
-.ctab-label{
-  position:relative;z-index:3;
   font-family:'Barlow Condensed',sans-serif;font-weight:700;
-  font-size:clamp(.62rem,.85vw,.92rem);
-  letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(180,195,210,.7);
-  transition:color .2s;
+  font-size:clamp(.6rem,.8vw,.88rem);
+  letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(210,200,165,.8);
+  transition:color .15s,background .15s,border-color .15s;
+  background:rgba(245,166,35,.05);
+  border-top:2px solid rgba(245,166,35,.25);
+  border-bottom:2px solid rgba(245,166,35,.25);
+  border-left:none;border-right:none;
+  border-radius:0;
 }
 
-/* Hover */
-.ctab-nav:hover .ctab-label{color:rgba(230,240,250,.9)}
-.ctab-nav:hover .plate-shape{fill:url(#cga)}
+/* Waisted pinch between links using pseudo-elements */
+.ctab-nav::before,
+.ctab-nav::after{
+  content:'';position:absolute;top:50%;transform:translateY(-50%);
+  width:16px;height:16px;border-radius:50%;
+  background:radial-gradient(circle at 40% 38%,#2a3a4a,#0d1b2a);
+  border:2px solid rgba(245,166,35,.3);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.7), 0 0 4px rgba(0,0,0,.4);
+  z-index:3;
+}
+.ctab-nav::before{left:-10px}
+.ctab-nav::after{right:-10px}
 
-/* Active */
-.ctab-nav.active{z-index:3}
-.ctab-nav.active .ctab-label{color:var(--amber);text-shadow:0 0 12px rgba(245,166,35,.3)}
-.ctab-nav.active .plate-shape{fill:url(#cga)}
+/* Hide doubled pins - only show right pin on last, left on first */
+.ctab-nav:not(:first-child)::before{display:none}
+.ctab-nav + .ctab-nav::before{display:none}
+
+/* Actually: show all pins, they'll overlap and that's fine */
+.ctab-nav::before{display:block}
+.ctab-nav::after{display:block}
+
+/* First link rounded left, last link rounded right */
+.ctab-nav:first-child{border-left:2px solid rgba(245,166,35,.25);border-radius:19px 0 0 19px;padding-left:28px}
+.ctab-nav:last-child{border-right:2px solid rgba(245,166,35,.25);border-radius:0 19px 19px 0;padding-right:28px}
+.ctab-nav:first-child::before{display:none}
+.ctab-nav:last-child::after{display:none}
+
+.ctab-nav:hover{color:#fff;background:rgba(245,166,35,.1)}
+.ctab-nav.active{
+  background:var(--amber);color:#0d1b2a;font-weight:800;
+  border-color:rgba(245,166,35,.6);
+  box-shadow:0 0 16px rgba(245,166,35,.2);
+}
+.ctab-nav.active::before,
+.ctab-nav.active::after{
+  border-color:rgba(245,166,35,.5);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.7), 0 0 6px rgba(245,166,35,.15);
+}
 
 /* Tab panels */
 .tab-panels{position:relative}
@@ -610,10 +634,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
   .nrn-t-city{font-size:1.6rem!important}
   .nrn-t-num{font-size:1.6rem!important}
   .nrn-hub-btn{padding:12px!important;font-size:.82rem!important}
-  .chain-tabs{overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 4px}
+  .chain-tabs{overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none}
   .chain-tabs::-webkit-scrollbar{display:none}
-  .ctab-nav{min-width:90px;height:42px}
-  .ctab-label{font-size:.66rem;letter-spacing:.12em}
+  .ctab-nav{margin:0;font-size:.66rem;letter-spacing:.12em;min-width:80px}
   .rides-grid,.routes-grid,.partners-grid,.store-grid{grid-template-columns:1fr;padding:28px 18px}
   .races-list{padding:28px 18px}
   .partners-grid{grid-template-columns:1fr 1fr}
