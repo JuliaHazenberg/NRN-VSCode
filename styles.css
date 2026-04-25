@@ -1,5 +1,5 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;--amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--coral:#ff6b5b;--sky:#4db8ff;--text:#eef2f7;--muted:#7a9ab8;--nav-h:64px;--chain-h:46px;--bar-total:110px}
+:root{--bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;--amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--coral:#ff6b5b;--sky:#4db8ff;--text:#eef2f7;--muted:#7a9ab8;--nav-h:64px;--chain-h:56px;--bar-total:120px}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--amber);border-radius:2px}
@@ -19,58 +19,95 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
   position:fixed;top:var(--nav-h);left:0;right:0;z-index:99;
   background:rgba(10,18,28,.97);
   backdrop-filter:blur(12px);
-  border-bottom:2px solid rgba(245,166,35,.15);
+  border-bottom:1px solid rgba(255,255,255,.04);
   display:flex;
-  padding:6px 0;
+  padding:8px 0;
 }
-.chain-tabs{display:flex;align-items:center;width:100%;gap:0}
+.chain-tabs{display:flex;align-items:center;width:100%;gap:0;padding:0 12px}
+.chain-link-spacer{flex:0 0 8px}
 
+/* OUTER PLATE = nav button */
 .ctab-nav{
   flex:1;display:flex;align-items:center;justify-content:center;
   position:relative;
-  height:34px;
-  margin:0 10px;
-  padding:0 8px;
+  height:40px;
+  padding:0 18px;
   cursor:pointer;outline:none;white-space:nowrap;
   font-family:'Barlow Condensed',sans-serif;font-weight:700;
-  font-size:clamp(.55rem,.75vw,.85rem);
-  letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(210,200,165,.85);
-  transition:color .15s,background .15s,border-color .15s;
-  background:rgba(245,166,35,.07);
-  border:2px solid rgba(245,166,35,.35);
-  border-radius:17px;
-  box-shadow:inset 0 4px 0 rgba(0,0,0,.25), inset 0 -4px 0 rgba(0,0,0,.25);
+  font-size:clamp(.62rem,.85vw,.92rem);
+  letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(180,190,200,.75);
+  transition:color .2s,background .2s,box-shadow .2s;
+  background:linear-gradient(180deg,#3a4555 0%,#252e3a 40%,#1e2630 60%,#2a3340 100%);
+  border:1.5px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    inset 0 -1px 0 rgba(0,0,0,.3),
+    0 2px 6px rgba(0,0,0,.4);
 }
-.ctab-nav::before{
-  content:'';position:absolute;
-  left:-12px;top:50%;transform:translateY(-50%);
-  width:14px;height:14px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%, #ffd966, #c07800);
-  border:2px solid #8a5000;
-  box-shadow:0 2px 4px rgba(0,0,0,.6), inset 0 1px 2px rgba(255,255,255,.2);
-  z-index:3;
+
+/* Pin holes on the outer plate */
+.ctab-pin{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:12px;height:12px;border-radius:50%;
+  background:radial-gradient(circle at 40% 35%,#1a2030,#0a1018);
+  border:1.5px solid rgba(255,255,255,.06);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.8), 0 0.5px 0 rgba(255,255,255,.05);
+  z-index:2;
 }
-.ctab-nav::after{
-  content:'';position:absolute;
-  right:-12px;top:50%;transform:translateY(-50%);
-  width:14px;height:14px;border-radius:50%;
-  background:radial-gradient(circle at 35% 35%, #ffd966, #c07800);
-  border:2px solid #8a5000;
-  box-shadow:0 2px 4px rgba(0,0,0,.6), inset 0 1px 2px rgba(255,255,255,.2);
-  z-index:3;
+.ctab-pin-l{left:8px}
+.ctab-pin-r{right:8px}
+
+.ctab-label{position:relative;z-index:3}
+
+/* Inner link between outer plates */
+.chain-inner-link{
+  flex:0 0 28px;height:32px;
+  position:relative;
+  display:flex;align-items:center;justify-content:center;gap:0;
+  background:linear-gradient(180deg,#4a5568 0%,#2d3748 45%,#2a3444 55%,#3d4a5a 100%);
+  border-radius:5px;
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    inset 0 -1px 0 rgba(0,0,0,.25),
+    0 2px 4px rgba(0,0,0,.35);
+  margin:0 -2px;
+  z-index:1;
 }
-.ctab-nav:hover{color:#fff;background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.7)}
+
+/* Rollers inside inner link */
+.chain-roller{
+  width:10px;height:10px;border-radius:50%;
+  background:radial-gradient(circle at 38% 32%,#6a7a8a,#3a4858);
+  border:1px solid rgba(0,0,0,.35);
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.12), inset 0 -1px 1px rgba(0,0,0,.4);
+  margin:0 1px;
+}
+
+/* Hover */
+.ctab-nav:hover{
+  color:#e0e8f0;
+  background:linear-gradient(180deg,#455568 0%,#303a48 40%,#283240 60%,#354050 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.1),
+    inset 0 -1px 0 rgba(0,0,0,.3),
+    0 2px 8px rgba(0,0,0,.5);
+}
+
+/* Active tab */
 .ctab-nav.active{
-  background:var(--amber);color:#0d1b2a;
-  border-color:#c07800;font-weight:800;
-  box-shadow:inset 0 4px 0 rgba(0,0,0,.2), inset 0 -4px 0 rgba(0,0,0,.2), 0 0 12px rgba(245,166,35,.3);
+  background:linear-gradient(180deg,#556575 0%,#3a4858 40%,#354050 60%,#4a5a6a 100%);
+  color:#fff;
+  border-color:rgba(245,166,35,.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    inset 0 -1px 0 rgba(0,0,0,.25),
+    0 0 14px rgba(245,166,35,.12),
+    0 2px 8px rgba(0,0,0,.4);
 }
-.ctab-nav.active::before,
-.ctab-nav.active::after{
-  background:radial-gradient(circle at 35% 35%, #c07800, #6b3800);
-  border-color:#4a2800;
-}
+.ctab-nav.active .ctab-label{color:var(--amber)}
 
 /* Tab panels */
 .tab-panels{position:relative}
@@ -623,9 +660,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
   .nrn-t-city{font-size:1.6rem!important}
   .nrn-t-num{font-size:1.6rem!important}
   .nrn-hub-btn{padding:12px!important;font-size:.82rem!important}
-  .chain-tabs{overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .chain-tabs{overflow-x:auto;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 6px}
   .chain-tabs::-webkit-scrollbar{display:none}
-  .ctab-nav{margin:0 6px;font-size:.68rem;letter-spacing:.12em}
+  .ctab-nav{min-width:80px;font-size:.68rem;letter-spacing:.12em}
+  .chain-inner-link{flex:0 0 22px}
+  .chain-link-spacer{flex:0 0 4px}
   .rides-grid,.routes-grid,.partners-grid,.store-grid{grid-template-columns:1fr;padding:28px 18px}
   .races-list{padding:28px 18px}
   .partners-grid{grid-template-columns:1fr 1fr}
