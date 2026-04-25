@@ -32,21 +32,45 @@
 <!-- CHAIN NAV -->
 <div class="chain-bar">
   <div class="chain-tabs" id="chain-tabs">
-    <div class="chain-link-spacer"></div>
-    <button class="ctab-nav active" data-tab="home" onclick="switchTab('home',this)"><span class="ctab-pin ctab-pin-l"></span><span class="ctab-label">Home</span><span class="ctab-pin ctab-pin-r"></span></button>
-    <div class="chain-inner-link"><span class="chain-roller"></span><span class="chain-roller"></span></div>
-    <button class="ctab-nav" data-tab="rides" onclick="switchTab('rides',this)"><span class="ctab-pin ctab-pin-l"></span><span class="ctab-label">Rides</span><span class="ctab-pin ctab-pin-r"></span></button>
-    <div class="chain-inner-link"><span class="chain-roller"></span><span class="chain-roller"></span></div>
-    <button class="ctab-nav" data-tab="routes" onclick="switchTab('routes',this)"><span class="ctab-pin ctab-pin-l"></span><span class="ctab-label">Routes</span><span class="ctab-pin ctab-pin-r"></span></button>
-    <div class="chain-inner-link"><span class="chain-roller"></span><span class="chain-roller"></span></div>
-    <button class="ctab-nav" data-tab="races" onclick="switchTab('races',this)"><span class="ctab-pin ctab-pin-l"></span><span class="ctab-label">Races</span><span class="ctab-pin ctab-pin-r"></span></button>
-    <div class="chain-inner-link"><span class="chain-roller"></span><span class="chain-roller"></span></div>
-    <button class="ctab-nav" data-tab="partners" onclick="switchTab('partners',this)"><span class="ctab-pin ctab-pin-l"></span><span class="ctab-label">Partners</span><span class="ctab-pin ctab-pin-r"></span></button>
-    <div class="chain-inner-link"><span class="chain-roller"></span><span class="chain-roller"></span></div>
-    <button class="ctab-nav" data-tab="store" onclick="switchTab('store',this)"><span class="ctab-pin ctab-pin-l"></span><span class="ctab-label">Store</span><span class="ctab-pin ctab-pin-r"></span></button>
-    <div class="chain-link-spacer"></div>
+    <button class="ctab-nav active" data-tab="home" onclick="switchTab('home',this)">
+      <svg class="ctab-plate" viewBox="0 0 200 56" preserveAspectRatio="none"><defs><linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6a7080"/><stop offset="35%" stop-color="#4a5060"/><stop offset="65%" stop-color="#3a4050"/><stop offset="100%" stop-color="#555e6e"/></linearGradient><linearGradient id="cga" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7a8090"/><stop offset="35%" stop-color="#586070"/><stop offset="65%" stop-color="#4a5565"/><stop offset="100%" stop-color="#6a7585"/></linearGradient></defs><path class="plate-shape" d="M24,2 C32,2 38,6 42,12 L44,14 C52,4 68,0 100,0 C132,0 148,4 156,14 L158,12 C162,6 168,2 176,2 C190,2 200,12 200,28 C200,44 190,54 176,54 C168,54 162,50 158,44 L156,42 C148,52 132,56 100,56 C68,56 52,52 44,42 L42,44 C38,50 32,54 24,54 C10,54 0,44 0,28 C0,12 10,2 24,2Z" fill="url(#cg)" stroke="rgba(255,255,255,.1)" stroke-width=".5"/><circle cx="24" cy="28" r="9" fill="#0e1620" stroke="rgba(255,255,255,.06)" stroke-width=".8"/><circle cx="24" cy="28" r="5" fill="none" stroke="rgba(255,255,255,.04)" stroke-width=".5"/><circle cx="176" cy="28" r="9" fill="#0e1620" stroke="rgba(255,255,255,.06)" stroke-width=".8"/><circle cx="176" cy="28" r="5" fill="none" stroke="rgba(255,255,255,.04)" stroke-width=".5"/></svg>
+      <span class="ctab-label">Home</span>
+    </button>
+    <button class="ctab-nav" data-tab="rides" onclick="switchTab('rides',this)">
+      <svg class="ctab-plate" viewBox="0 0 200 56" preserveAspectRatio="none"><use href="#chain-plate"/></svg>
+      <span class="ctab-label">Rides</span>
+    </button>
+    <button class="ctab-nav" data-tab="routes" onclick="switchTab('routes',this)">
+      <svg class="ctab-plate" viewBox="0 0 200 56" preserveAspectRatio="none"><use href="#chain-plate"/></svg>
+      <span class="ctab-label">Routes</span>
+    </button>
+    <button class="ctab-nav" data-tab="races" onclick="switchTab('races',this)">
+      <svg class="ctab-plate" viewBox="0 0 200 56" preserveAspectRatio="none"><use href="#chain-plate"/></svg>
+      <span class="ctab-label">Races</span>
+    </button>
+    <button class="ctab-nav" data-tab="partners" onclick="switchTab('partners',this)">
+      <svg class="ctab-plate" viewBox="0 0 200 56" preserveAspectRatio="none"><use href="#chain-plate"/></svg>
+      <span class="ctab-label">Partners</span>
+    </button>
+    <button class="ctab-nav" data-tab="store" onclick="switchTab('store',this)">
+      <svg class="ctab-plate" viewBox="0 0 200 56" preserveAspectRatio="none"><use href="#chain-plate"/></svg>
+      <span class="ctab-label">Store</span>
+    </button>
   </div>
 </div>
+<!-- Reusable chain plate shape -->
+<svg style="position:absolute;width:0;height:0">
+  <defs>
+    <linearGradient id="cg-def" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#6a7080"/><stop offset="35%" stop-color="#4a5060"/><stop offset="65%" stop-color="#3a4050"/><stop offset="100%" stop-color="#555e6e"/></linearGradient>
+    <g id="chain-plate">
+      <path d="M24,2 C32,2 38,6 42,12 L44,14 C52,4 68,0 100,0 C132,0 148,4 156,14 L158,12 C162,6 168,2 176,2 C190,2 200,12 200,28 C200,44 190,54 176,54 C168,54 162,50 158,44 L156,42 C148,52 132,56 100,56 C68,56 52,52 44,42 L42,44 C38,50 32,54 24,54 C10,54 0,44 0,28 C0,12 10,2 24,2Z" fill="url(#cg-def)" stroke="rgba(255,255,255,.1)" stroke-width=".5"/>
+      <circle cx="24" cy="28" r="9" fill="#0e1620" stroke="rgba(255,255,255,.06)" stroke-width=".8"/>
+      <circle cx="24" cy="28" r="5" fill="none" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+      <circle cx="176" cy="28" r="9" fill="#0e1620" stroke="rgba(255,255,255,.06)" stroke-width=".8"/>
+      <circle cx="176" cy="28" r="5" fill="none" stroke="rgba(255,255,255,.04)" stroke-width=".5"/>
+    </g>
+  </defs>
+</svg>
 
 <div class="tab-panels">
 
