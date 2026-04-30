@@ -242,42 +242,43 @@ function buildPins(){
     const pt=BASE_PROJ([d.lon,d.lat]);if(!pt)return;
     const[x,y]=pt;
     const g=pinGroup.append('g').attr('class','nrn-pin-group').attr('data-x',x).attr('data-y',y).style('cursor','pointer');
-    // Large invisible hit area
-    g.append('rect').attr('x',x-40).attr('y',y-40).attr('width',80).attr('height',80).attr('fill','transparent').attr('stroke','none').style('pointer-events','all');
-    // Pulse rings
-    g.append('circle').attr('class','nrn-pulse').attr('cx',x).attr('cy',y).attr('r',16).attr('fill','none').attr('stroke','#f5a623').attr('stroke-width','1.8').attr('opacity','.55');
-    g.append('circle').attr('class','nrn-pulse2').attr('cx',x).attr('cy',y).attr('r',16).attr('fill','none').attr('stroke','#f5a623').attr('stroke-width','1.2').attr('opacity','.4');
-    // Glow ring
-    g.append('circle').attr('cx',x).attr('cy',y).attr('r',18).attr('fill','rgba(245,166,35,0.08)').attr('stroke','rgba(245,166,35,0.22)').attr('stroke-width','1').attr('class','nrn-pin-glow');
-    // Main circle — bigger
-    g.append('circle').attr('cx',x).attr('cy',y).attr('r',13).attr('fill','#0d1b2a').attr('stroke','#f5a623').attr('stroke-width','3').attr('class','nrn-pin-outer');
-    // Inner dot
-    g.append('circle').attr('cx',x).attr('cy',y).attr('r',6).attr('fill','#f5a623').attr('class','nrn-pin-dot');
-    // Label
-    let lx=x,ly=y-28,anchor='middle';
-    if(d.labelBelow)ly=y+34;
-    if(d.labelRight){lx=x+22;ly=y+5;anchor='start';}
-    if(d.labelLeft){lx=x-22;ly=y-16;anchor='end';}
+
+    // Label rendered FIRST (below) with pointer-events:none so it never interferes with pin hover
+    let lx=x,ly=y-20,anchor='middle';
+    if(d.labelBelow)ly=y+26;
+    if(d.labelRight){lx=x+17;ly=y+5;anchor='start';}
+    if(d.labelLeft){lx=x-17;ly=y-13;anchor='end';}
     g.append('text').attr('x',lx).attr('y',ly).attr('text-anchor',anchor)
-      .attr('font-family','Barlow Condensed,sans-serif').attr('font-size',15).attr('font-weight','700')
-      .attr('letter-spacing','1.8').attr('fill','#f5a623').attr('paint-order','stroke')
-      .attr('stroke','#0d1b2a').attr('stroke-width','4').attr('stroke-linejoin','round')
+      .attr('font-family','Barlow Condensed,sans-serif').attr('font-size',14).attr('font-weight','700')
+      .attr('letter-spacing','1.6').attr('fill','#f5a623').attr('paint-order','stroke')
+      .attr('stroke','#0d1b2a').attr('stroke-width','3').attr('stroke-linejoin','round')
+      .style('pointer-events','none')
       .text(d.city.toUpperCase());
+
+    // Pin visuals — rendered on top of label
+    g.append('circle').attr('class','nrn-pulse').attr('cx',x).attr('cy',y).attr('r',13).attr('fill','none').attr('stroke','#f5a623').attr('stroke-width','1.8').attr('opacity','.55').style('pointer-events','none');
+    g.append('circle').attr('class','nrn-pulse2').attr('cx',x).attr('cy',y).attr('r',13).attr('fill','none').attr('stroke','#f5a623').attr('stroke-width','1.2').attr('opacity','.4').style('pointer-events','none');
+    g.append('circle').attr('cx',x).attr('cy',y).attr('r',10).attr('fill','#0d1b2a').attr('stroke','#f5a623').attr('stroke-width','2.5').attr('class','nrn-pin-outer').style('pointer-events','none');
+    g.append('circle').attr('cx',x).attr('cy',y).attr('r',5).attr('fill','#f5a623').attr('class','nrn-pin-dot').style('pointer-events','none');
+
+    // Large invisible hit circle centered exactly on the pin — only the pin triggers hover/click
+    g.append('circle').attr('cx',x).attr('cy',y).attr('r',18)
+      .attr('fill','transparent').attr('stroke','none')
+      .style('pointer-events','all')
+      .attr('class','nrn-pin-hit');
+
     g.on('mouseover',function(){
       d3.select(this).select('.nrn-pin-dot').attr('fill','#ffc04d');
-      d3.select(this).select('.nrn-pin-outer').attr('stroke','#ffc04d').attr('r',15);
-      d3.select(this).select('.nrn-pin-glow').attr('fill','rgba(245,166,35,0.2)').attr('stroke','rgba(245,166,35,0.55)');
+      d3.select(this).select('.nrn-pin-outer').attr('stroke','#ffc04d');
     });
     g.on('mouseout',function(){
       d3.select(this).select('.nrn-pin-dot').attr('fill','#f5a623');
-      d3.select(this).select('.nrn-pin-outer').attr('stroke','#f5a623').attr('r',13);
-      d3.select(this).select('.nrn-pin-glow').attr('fill','rgba(245,166,35,0.08)').attr('stroke','rgba(245,166,35,0.22)');
+      d3.select(this).select('.nrn-pin-outer').attr('stroke','#f5a623');
     });
     g.on('click',function(event){
       event.stopPropagation();if(dragMoved||blockStateClick)return;
       if(activeCityId===id){closeCityTip();return;}
       closeAll();activeCityId=id;
-      // Populate & show tooltip immediately
       document.getElementById('nrn-t-city').textContent=d.city;
       document.getElementById('nrn-t-state').textContent=d.state;
       document.getElementById('nrn-t-rides').textContent=d.rides;
@@ -291,7 +292,6 @@ function buildPins(){
       showSheet(cityTip);
       posPanel(cityTip,...svgPt(x,y));
       setTimeout(()=>showX(xbtnCity,cityTip),40);
-      // Soft background zoom — doesn't block tooltip
       const curK=d3.zoomTransform(svgEl).k;
       if(curK<2.5) zoomToPoint(x,y,3,450,()=>repositionPanels());
     });
@@ -316,6 +316,12 @@ fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
       .on('end',()=>{svgEl.classList.remove('nrn-dragging');if(!panelManualPos)repositionPanels();});
 
     mapScrollActive=true;
+    svg.call(zoomBehavior.filter(event=>{
+      if(event.type==='wheel')return false;
+      return !event.ctrlKey&&!event.button;
+    }));
+    svg.on('dblclick.zoom',null);
+        mapScrollActive=true;
     svg.call(zoomBehavior.filter(event=>{
       if(event.type==='wheel')return false;
       return !event.ctrlKey&&!event.button;
