@@ -119,17 +119,22 @@ h1 .hollow{-webkit-text-stroke:2px var(--teal);color:transparent}
 .value-statement{font-size:.8rem;line-height:1.65;color:var(--muted);flex:1}
 .value-savings-bar{border-top:1px solid rgba(255,255,255,.06);padding-top:14px;margin-top:auto}
 .value-savings-label{font-family:'Barlow Condensed',sans-serif;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-.value-savings-amount{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;line-height:1;margin-bottom:10px}
+.value-savings-amount{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;line-height:1}
 .value-savings-amount span{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);vertical-align:middle;margin-left:3px}
-.value-savings-items{display:flex;flex-wrap:wrap;gap:4px}
+.value-savings-items{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
 .value-savings-chip{font-size:.52rem;padding:3px 7px;border-radius:100px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);white-space:nowrap}
 .value-silhouette{width:64px;height:64px;flex-shrink:0;opacity:.55;transition:opacity .3s;margin-bottom:14px}
+.value-card:hover .value-silhouette{opacity:.9}
 .vs-portrait{width:72px;height:72px;opacity:.9;border-radius:50%;overflow:hidden;background:rgba(255,255,255,.03)}
+.value-card:hover .vs-portrait{opacity:1}
 .value-silhouette svg{width:100%;height:100%}
 .value-text{min-width:0}
+.value-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin-bottom:3px}
+.value-who{font-family:'Barlow Condensed',sans-serif;font-size:.64rem;font-weight:400;letter-spacing:.06em;color:var(--amber);margin-bottom:8px}
 .value-statement{font-size:.72rem;line-height:1.6;color:var(--muted);font-style:italic}
 
 /* EXPANDABLE VALUE CARDS */
+.value-card-expandable{position:relative}
 .value-saved-row{
   position:relative;
   width:100%;margin-top:10px;padding-top:10px;
@@ -151,6 +156,11 @@ h1 .hollow{-webkit-text-stroke:2px var(--teal);color:transparent}
 .value-detail{max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s ease;opacity:0}
 .value-detail.open{max-height:300px;opacity:1}
 .value-detail-inner{padding:8px 0 4px}
+.value-saved-amount{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--teal);line-height:1}
+.value-saved-label{font-family:'Barlow Condensed',sans-serif;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.value-saved-quote{font-size:.68rem;line-height:1.55;color:var(--muted);font-style:italic;margin:0 0 10px}
+.value-saved-items{display:flex;flex-wrap:nowrap;justify-content:center;gap:4px}
+.value-saved-chip{font-size:.48rem;padding:2px 6px;border-radius:100px;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.15);color:var(--amber);white-space:nowrap;letter-spacing:.02em}
 @media(max-width:860px){
   .values-inner{flex-wrap:wrap;gap:14px}
   .value-card{flex:1 1 44%;max-width:none}
