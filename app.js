@@ -1,7 +1,7 @@
 // ── City Maps ──
 const cityMapData = {
   sandiego: {
-    center: [32.72, -117.16], zoom: 10,
+    center: [32.72, -117.16], zoom: 13,
     pins: [
       { lat:32.740, lng:-117.198, type:'ride',  name:'Oceanside Pier',       note:'Sat 7am ride start' },
       { lat:32.721, lng:-117.155, type:'ride',  name:'Mission Valley',        note:'Sun 6:30am ride start' },
@@ -9,12 +9,11 @@ const cityMapData = {
       { lat:32.742, lng:-117.189, type:'shop',  name:'Moment Cycle Sport',    note:'10% Off · Bike shop' },
       { lat:32.738, lng:-117.187, type:'shop',  name:'Trek Bicycle SD',       note:'Partner · Rentals' },
       { lat:32.833, lng:-117.273, type:'cafe',  name:'Bird Rock Coffee',      note:'Free Drip · Post-ride' },
-      { lat:32.732, lng:-117.200, type:'cafe',  name:'Communal Coffee',       note:'Partner · Breakfast' },
+      { lat:32.732, lng:-117.130, type:'cafe',  name:'Communal Coffee',       note:'Partner · Breakfast' },
       { lat:32.713, lng:-117.157, type:'hotel', name:'Hilton Gaslamp',        note:'15% Off · Bike storage' },
       { lat:32.681, lng:-117.177, type:'hotel', name:'Hotel del Coronado',    note:'Partner · Beach access' },
       { lat:32.732, lng:-117.130, type:'food',  name:'Puesto',                note:'10% Off · Post-ride tacos' },
       { lat:32.732, lng:-117.131, type:'food',  name:"Carnitas' Snack Shack", note:'Partner · Recovery meals' },
-      { lat:32.714, lng:-117.162, type:'rental', name:'Cheap Rentals SD',       note:'20% Off · Day & week · E-bikes' },
     ]
   },
   chicago: {
@@ -61,12 +60,11 @@ const cityMapData = {
 };
 
 const pinColors = {
-  ride:   { bg:'#f5a623', emoji:'🚴' },
-  shop:   { bg:'#00c9a7', emoji:'🔧' },
-  cafe:   { bg:'#4db8ff', emoji:'☕' },
-  hotel:  { bg:'#c084fc', emoji:'🏨' },
-  food:   { bg:'#ff6b5b', emoji:'🍽️' },
-  rental: { bg:'#a78bfa', emoji:'🚲' },
+  ride:  { bg:'#f5a623', emoji:'📍' },
+  shop:  { bg:'#00c9a7', emoji:'🔧' },
+  cafe:  { bg:'#4db8ff', emoji:'☕' },
+  hotel: { bg:'#c084fc', emoji:'🏨' },
+  food:  { bg:'#ff6b5b', emoji:'🍽️' },
 };
 
 const cityMaps = {};
@@ -147,8 +145,43 @@ function switchCity(id, el){
   }, 50);
 }
 
+// ── City hub collapsibles — show max 2 items, collapse rest ──
+function initCollapsibles() {
+  document.querySelectorAll('.cpb').forEach(block => {
+    const items = Array.from(block.querySelectorAll('.pi'));
+    if (items.length <= 2) return;
+    const extra = document.createElement('div');
+    extra.className = 'cpb-extra';
+    extra.style.cssText = 'max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .3s ease;opacity:0;pointer-events:none';
+    items.slice(2).forEach(item => extra.appendChild(item));
+    block.appendChild(extra);
+    const count = items.length - 2;
+    const btn = document.createElement('button');
+    btn.className = 'cpb-more-btn';
+    btn.textContent = '+ ' + count + ' more';
+    btn.onclick = function() {
+      const isOpen = extra.style.maxHeight !== '0px' && extra.style.maxHeight !== '';
+      if (isOpen) {
+        extra.style.maxHeight = '0';
+        extra.style.opacity = '0';
+        extra.style.pointerEvents = 'none';
+        btn.textContent = '+ ' + count + ' more';
+      } else {
+        extra.style.maxHeight = extra.scrollHeight + 200 + 'px';
+        extra.style.opacity = '1';
+        extra.style.pointerEvents = 'auto';
+        btn.textContent = '− show less';
+      }
+    };
+    block.appendChild(btn);
+  });
+}
+
 // Init San Diego map on page load
-window.addEventListener('load', () => setTimeout(() => initCityMap('sandiego'), 400));
+window.addEventListener('load', () => {
+  setTimeout(() => initCityMap('sandiego'), 400);
+  initCollapsibles();
+});
 
 // ── Rides RSVP ──
 function rsvpRide(btn) {
