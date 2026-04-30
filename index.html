@@ -38,6 +38,7 @@
     <button class="ctab-nav" data-tab="races" onclick="switchTab('races',this)">Races</button>
     <button class="ctab-nav" data-tab="partners" onclick="switchTab('partners',this)">Partners</button>
     <button class="ctab-nav" data-tab="store" onclick="switchTab('store',this)">Store</button>
+    <button class="ctab-nav" data-tab="about" onclick="switchTab('about',this)">About</button>
   </div>
 </div>
 
@@ -54,7 +55,7 @@
         <h1>If You Don't <em>Know</em>,<br>You Won't <em>Go</em></h1>
         <p class="hero-p">Connect to group rides in every city, discover the best local routes whether you ride solo or with a crew, unlock exclusive partner deals - all while also supporting your local community.</p>
         <div class="hero-btns">
-          <button class="btn-a">About</button>
+          <button class="btn-a" onclick="switchTab('about', document.querySelector('[data-tab=about]'))">About</button>
           <button class="btn-o">Explore the Network</button>
         </div>
       </div>
@@ -199,7 +200,7 @@
 
         <!-- SAN DIEGO PANEL -->
         <div id="panel-sandiego" class="cpanel active">
-          <div class="cp-head"><div><div class="cp-city">San Diego</div><div class="cp-state">California, USA</div></div><div class="cp-stats"><div><div class="cpn">24</div><div class="cpl">Weekly Rides</div></div></div></div>
+          <div class="cp-head"><div><div class="cp-city">San Diego</div><div class="cp-state">California, USA</div></div><div class="cp-stats"><div><div class="cpn">24</div><div class="cpl">Weekly Rides</div></div><div><div class="cpn">312</div><div class="cpl">Members</div></div></div></div>
           <div class="cp-grid">
             <div class="cpb"><div class="cpb-title"><span>🚴</span>Weekly Rides</div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Pacific Coast Saturday</div><div class="pi-desc">Sat 7am · Oceanside Pier · 38 riders · Road</div></div></div><div class="pi"><div class="rdot dg"></div><div><div class="pi-nm">Laguna Mountains Gravel</div><div class="pi-desc">Sun 6:30am · Mission Valley · 18 riders</div></div></div><div class="pi"><div class="rdot dm"></div><div><div class="pi-nm">Sycamore Canyon Shred</div><div class="pi-desc">Sat 8am · Miramar · 12 riders · MTB</div></div></div></div>
             <div class="cpb"><div class="cpb-title"><span>🏪</span>Preferred Bike Shop</div><div class="pi"><div class="piic ia">🔧</div><div><div class="pi-nm">Moment Cycle Sport</div><div class="pi-desc">4010 Goldfinch St · 0.3mi from ride start</div></div><span class="pi-badge bd">10% Off</span></div><div class="pi"><div class="piic it">🚲</div><div><div class="pi-nm">Trek Bicycle SD</div><div class="pi-desc">Rentals · Service</div></div><span class="pi-badge bp">Partner</span></div></div>
@@ -213,7 +214,7 @@
 
         <!-- CHICAGO PANEL -->
         <div id="panel-chicago" class="cpanel">
-          <div class="cp-head"><div><div class="cp-city">Chicago</div><div class="cp-state">Illinois, USA</div></div><div class="cp-stats"><div><div class="cpn">52</div><div class="cpl">Weekly Rides</div></div></div></div>
+          <div class="cp-head"><div><div class="cp-city">Chicago</div><div class="cp-state">Illinois, USA</div></div><div class="cp-stats"><div><div class="cpn">52</div><div class="cpl">Weekly Rides</div></div><div><div class="cpn">634</div><div class="cpl">Members</div></div></div></div>
           <div class="cp-grid">
             <div class="cpb"><div class="cpb-title"><span>🚴</span>Weekly Rides</div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Saturday Morning Fast Group</div><div class="pi-desc">Sat 6:30am · Lakefront Path · 28 riders</div></div></div><div class="pi"><div class="rdot dg"></div><div><div class="pi-nm">Forest Preserve Grinder</div><div class="pi-desc">Sun 7am · Millennium Park · 14 riders</div></div></div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Tuesday Twilight Worlds</div><div class="pi-desc">Tue 6pm · Grant Park · 41 riders</div></div></div></div>
             <div class="cpb"><div class="cpb-title"><span>🏪</span>Preferred Bike Shop</div><div class="pi"><div class="piic ia">🔧</div><div><div class="pi-nm">Kozy's Cyclery</div><div class="pi-desc">601 S LaSalle · Near Millennium Park</div></div><span class="pi-badge bd">10% Off</span></div><div class="pi"><div class="piic it">🚲</div><div><div class="pi-nm">Performance Bicycle LP</div><div class="pi-desc">Lincoln Park · Full service + rentals</div></div><span class="pi-badge bp">Partner</span></div></div>
@@ -227,7 +228,7 @@
 
         <!-- MADISON PANEL -->
         <div id="panel-madison" class="cpanel">
-          <div class="cp-head"><div><div class="cp-city">Madison</div><div class="cp-state">Wisconsin, USA</div></div><div class="cp-stats"><div><div class="cpn">22</div><div class="cpl">Weekly Rides</div></div></div></div>
+          <div class="cp-head"><div><div class="cp-city">Madison</div><div class="cp-state">Wisconsin, USA</div></div><div class="cp-stats"><div><div class="cpn">22</div><div class="cpl">Weekly Rides</div></div><div><div class="cpn">261</div><div class="cpl">Members</div></div></div></div>
           <div class="cp-grid">
             <div class="cpb"><div class="cpb-title"><span>🚴</span>Weekly Rides</div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Capital City Criterium</div><div class="pi-desc">Sat 7am · State Capitol · 22 riders</div></div></div><div class="pi"><div class="rdot dg"></div><div><div class="pi-nm">Military Ridge Trail</div><div class="pi-desc">Sun 7:30am · Verona · 16 riders</div></div></div></div>
             <div class="cpb"><div class="cpb-title"><span>🏪</span>Bike Shop</div><div class="pi"><div class="piic ia">🔧</div><div><div class="pi-nm">Budget Bicycle Center</div><div class="pi-desc">1127 S Park St</div></div><span class="pi-badge bd">10% Off</span></div><div class="pi"><div class="piic it">🚲</div><div><div class="pi-nm">Wheel & Sprocket</div><div class="pi-desc">Full service · Member perks</div></div><span class="pi-badge bp">Partner</span></div></div>
@@ -241,7 +242,7 @@
 
         <!-- MILWAUKEE PANEL -->
         <div id="panel-milwaukee" class="cpanel">
-          <div class="cp-head"><div><div class="cp-city">Milwaukee</div><div class="cp-state">Wisconsin, USA</div></div><div class="cp-stats"><div><div class="cpn">19</div><div class="cpl">Weekly Rides</div></div></div></div>
+          <div class="cp-head"><div><div class="cp-city">Milwaukee</div><div class="cp-state">Wisconsin, USA</div></div><div class="cp-stats"><div><div class="cpn">19</div><div class="cpl">Weekly Rides</div></div><div><div class="cpn">228</div><div class="cpl">Members</div></div></div></div>
           <div class="cp-grid">
             <div class="cpb"><div class="cpb-title"><span>🚴</span>Weekly Rides</div><div class="pi"><div class="rdot dr"></div><div><div class="pi-nm">Lake Michigan Loop</div><div class="pi-desc">Sat 7am · Bradford Beach · 24 riders</div></div></div><div class="pi"><div class="rdot dg"></div><div><div class="pi-nm">Oak Leaf Trail Gravel</div><div class="pi-desc">Sun 8am · Estabrook · 11 riders</div></div></div></div>
             <div class="cpb"><div class="cpb-title"><span>🏪</span>Bike Shop</div><div class="pi"><div class="piic ia">🔧</div><div><div class="pi-nm">Wheel & Sprocket MKE</div><div class="pi-desc">5765 N Bayshore Dr · Expert fitting</div></div><span class="pi-badge bd">10% Off</span></div></div>
@@ -547,6 +548,90 @@
       </div>
     </div>
   </div><!-- /tab-store -->
+
+  <!-- ═══════════════════════════════ ABOUT TAB ══════════════════════════════ -->
+  <div class="tab-panel" id="tab-about">
+    <div style="max-width:820px;margin:0 auto;padding:var(--bar-total,110px) clamp(18px,4vw,64px) 80px">
+
+      <!-- Founder note -->
+      <div class="sec-eye" style="margin-bottom:14px">A Note from our Founder</div>
+      <h2 style="margin-bottom:36px">The Home Base for <em>American Cycling</em></h2>
+
+      <div style="background:linear-gradient(145deg,#0f2036,#0d1b2a);border:1px solid rgba(245,166,35,.18);border-left:4px solid var(--amber);border-radius:0 11px 11px 0;padding:40px 48px;margin-bottom:72px;position:relative;overflow:hidden">
+        <div style="position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.06) 0%,transparent 70%)"></div>
+        <div style="position:relative;z-index:1;font-size:1rem;line-height:1.88;color:#c8d8e8;font-weight:300">
+          <p style="margin-bottom:20px">I believe in God the Father Almighty, and that every second we are awarded is a gift. I've been fortunate to ride over 100,000 miles, and the most important thing I've learned isn't about the bike — it's about <strong style="color:var(--text);font-weight:500">unwavering gratitude for the day.</strong></p>
+          <p style="margin-bottom:20px">At NRN, we live by <strong style="color:var(--text);font-weight:500">'One Less Day'</strong>: the conviction that today is the best day of your life because it's the only one you're promised.</p>
+          <p style="margin-bottom:20px">We don't just ride to move. We ride to honor the gift of the day, to protect the community we share the road with, and to give breath to the miles for those who no longer can.</p>
+          <p style="margin-bottom:0">Whether you're here to win a race or to win back your health, this network is built to serve <strong style="color:var(--text);font-weight:500">you</strong>. It's All Love.</p>
+        </div>
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(245,166,35,.15)">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.08em;line-height:1;margin-bottom:4px">Kody Bäbler</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)">Founder, National Ride Network™</div>
+        </div>
+      </div>
+
+      <!-- Sections -->
+      <div style="display:flex;flex-direction:column;gap:60px">
+
+        <div>
+          <div class="sec-eye" style="margin-bottom:12px">Philosophy</div>
+          <h2 style="margin-bottom:18px">Connection is the <em>New Currency</em></h2>
+          <p style="font-size:.95rem;line-height:1.88;color:var(--muted);font-weight:300">We've all seen it. The "Social" platforms that leave us more isolated than ever. The training apps that turn every ride into a data point rather than an experience. At National Ride Network™, we believe that the soul of cycling isn't found in a leaderboard — it's found in the conversation at the coffee shop, the shared effort up a local climb, and the hand-up — whether it's a spare tube or a push to the summit — given to a rider in need.</p>
+        </div>
+
+        <div style="height:1px;background:linear-gradient(to right,transparent,rgba(245,166,35,.2),transparent)"></div>
+
+        <div>
+          <div class="sec-eye" style="margin-bottom:12px">Infrastructure</div>
+          <h2 style="margin-bottom:18px">We're a <em>Utility Company</em></h2>
+          <p style="font-size:.95rem;line-height:1.88;color:var(--muted);font-weight:300;margin-bottom:16px">We didn't build another app for you to manage. We built a home base for the community — one that allows you to optimize your time and spend. While our community features roll out region-by-region, our member benefits are borderless. From Day 1, every member gets access to our negotiated rates and HSA-eligible performance stacks, regardless of where they live.</p>
+          <p style="font-size:.95rem;line-height:1.88;color:var(--muted);font-weight:300">We provide the plumbing for the sport — so you can spend less time doomscrolling and more time back on the ride.</p>
+        </div>
+
+        <div style="height:1px;background:linear-gradient(to right,transparent,rgba(245,166,35,.2),transparent)"></div>
+
+        <div>
+          <div class="sec-eye" style="margin-bottom:12px">Who We Serve</div>
+          <h2 style="margin-bottom:18px">Serving the <em>Everyday Athlete</em></h2>
+          <p style="font-size:.95rem;line-height:1.88;color:var(--muted);font-weight:300;margin-bottom:16px">Traditional marketing is built for the 1% — the podium finishers and the full-time pros. We're here for the rest of us. We serve the "Everyday Athlete," balancing a 9-to-5 and a family with training blocks. The parent squeezing in a ride between morning swim lessons and afternoon dance recitals. The professional who knows that performance in the office is driven by their health outside of it.</p>
+          <p style="font-size:.95rem;line-height:1.88;color:var(--muted);font-weight:300"><strong style="color:var(--text);font-weight:500">You are the foundation of this sport; we provide the infrastructure that keeps the wheels turning.</strong></p>
+        </div>
+
+        <div style="height:1px;background:linear-gradient(to right,transparent,rgba(245,166,35,.2),transparent)"></div>
+
+        <div>
+          <div class="sec-eye" style="margin-bottom:12px">The NRN Model</div>
+          <h2 style="margin-bottom:18px">Institutional <em>Access</em></h2>
+          <p style="font-size:.95rem;line-height:1.88;color:var(--muted);font-weight:300">As a professional in the underwriting and finance world, I saw a glaring "Retail Tax" in this sport. We leverage the collective scale of our network to secure preferred access to the world's best brands and pass that value directly to you. Your membership isn't a cost — it's <strong style="color:var(--text);font-weight:500">Institutional Access.</strong> Most members realize 2x–3x the value of their membership fee on their very first gear "Value Stack."</p>
+        </div>
+
+        <div style="height:1px;background:linear-gradient(to right,transparent,rgba(245,166,35,.2),transparent)"></div>
+
+        <div>
+          <div class="sec-eye" style="margin-bottom:12px">Giving Back</div>
+          <h2 style="margin-bottom:18px">One Less Day: <em>The Seed Program</em></h2>
+          <p style="font-size:.95rem;line-height:1.88;color:var(--muted);font-weight:300;margin-bottom:16px">We believe in God the Father Almighty, and believe every second we are given is a gift to be honored. It's the drive to fully take in every second, to uplift our friends on the road, and to live with the conviction that today is the best day of your life.</p>
+          <div style="background:rgba(0,201,167,.05);border:1px solid rgba(0,201,167,.18);border-radius:11px;padding:32px 36px;margin-top:4px">
+            <span style="font-size:2rem;display:block;margin-bottom:12px">🌱</span>
+            <p style="font-size:.92rem;line-height:1.85;color:var(--muted);margin:0">That's why a core pillar of our network is our <strong style="color:var(--text);font-weight:500">Seed Program</strong>. We partner with and support youth cycling organizations through scholarships to invest in the next generation of riders who otherwise wouldn't have a seat at the table.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Closing -->
+      <div style="text-align:center;margin-top:80px;padding:64px 0;border-top:1px solid var(--border)">
+        <div class="sec-eye" style="justify-content:center;margin-bottom:16px">National Ride Network</div>
+        <h2 style="margin-bottom:16px">If You Don't Know,<br><em>You Won't Go</em></h2>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--muted);max-width:500px;margin:0 auto 12px">Whether you are a traveler looking for the "local" shop in a new city, a parent looking for a safe community for your child, or a rider looking for a partner to share a beer with after a long Saturday — <strong style="color:var(--text);font-weight:500">you belong here.</strong></p>
+        <p style="font-size:1.05rem;color:var(--text);margin-bottom:32px">Welcome to the Network. Let's ride.</p>
+        <button class="btn-a" style="padding:14px 36px" onclick="switchTab('home', document.querySelector('[data-tab=home]'))">Explore the Network</button>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:20px">— Kody Bäbler, Founder</div>
+      </div>
+
+    </div>
+  </div><!-- /tab-about -->
 
 </div><!-- /tab-panels -->
 
