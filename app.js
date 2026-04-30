@@ -1,7 +1,7 @@
 // ── City Maps ──
 const cityMapData = {
   sandiego: {
-    center: [32.72, -117.16], zoom: 13,
+    center: [32.72, -117.16], zoom: 10,
     pins: [
       { lat:32.740, lng:-117.198, type:'ride',  name:'Oceanside Pier',       note:'Sat 7am ride start' },
       { lat:32.721, lng:-117.155, type:'ride',  name:'Mission Valley',        note:'Sun 6:30am ride start' },
@@ -9,7 +9,7 @@ const cityMapData = {
       { lat:32.742, lng:-117.189, type:'shop',  name:'Moment Cycle Sport',    note:'10% Off · Bike shop' },
       { lat:32.738, lng:-117.187, type:'shop',  name:'Trek Bicycle SD',       note:'Partner · Rentals' },
       { lat:32.833, lng:-117.273, type:'cafe',  name:'Bird Rock Coffee',      note:'Free Drip · Post-ride' },
-      { lat:32.732, lng:-117.130, type:'cafe',  name:'Communal Coffee',       note:'Partner · Breakfast' },
+      { lat:32.732, lng:-117.200, type:'cafe',  name:'Communal Coffee',       note:'Partner · Breakfast' },
       { lat:32.713, lng:-117.157, type:'hotel', name:'Hilton Gaslamp',        note:'15% Off · Bike storage' },
       { lat:32.681, lng:-117.177, type:'hotel', name:'Hotel del Coronado',    note:'Partner · Beach access' },
       { lat:32.732, lng:-117.130, type:'food',  name:'Puesto',                note:'10% Off · Post-ride tacos' },
