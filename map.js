@@ -137,6 +137,7 @@ function buildPins(){
     });
     g.on('click',function(event){
       event.stopPropagation();if(dragMoved||blockStateClick)return;
+      lastPinClick=Date.now();
       if(activeCityId===id){closeCityTip();return;}
       closeAll();activeCityId=id;
       document.getElementById('nrn-t-city').textContent=d.city;
@@ -188,6 +189,7 @@ fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
       .datum(topojson.mesh(us,us.objects.states,(a,b)=>a!==b))
       .attr('fill','none').attr('stroke','#0d1b2a').attr('stroke-width','0.8').attr('d',BASE_PATH);
     buildPins();
-    svg.on('click.bg',()=>{if(!dragMoved&&!blockStateClick)closeAll();});
+    let lastPinClick=0;
+    svg.on('click.bg',()=>{if(!dragMoved&&!blockStateClick&&Date.now()-lastPinClick>300)closeAll();});
   });
 })();
