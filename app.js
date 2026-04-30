@@ -1,7 +1,7 @@
 // ── City Maps ──
 const cityMapData = {
   sandiego: {
-    center: [32.787, -117.210], zoom: 11,
+    center: [32.787, -117.210], zoom: 10,
     pins: [
       { lat:32.740, lng:-117.198, type:'ride',  name:'Oceanside Pier',       note:'Sat 7am ride start' },
       { lat:32.721, lng:-117.155, type:'ride',  name:'Mission Valley',        note:'Sun 6:30am ride start' },
@@ -46,7 +46,7 @@ const cityMapData = {
     ]
   },
   milwaukee: {
-    center: [43.078, -87.900], zoom: 12,
+    center: [43.078, -87.900], zoom: 11,
     pins: [
       { lat:43.063, lng:-87.876, type:'ride',  name:'Bradford Beach',         note:'Sat 7am ride start' },
       { lat:43.093, lng:-87.900, type:'ride',  name:'Estabrook Park',         note:'Sun 8am ride start' },
