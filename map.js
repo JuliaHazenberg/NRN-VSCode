@@ -242,7 +242,7 @@ function buildPins(){
     const pt=BASE_PROJ([d.lon,d.lat]);if(!pt)return;
     const[x,y]=pt;
     const g=pinGroup.append('g').attr('class','nrn-pin-group').attr('data-x',x).attr('data-y',y).style('cursor','pointer');
-    g.append('rect').attr('x',x-32).attr('y',y-28).attr('width',64).attr('height',52).attr('fill','transparent').attr('stroke','none').style('pointer-events','all');
+    g.append('rect').attr('x',x-44).attr('y',y-44).attr('width',88).attr('height',88).attr('fill','transparent').attr('stroke','none').style('pointer-events','all');
     g.append('circle').attr('class','nrn-pulse').attr('cx',x).attr('cy',y).attr('r',13).attr('fill','none').attr('stroke','#f5a623').attr('stroke-width','1.8').attr('opacity','.55');
     g.append('circle').attr('class','nrn-pulse2').attr('cx',x).attr('cy',y).attr('r',13).attr('fill','none').attr('stroke','#f5a623').attr('stroke-width','1.2').attr('opacity','.4');
     g.append('circle').attr('cx',x).attr('cy',y).attr('r',10).attr('fill','#0d1b2a').attr('stroke','#f5a623').attr('stroke-width','2.5').attr('class','nrn-pin-outer');
@@ -299,9 +299,16 @@ fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
       })
       .on('end',()=>{svgEl.classList.remove('nrn-dragging');if(!panelManualPos)repositionPanels();});
 
-    mapScrollActive=true;
+    svg.on('click.activate',function(){
+      if(!mapScrollActive){
+        mapScrollActive=true;
+        svg.call(zoomBehavior);
+        svg.on('dblclick.zoom',null);
+        svg.on('click.activate',null);
+      }
+    });
     svg.call(zoomBehavior.filter(event=>{
-      if(event.type==='wheel')return mapScrollActive;
+      if(event.type==='wheel')return false;
       return !event.ctrlKey&&!event.button;
     }));
     svg.on('dblclick.zoom',null);
