@@ -1,7 +1,7 @@
 // ── City Maps ──
 const cityMapData = {
   sandiego: {
-    center: [32.72, -117.16], zoom: 13,
+    center: [32.78, -117.16], zoom: 11,
     pins: [
       { lat:32.740, lng:-117.198, type:'ride',  name:'Oceanside Pier',       note:'Sat 7am ride start' },
       { lat:32.721, lng:-117.155, type:'ride',  name:'Mission Valley',        note:'Sun 6:30am ride start' },
@@ -17,7 +17,7 @@ const cityMapData = {
     ]
   },
   chicago: {
-    center: [41.89, -87.63], zoom: 13,
+    center: [41.90, -87.64], zoom: 12,
     pins: [
       { lat:41.892, lng:-87.612, type:'ride',  name:'Lakefront Path',        note:'Sat 6:30am ride start' },
       { lat:41.882, lng:-87.623, type:'ride',  name:'Millennium Park',        note:'Sun 7am ride start' },
@@ -33,7 +33,7 @@ const cityMapData = {
     ]
   },
   madison: {
-    center: [43.073, -89.40], zoom: 12,
+    center: [43.055, -89.42], zoom: 11,
     pins: [
       { lat:43.075, lng:-89.384, type:'ride',  name:'State Capitol',          note:'Sat 7am ride start' },
       { lat:43.014, lng:-89.533, type:'ride',  name:'Verona Trailhead',       note:'Sun 7:30am ride start' },
@@ -46,7 +46,7 @@ const cityMapData = {
     ]
   },
   milwaukee: {
-    center: [43.045, -87.91], zoom: 13,
+    center: [43.07, -87.91], zoom: 12,
     pins: [
       { lat:43.063, lng:-87.876, type:'ride',  name:'Bradford Beach',         note:'Sat 7am ride start' },
       { lat:43.093, lng:-87.900, type:'ride',  name:'Estabrook Park',         note:'Sun 8am ride start' },
@@ -60,7 +60,7 @@ const cityMapData = {
 };
 
 const pinColors = {
-  ride:  { bg:'#f5a623', emoji:'📍' },
+  ride:  { bg:'#f5a623', emoji:'🚴' },
   shop:  { bg:'#00c9a7', emoji:'🔧' },
   cafe:  { bg:'#4db8ff', emoji:'☕' },
   hotel: { bg:'#c084fc', emoji:'🏨' },
@@ -146,7 +146,41 @@ function switchCity(id, el){
 }
 
 // Init San Diego map on page load
-window.addEventListener('load', () => setTimeout(() => initCityMap('sandiego'), 400));
+window.addEventListener('load', () => {
+  setTimeout(() => initCityMap('sandiego'), 400);
+  initCollapsibles();
+});
+
+// Auto-collapse 3rd+ .pi items in each .cpb section
+function initCollapsibles() {
+  document.querySelectorAll('.cpb').forEach(block => {
+    const items = block.querySelectorAll('.pi');
+    if(items.length <= 2) return;
+    // Wrap items 3+ in a collapsible
+    const extra = document.createElement('div');
+    extra.className = 'cpb-extra';
+    extra.style.cssText = 'max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .3s ease;opacity:0';
+    for(let i = 2; i < items.length; i++) extra.appendChild(items[i]);
+    block.appendChild(extra);
+    // Add toggle button
+    const btn = document.createElement('button');
+    btn.className = 'cpb-more-btn';
+    btn.innerHTML = `+ ${items.length - 2} more`;
+    btn.onclick = function() {
+      const open = extra.style.maxHeight !== '0px' && extra.style.maxHeight !== '';
+      if(open) {
+        extra.style.maxHeight = '0';
+        extra.style.opacity = '0';
+        btn.innerHTML = `+ ${items.length - 2} more`;
+      } else {
+        extra.style.maxHeight = extra.scrollHeight + 'px';
+        extra.style.opacity = '1';
+        btn.innerHTML = '− show less';
+      }
+    };
+    block.appendChild(btn);
+  });
+}
 
 // ── Rides RSVP ──
 function rsvpRide(btn) {
