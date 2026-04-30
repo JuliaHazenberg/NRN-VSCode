@@ -1,7 +1,7 @@
 // ── City Maps ──
 const cityMapData = {
   sandiego: {
-    center: [32.787, -117.210], zoom: 10,
+    center: [32.72, -117.16], zoom: 13,
     pins: [
       { lat:32.740, lng:-117.198, type:'ride',  name:'Oceanside Pier',       note:'Sat 7am ride start' },
       { lat:32.721, lng:-117.155, type:'ride',  name:'Mission Valley',        note:'Sun 6:30am ride start' },
@@ -14,10 +14,11 @@ const cityMapData = {
       { lat:32.681, lng:-117.177, type:'hotel', name:'Hotel del Coronado',    note:'Partner · Beach access' },
       { lat:32.732, lng:-117.130, type:'food',  name:'Puesto',                note:'10% Off · Post-ride tacos' },
       { lat:32.732, lng:-117.131, type:'food',  name:"Carnitas' Snack Shack", note:'Partner · Recovery meals' },
+      { lat:32.714, lng:-117.162, type:'rental', name:'Cheap Rentals SD',       note:'20% Off · Day & week · E-bikes' },
     ]
   },
   chicago: {
-    center: [41.909, -87.660], zoom: 11,
+    center: [41.89, -87.63], zoom: 13,
     pins: [
       { lat:41.892, lng:-87.612, type:'ride',  name:'Lakefront Path',        note:'Sat 6:30am ride start' },
       { lat:41.882, lng:-87.623, type:'ride',  name:'Millennium Park',        note:'Sun 7am ride start' },
@@ -33,7 +34,7 @@ const cityMapData = {
     ]
   },
   madison: {
-    center: [43.045, -89.460], zoom: 11,
+    center: [43.073, -89.40], zoom: 12,
     pins: [
       { lat:43.075, lng:-89.384, type:'ride',  name:'State Capitol',          note:'Sat 7am ride start' },
       { lat:43.014, lng:-89.533, type:'ride',  name:'Verona Trailhead',       note:'Sun 7:30am ride start' },
@@ -46,7 +47,7 @@ const cityMapData = {
     ]
   },
   milwaukee: {
-    center: [43.078, -87.900], zoom: 11,
+    center: [43.045, -87.91], zoom: 13,
     pins: [
       { lat:43.063, lng:-87.876, type:'ride',  name:'Bradford Beach',         note:'Sat 7am ride start' },
       { lat:43.093, lng:-87.900, type:'ride',  name:'Estabrook Park',         note:'Sun 8am ride start' },
@@ -60,11 +61,12 @@ const cityMapData = {
 };
 
 const pinColors = {
-  ride:  { bg:'#f5a623', emoji:'🚴' },
-  shop:  { bg:'#00c9a7', emoji:'🔧' },
-  cafe:  { bg:'#4db8ff', emoji:'☕' },
-  hotel: { bg:'#c084fc', emoji:'🏨' },
-  food:  { bg:'#ff6b5b', emoji:'🍽️' },
+  ride:   { bg:'#f5a623', emoji:'🚴' },
+  shop:   { bg:'#00c9a7', emoji:'🔧' },
+  cafe:   { bg:'#4db8ff', emoji:'☕' },
+  hotel:  { bg:'#c084fc', emoji:'🏨' },
+  food:   { bg:'#ff6b5b', emoji:'🍽️' },
+  rental: { bg:'#a78bfa', emoji:'🚲' },
 };
 
 const cityMaps = {};
@@ -145,45 +147,8 @@ function switchCity(id, el){
   }, 50);
 }
 
-// ── City hub collapsibles — show max 2 items, collapse rest ──
-function initCollapsibles() {
-  document.querySelectorAll('.cpb').forEach(block => {
-    const items = Array.from(block.querySelectorAll('.pi'));
-    if (items.length <= 2) return;
-    // Wrap items 3+ in a collapsible container
-    const extra = document.createElement('div');
-    extra.className = 'cpb-extra';
-    extra.style.cssText = 'max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .3s ease;opacity:0;pointer-events:none';
-    items.slice(2).forEach(item => extra.appendChild(item));
-    block.appendChild(extra);
-    // Add toggle button
-    const count = items.length - 2;
-    const btn = document.createElement('button');
-    btn.className = 'cpb-more-btn';
-    btn.textContent = '+ ' + count + ' more';
-    btn.onclick = function() {
-      const isOpen = extra.style.maxHeight !== '0px' && extra.style.maxHeight !== '';
-      if (isOpen) {
-        extra.style.maxHeight = '0';
-        extra.style.opacity = '0';
-        extra.style.pointerEvents = 'none';
-        btn.textContent = '+ ' + count + ' more';
-      } else {
-        extra.style.maxHeight = extra.scrollHeight + 200 + 'px';
-        extra.style.opacity = '1';
-        extra.style.pointerEvents = 'auto';
-        btn.textContent = '− show less';
-      }
-    };
-    block.appendChild(btn);
-  });
-}
-
 // Init San Diego map on page load
-window.addEventListener('load', () => {
-  setTimeout(() => initCityMap('sandiego'), 400);
-  initCollapsibles();
-});
+window.addEventListener('load', () => setTimeout(() => initCityMap('sandiego'), 400));
 
 // ── Rides RSVP ──
 function rsvpRide(btn) {
