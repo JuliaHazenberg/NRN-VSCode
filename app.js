@@ -60,7 +60,7 @@ const cityMapData = {
 };
 
 const pinColors = {
-  ride:  { bg:'#f5a623', emoji:'📍' },
+  ride:  { bg:'#f5a623', emoji:'🚴' },
   shop:  { bg:'#00c9a7', emoji:'🔧' },
   cafe:  { bg:'#4db8ff', emoji:'☕' },
   hotel: { bg:'#c084fc', emoji:'🏨' },
@@ -145,8 +145,45 @@ function switchCity(id, el){
   }, 50);
 }
 
+// ── City hub collapsibles — show max 2 items, collapse rest ──
+function initCollapsibles() {
+  document.querySelectorAll('.cpb').forEach(block => {
+    const items = Array.from(block.querySelectorAll('.pi'));
+    if (items.length <= 2) return;
+    // Wrap items 3+ in a collapsible container
+    const extra = document.createElement('div');
+    extra.className = 'cpb-extra';
+    extra.style.cssText = 'max-height:0;overflow:hidden;transition:max-height .35s ease,opacity .3s ease;opacity:0;pointer-events:none';
+    items.slice(2).forEach(item => extra.appendChild(item));
+    block.appendChild(extra);
+    // Add toggle button
+    const count = items.length - 2;
+    const btn = document.createElement('button');
+    btn.className = 'cpb-more-btn';
+    btn.textContent = '+ ' + count + ' more';
+    btn.onclick = function() {
+      const isOpen = extra.style.maxHeight !== '0px' && extra.style.maxHeight !== '';
+      if (isOpen) {
+        extra.style.maxHeight = '0';
+        extra.style.opacity = '0';
+        extra.style.pointerEvents = 'none';
+        btn.textContent = '+ ' + count + ' more';
+      } else {
+        extra.style.maxHeight = extra.scrollHeight + 200 + 'px';
+        extra.style.opacity = '1';
+        extra.style.pointerEvents = 'auto';
+        btn.textContent = '− show less';
+      }
+    };
+    block.appendChild(btn);
+  });
+}
+
 // Init San Diego map on page load
-window.addEventListener('load', () => setTimeout(() => initCityMap('sandiego'), 400));
+window.addEventListener('load', () => {
+  setTimeout(() => initCityMap('sandiego'), 400);
+  initCollapsibles();
+});
 
 // ── Rides RSVP ──
 function rsvpRide(btn) {
