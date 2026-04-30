@@ -265,7 +265,6 @@ function buildPins(){
       document.getElementById('nrn-t-city').textContent=d.city;
       document.getElementById('nrn-t-state').textContent=d.state;
       document.getElementById('nrn-t-rides').textContent=d.rides;
-      document.getElementById('nrn-t-mem').textContent=d.mem;
       const cc=document.getElementById('nrn-t-chips');cc.innerHTML='';
       d.chips.forEach(c=>{const s=document.createElement('span');s.className=chipCls[c]||'nrn-chip';s.textContent=c;cc.appendChild(s);});
       document.getElementById('nrn-hub-btn').onclick=()=>{
@@ -300,14 +299,7 @@ fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
       })
       .on('end',()=>{svgEl.classList.remove('nrn-dragging');if(!panelManualPos)repositionPanels();});
 
-    svg.on('click.activate',function(){
-      if(!mapScrollActive){
-        mapScrollActive=true;
-        svg.call(zoomBehavior);
-        svg.on('dblclick.zoom',null);
-        svg.on('click.activate',null);
-      }
-    });
+    mapScrollActive=true;
     svg.call(zoomBehavior.filter(event=>{
       if(event.type==='wheel')return mapScrollActive;
       return !event.ctrlKey&&!event.button;
