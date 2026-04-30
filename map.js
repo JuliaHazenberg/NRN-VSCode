@@ -25,6 +25,8 @@ let mapScrollActive=false;
 
 function showSheet(p){p.style.display='block';}
 function hideSheet(p){p.style.display='none';}
+function showX(btn,panel){const pr=panel.getBoundingClientRect(),wr=wrap.getBoundingClientRect();btn.style.left=(pr.right-wr.left-13)+'px';btn.style.top=(pr.top-wr.top-13)+'px';btn.style.display='flex';}
+function hideX(btn){btn.style.display='none';}
 
 function svgPt(vx,vy){const t=d3.zoomTransform(svgEl);return[t.applyX(vx),t.applyY(vy)];}
 
@@ -40,7 +42,7 @@ function posPanel(el,px,py){
 function repositionPanels(){
   if(cityTip.style.display!=='none'&&activeCityId){
     const d=liveCities[activeCityId],p=BASE_PROJ([d.lon,d.lat]);
-    if(p){posPanel(cityTip,...svgPt(p[0],p[1]));}
+    if(p){posPanel(cityTip,...svgPt(p[0],p[1]));showX(xbtnCity,cityTip);}
   }
 }
 
@@ -79,6 +81,7 @@ function resetZoom(dur){
 
 xbtnCity.addEventListener('mousedown',e=>{e.stopPropagation();e.preventDefault();});
 xbtnCity.addEventListener('click',e=>{e.stopPropagation();e.preventDefault();closeAll();blockStateClick=true;setTimeout(()=>blockStateClick=false,300);});
+document.getElementById('nrn-zc-in').addEventListener('click',e=>{e.stopPropagation();const r=svgEl.getBoundingClientRect();d3.select(svgEl).transition().duration(320).ease(d3.easeCubicOut).call(zoomBehavior.scaleBy,1.5,[r.width/2,r.height/2]);});
 document.getElementById('nrn-zc-out').addEventListener('click',e=>{e.stopPropagation();const t=d3.zoomTransform(svgEl);if(t.k<=1.1){resetZoom(350);return;}const r=svgEl.getBoundingClientRect();d3.select(svgEl).transition().duration(320).ease(d3.easeCubicOut).call(zoomBehavior.scaleBy,0.67,[r.width/2,r.height/2]);});
 document.getElementById('nrn-zc-reset').addEventListener('click',e=>{e.stopPropagation();resetZoom(380);});
 backBtn.addEventListener('click',e=>{e.stopPropagation();resetZoom(420);closeAll();});
@@ -106,11 +109,7 @@ function buildPins(){
     const pt=BASE_PROJ([d.lon,d.lat]);if(!pt)return;
     const[x,y]=pt;
     const g=pinGroup.append('g').attr('class','nrn-pin-group').attr('data-x',x).attr('data-y',y).style('cursor','pointer');
-    g.append('rect').attr('x',x-32).attr('y',y-28).attr('width',64).attr('height',52).attr('fill','transparent').attr('stroke','none').style('pointer-events','all');
-    g.append('circle').attr('class','nrn-pulse').attr('cx',x).attr('cy',y).attr('r',13).attr('fill','none').attr('stroke','#f5a623').attr('stroke-width','1.8').attr('opacity','.55');
-    g.append('circle').attr('class','nrn-pulse2').attr('cx',x).attr('cy',y).attr('r',13).attr('fill','none').attr('stroke','#f5a623').attr('stroke-width','1.2').attr('opacity','.4');
-    g.append('circle').attr('cx',x).attr('cy',y).attr('r',10).attr('fill','#0d1b2a').attr('stroke','#f5a623').attr('stroke-width','2.5').attr('class','nrn-pin-outer');
-    g.append('circle').attr('cx',x).attr('cy',y).attr('r',5).attr('fill','#f5a623').attr('class','nrn-pin-dot');
+    // Label first, pointer-events:none so it never blocks pin clicks
     let lx=x,ly=y-20,anchor='middle';
     if(d.labelBelow)ly=y+26;
     if(d.labelRight){lx=x+17;ly=y+5;anchor='start';}
@@ -119,9 +118,23 @@ function buildPins(){
       .attr('font-family','Barlow Condensed,sans-serif').attr('font-size',14).attr('font-weight','700')
       .attr('letter-spacing','1.6').attr('fill','#f5a623').attr('paint-order','stroke')
       .attr('stroke','#0d1b2a').attr('stroke-width','3').attr('stroke-linejoin','round')
+      .style('pointer-events','none')
       .text(d.city.toUpperCase());
-    g.on('mouseover',function(){d3.select(this).select('.nrn-pin-dot').attr('fill','#ffc04d');d3.select(this).select('.nrn-pin-outer').attr('stroke','#ffc04d');});
-    g.on('mouseout',function(){d3.select(this).select('.nrn-pin-dot').attr('fill','#f5a623');d3.select(this).select('.nrn-pin-outer').attr('stroke','#f5a623');});
+    // Pin visuals — no pointer events (hit area handles it)
+    g.append('circle').attr('class','nrn-pulse').attr('cx',x).attr('cy',y).attr('r',13).attr('fill','none').attr('stroke','#f5a623').attr('stroke-width','1.8').attr('opacity','.55').style('pointer-events','none');
+    g.append('circle').attr('class','nrn-pulse2').attr('cx',x).attr('cy',y).attr('r',13).attr('fill','none').attr('stroke','#f5a623').attr('stroke-width','1.2').attr('opacity','.4').style('pointer-events','none');
+    g.append('circle').attr('cx',x).attr('cy',y).attr('r',10).attr('fill','#0d1b2a').attr('stroke','#f5a623').attr('stroke-width','2.5').attr('class','nrn-pin-outer').style('pointer-events','none');
+    g.append('circle').attr('cx',x).attr('cy',y).attr('r',5).attr('fill','#f5a623').attr('class','nrn-pin-dot').style('pointer-events','none');
+    // Large transparent hit circle centered on pin
+    g.append('circle').attr('cx',x).attr('cy',y).attr('r',20).attr('fill','transparent').attr('stroke','none').style('pointer-events','all');
+    g.on('mouseover',function(){
+      d3.select(this).select('.nrn-pin-dot').attr('fill','#ffc04d');
+      d3.select(this).select('.nrn-pin-outer').attr('stroke','#ffc04d');
+    });
+    g.on('mouseout',function(){
+      d3.select(this).select('.nrn-pin-dot').attr('fill','#f5a623');
+      d3.select(this).select('.nrn-pin-outer').attr('stroke','#f5a623');
+    });
     g.on('click',function(event){
       event.stopPropagation();if(dragMoved||blockStateClick)return;
       if(activeCityId===id){closeCityTip();return;}
@@ -136,12 +149,11 @@ function buildPins(){
         if(cityEl) switchCity(id, cityEl);
         document.getElementById('cities')?.scrollIntoView({behavior:'smooth'});
       };
-      const toK=Math.max(d3.zoomTransform(svgEl).k,3);
-      zoomToPoint(x,y,toK,460,()=>{
-        showSheet(cityTip);
-        posPanel(cityTip,...svgPt(x,y));
-        setTimeout(()=>showX(xbtnCity,cityTip),60);
-      });
+      showSheet(cityTip);
+      posPanel(cityTip,...svgPt(x,y));
+      setTimeout(()=>showX(xbtnCity,cityTip),40);
+      const curK=d3.zoomTransform(svgEl).k;
+      if(curK<2.5) zoomToPoint(x,y,3,450,()=>repositionPanels());
     });
   });
   updatePinScales(d3.zoomTransform(svgEl).k||1);
