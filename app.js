@@ -1,7 +1,7 @@
 // ── City Maps ──
 const cityMapData = {
   sandiego: {
-    center: [32.72, -117.16], zoom: 10,
+    center: [32.74, -117.17], zoom: 11,
     pins: [
       { lat:32.740, lng:-117.198, type:'ride',  name:'Oceanside Pier',       note:'Sat 7am ride start' },
       { lat:32.721, lng:-117.155, type:'ride',  name:'Mission Valley',        note:'Sun 6:30am ride start' },
@@ -17,7 +17,7 @@ const cityMapData = {
     ]
   },
   chicago: {
-    center: [41.89, -87.63], zoom: 13,
+    center: [41.900, -87.640], zoom: 12,
     pins: [
       { lat:41.892, lng:-87.612, type:'ride',  name:'Lakefront Path',        note:'Sat 6:30am ride start' },
       { lat:41.882, lng:-87.623, type:'ride',  name:'Millennium Park',        note:'Sun 7am ride start' },
@@ -33,7 +33,7 @@ const cityMapData = {
     ]
   },
   madison: {
-    center: [43.073, -89.40], zoom: 12,
+    center: [43.060, -89.450], zoom: 11,
     pins: [
       { lat:43.075, lng:-89.384, type:'ride',  name:'State Capitol',          note:'Sat 7am ride start' },
       { lat:43.014, lng:-89.533, type:'ride',  name:'Verona Trailhead',       note:'Sun 7:30am ride start' },
@@ -46,7 +46,7 @@ const cityMapData = {
     ]
   },
   milwaukee: {
-    center: [43.078, -87.898], zoom: 11,
+    center: [43.078, -87.900], zoom: 11,
     pins: [
       { lat:43.063, lng:-87.876, type:'ride',  name:'Bradford Beach',         note:'Sat 7am ride start' },
       { lat:43.093, lng:-87.900, type:'ride',  name:'Estabrook Park',         note:'Sun 8am ride start' },
