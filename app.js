@@ -38,7 +38,7 @@ const cityMapData = {
       { lat:43.075, lng:-89.384, type:'ride',  name:'State Capitol',          note:'Sat 7am ride start' },
       { lat:43.014, lng:-89.533, type:'ride',  name:'Verona Trailhead',       note:'Sun 7:30am ride start' },
       { lat:43.043416, lng:-89.405671, type:'shop',  name:'Neff Cycle Service',  note:'Partner · Bike shop' },
-      { lat:43.062, lng:-89.380, type:'shop',  name:'Wheel & Sprocket',       note:'Partner · Full service' },
+      { lat:43.096, lng:-89.4959, type:'shop',  name:'Wheel & Sprocket',       note:'Partner · Full service' },
       { lat:43.0809, lng:-89.3758, type:'cafe',  name:'Cargo Coffee',           note:'Free Drip · Bike-friendly' },
       { lat:43.076, lng:-89.397, type:'hotel', name:'Graduate Madison',        note:'15% Off · Bike storage' },
       { lat:43.068, lng:-89.393, type:'food',  name:'The Old Fashioned',      note:'10% Off · Wisconsin comfort' },
