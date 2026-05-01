@@ -120,6 +120,7 @@ function switchTab(id, btn) {
     });
   }
   if(id !== 'home') window.scrollTo({top:0, behavior:'smooth'});
+  history.pushState(null, '', id === 'home' ? '/' : '/' + id);
 }
 
 // ── City hub switcher ──
