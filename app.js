@@ -17,7 +17,7 @@ const cityMapData = {
     ]
   },
   chicago: {
-    center: [41.900, -87.645], zoom: 12,
+    center: [41.910, -87.640], zoom: 12,
     pins: [
       { lat:41.892, lng:-87.612, type:'ride',  name:'Lakefront Path',        note:'Sat 6:30am ride start' },
       { lat:41.882, lng:-87.623, type:'ride',  name:'Millennium Park',        note:'Sun 7am ride start' },
