@@ -46,7 +46,7 @@ const cityMapData = {
     ]
   },
   milwaukee: {
-    center: [43.045, -87.91], zoom: 12,
+    center: [43.078, -87.898], zoom: 11,
     pins: [
       { lat:43.063, lng:-87.876, type:'ride',  name:'Bradford Beach',         note:'Sat 7am ride start' },
       { lat:43.093, lng:-87.900, type:'ride',  name:'Estabrook Park',         note:'Sun 8am ride start' },
