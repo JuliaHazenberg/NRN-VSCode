@@ -310,34 +310,67 @@
 
     <!-- SYNC -->
     <div class="sync-sec sec" id="sync" style="padding-top:0"><div class="wrap">
-      <div class="sync-grid">
-        <div>
-          <div class="sec-eye rev">Platform Sync</div>
-          <h2 class="rev d1">Connect Your <em>Gear</em></h2>
-          <p class="rev d2" style="color:var(--muted);font-size:.87rem;line-height:1.75;margin:13px 0 0;max-width:390px">One connection. Every platform you already ride with. NRN logs your rides, syncs achievements, and shares routes — automatically.</p>
-          <div class="sync-plat" id="sync-plat">
-            <div class="scard rev d2" onclick="syncConnect(this,'strava')" data-id="strava"><div class="slogo l1">🔥</div><div><div class="sname">Strava</div><div class="sdesc">Auto-log rides & segments</div></div><span class="sstatus sl">Live</span><span class="sconn-btn">Connect</span></div>
-            <div class="scard rev d3" onclick="syncConnect(this,'garmin')" data-id="garmin"><div class="slogo l2">⌚</div><div><div class="sname">Garmin</div><div class="sdesc">Device & Connect sync</div></div><span class="sstatus sl">Live</span><span class="sconn-btn">Connect</span></div>
-            <div class="scard rev d3" onclick="syncConnect(this,'trainingpeaks')" data-id="trainingpeaks"><div class="slogo l3">📊</div><div><div class="sname">TrainingPeaks</div><div class="sdesc">TSS & structured training</div></div><span class="sstatus sl">Live</span><span class="sconn-btn">Connect</span></div>
-            <div class="scard rev d4" onclick="syncConnect(this,'wahoo')" data-id="wahoo"><div class="slogo l4">⚡</div><div><div class="sname">Wahoo</div><div class="sdesc">ELEMNT & KICKR sync</div></div><span class="sstatus sb2">Beta</span><span class="sconn-btn">Connect</span></div>
-            <div class="scard rev d4" onclick="syncConnect(this,'ridewithgps')" data-id="ridewithgps"><div class="slogo l5">🗺️</div><div><div class="sname">RideWithGPS</div><div class="sdesc">Route planning & sharing</div></div><span class="sstatus sl">Live</span><span class="sconn-btn">Connect</span></div>
-            <div class="scard rev d4" onclick="syncConnect(this,'komoot')" data-id="komoot"><div class="slogo l6">🌍</div><div><div class="sname">Komoot</div><div class="sdesc">Adventure route discovery</div></div><span class="sstatus sb2">Beta</span><span class="sconn-btn">Connect</span></div>
-          </div>
-        </div>
-        <div class="sync-vis rev d3">
-          <div class="sv-rw"><div class="sv-r"></div><div class="sv-r"></div><div class="sv-r"></div></div>
-          <div style="position:relative;z-index:1">
-            <div style="font-size:2.6rem;margin-bottom:11px">🔄</div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1.45rem;letter-spacing:.06em;margin-bottom:7px">One Account, Every Platform</div>
-            <div style="font-size:.8rem;color:var(--muted);line-height:1.65">Connect once. Your NRN rides and achievements sync everywhere — no manual logging required.</div>
-            <div style="display:flex;justify-content:center;gap:24px;margin-top:20px">
-              <div style="text-align:center;font-size:.66rem;color:var(--muted)"><div style="font-size:1.3rem;margin-bottom:5px">🏅</div>Auto Badges</div>
-              <div style="text-align:center;font-size:.66rem;color:var(--muted)"><div style="font-size:1.3rem;margin-bottom:5px">📍</div>Route Share</div>
-              <div style="text-align:center;font-size:.66rem;color:var(--muted)"><div style="font-size:1.3rem;margin-bottom:5px">👥</div>Social Feed</div>
-            </div>
-          </div>
-        </div>
+      <div style="text-align:center;margin-bottom:52px">
+        <div class="sec-eye rev" style="justify-content:center">Platform Sync</div>
+        <h2 class="rev d1" style="margin-top:9px">Sync Once. <em>Ride Everywhere.</em></h2>
+        <p class="rev d2" style="color:var(--muted);font-size:.92rem;line-height:1.75;margin:14px auto 0;max-width:480px">NRN plugs into the tools you already use. Connect your device and your rides, routes, and efforts flow automatically — no double entry, no manual logging.</p>
       </div>
+
+      <div class="sync-trio rev d2">
+
+        <div class="sync-platform-card" onclick="syncConnect(this,'strava')" data-id="strava">
+          <div class="spc-top">
+            <div class="spc-logo" style="background:linear-gradient(135deg,#fc4c02,#f17a1f)">🔥</div>
+            <div class="spc-badge sl">Live</div>
+          </div>
+          <div class="spc-name">Strava</div>
+          <div class="spc-desc">The social backbone of cycling. Every NRN group ride auto-logs, segments sync, and your efforts appear on city leaderboards.</div>
+          <div class="spc-features">
+            <span>🚴 Auto-log rides</span>
+            <span>🏅 Segments & PRs</span>
+            <span>👥 Social feed</span>
+          </div>
+          <button class="spc-btn">Connect Strava</button>
+        </div>
+
+        <div class="sync-platform-card sync-platform-card--featured" onclick="syncConnect(this,'garmin')" data-id="garmin">
+          <div class="spc-top">
+            <div class="spc-logo" style="background:linear-gradient(135deg,#007dc5,#00a3e0)">⌚</div>
+            <div class="spc-badge sl">Live</div>
+          </div>
+          <div class="spc-name">Garmin</div>
+          <div class="spc-desc">Your device does the work. Rides from your Garmin head unit sync directly to NRN — heart rate, power, and all.</div>
+          <div class="spc-features">
+            <span>⌚ Device sync</span>
+            <span>❤️ HR & power</span>
+            <span>📍 GPS tracks</span>
+          </div>
+          <button class="spc-btn">Connect Garmin</button>
+        </div>
+
+        <div class="sync-platform-card" onclick="syncConnect(this,'wahoo')" data-id="wahoo">
+          <div class="spc-top">
+            <div class="spc-logo" style="background:linear-gradient(135deg,#00a8e0,#0073bb)">⚡</div>
+            <div class="spc-badge sb2">Beta</div>
+          </div>
+          <div class="spc-name">Wahoo</div>
+          <div class="spc-desc">Push NRN group ride routes straight to your ELEMNT. KICKR indoor sessions sync back automatically.</div>
+          <div class="spc-features">
+            <span>🗺️ Route push</span>
+            <span>🚲 KICKR sessions</span>
+            <span>📡 ELEMNT sync</span>
+          </div>
+          <button class="spc-btn">Connect Wahoo</button>
+        </div>
+
+      </div>
+
+      <div class="sync-footer rev d3">
+        <div class="sync-footer-item"><span>🔒</span><div><strong>Secure OAuth</strong><p>We never store your passwords. Industry-standard OAuth keeps your accounts safe.</p></div></div>
+        <div class="sync-footer-item"><span>🔄</span><div><strong>Automatic</strong><p>Set it once. Every ride you log syncs to NRN with no manual action required.</p></div></div>
+        <div class="sync-footer-item"><span>⚡</span><div><strong>Real-time</strong><p>Rides appear in your NRN profile within minutes of finishing.</p></div></div>
+      </div>
+
     </div></div>
 
     <!-- JERSEYS -->

@@ -218,7 +218,33 @@ h2 em{font-style:normal;color:var(--amber)}
 .rdot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
 .dr{background:var(--teal)}.dg{background:var(--amber)}.dm{background:var(--coral)}
 
-/* CITY MAP */
+/* SYNC TRIO */
+.sync-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+.sync-platform-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px 24px;display:flex;flex-direction:column;gap:14px;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative;overflow:hidden}
+.sync-platform-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--border);transition:background .2s}
+.sync-platform-card:hover{transform:translateY(-3px);border-color:rgba(245,166,35,.3);box-shadow:0 14px 40px rgba(0,0,0,.3)}
+.sync-platform-card:hover::before{background:var(--amber)}
+.sync-platform-card--featured{border-color:rgba(0,201,167,.25);background:linear-gradient(160deg,#1a3354,#1c3050)}
+.sync-platform-card--featured::before{background:var(--teal)}
+.spc-top{display:flex;align-items:center;justify-content:space-between}
+.spc-logo{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.spc-badge{font-family:'Barlow Condensed',sans-serif;font-size:.54rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:100px}
+.spc-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.06em;line-height:1}
+.spc-desc{font-size:.8rem;line-height:1.7;color:var(--muted);flex:1}
+.spc-features{display:flex;flex-direction:column;gap:6px}
+.spc-features span{font-family:'Barlow Condensed',sans-serif;font-size:.72rem;letter-spacing:.06em;color:var(--muted);display:flex;align-items:center;gap:7px}
+.spc-btn{width:100%;background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);color:var(--amber);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:10px;border-radius:5px;cursor:pointer;transition:all .2s;margin-top:auto}
+.sync-platform-card:hover .spc-btn{background:var(--amber);color:#0d1b2a;border-color:var(--amber)}
+.sync-platform-card--featured .spc-btn{background:rgba(0,201,167,.1);border-color:rgba(0,201,167,.3);color:var(--teal)}
+.sync-platform-card--featured:hover .spc-btn{background:var(--teal);color:#0d1b2a;border-color:var(--teal)}
+.sync-platform-card.sc-connected .spc-btn{background:rgba(0,201,167,.12);color:var(--teal);border-color:rgba(0,201,167,.3)}
+.sync-footer{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-top:1px solid var(--border);padding-top:32px}
+.sync-footer-item{display:flex;align-items:flex-start;gap:14px}
+.sync-footer-item>span{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.sync-footer-item strong{font-family:'Barlow Condensed',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text);display:block;margin-bottom:4px}
+.sync-footer-item p{font-size:.75rem;line-height:1.6;color:var(--muted);margin:0}
+
+/* CPANEL */
 .city-map-wrap{border-top:1px solid var(--border)}
 .city-map{height:340px;width:100%;background:var(--bg)}
 .leaflet-container{background:#0d1b2a!important}
@@ -630,6 +656,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
   .city-ex,.sync-grid,.ins-grid,.pass-grid,.mem-cards{grid-template-columns:1fr}
   .cp-grid{grid-template-columns:1fr}
   .cpb:nth-child(even){border-right:none}
+  .sync-trio{grid-template-columns:1fr}
+  .sync-footer{grid-template-columns:1fr}
   .aff-grid,.sync-plat{grid-template-columns:1fr}
   footer{flex-direction:column;gap:9px;text-align:center}
   #nrn-map-wrap{border-radius:0!important;min-height:420px}
