@@ -60,7 +60,7 @@ const cityMapData = {
 };
 
 const pinColors = {
-  ride:  { bg:'#f5a623', emoji:'📍' },
+  ride:  { bg:'#f5a623', emoji:'🚴' },
   shop:  { bg:'#00c9a7', emoji:'🔧' },
   cafe:  { bg:'#4db8ff', emoji:'☕' },
   hotel: { bg:'#c084fc', emoji:'🏨' },
