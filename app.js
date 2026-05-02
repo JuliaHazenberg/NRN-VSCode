@@ -219,7 +219,7 @@ function initCityFilter(tabId) {
   const container = document.getElementById(tabId);
   if (!container) return;
   const btns = container.querySelectorAll('.filter-btn');
-  const cards = container.querySelectorAll('[data-city]');
+  const sections = container.querySelectorAll('.city-section');
 
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -228,16 +228,13 @@ function initCityFilter(tabId) {
 
       const filter = btn.dataset.filter;
 
-      cards.forEach(card => {
-        const match = filter === 'all' || card.dataset.city === filter;
-        card.style.display = match ? '' : 'none';
-      });
-
-      // Hide/show city headers based on whether any cards are visible
-      container.querySelectorAll('.rides-city-header').forEach(header => {
-        const city = header.dataset.city;
-        const hasVisible = filter === 'all' || city === filter;
-        header.style.display = hasVisible ? '' : 'none';
+      sections.forEach(section => {
+        const match = filter === 'all' || section.dataset.city === filter;
+        // Hide content but keep layout space with visibility
+        section.style.visibility = match ? '' : 'hidden';
+        section.style.height = match ? '' : '0';
+        section.style.overflow = match ? '' : 'hidden';
+        section.style.marginBottom = match ? '' : '0';
       });
     });
   });
