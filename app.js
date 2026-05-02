@@ -120,8 +120,15 @@ function switchTab(id, btn) {
     });
   }
   if(id !== 'home') window.scrollTo({top:0, behavior:'smooth'});
-  // history.pushState(null, '', id === 'home' ? '/' : '/' + id);
+  history.pushState({tab: id}, '', id === 'home' ? '/' : '/' + id);
 }
+
+// Handle browser back/forward
+window.addEventListener('popstate', function(e) {
+  const id = e.state?.tab || 'home';
+  switchTab(id, null);
+});
+
 
 // ── City hub switcher ──
 function switchToCity(id){
