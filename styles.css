@@ -726,7 +726,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
   }
 }
 
-/* .tab-panel {
+.tab-panel.tab-active {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -734,4 +734,4 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 
 .tab-panel footer {
   margin-top: auto;
-} */
+}
