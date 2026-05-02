@@ -122,6 +122,14 @@ function switchTab(id, btn) {
   if(id !== 'home') window.scrollTo({top:0, behavior:'smooth'});
   const url = id === 'home' ? window.location.pathname : window.location.pathname + '?tab=' + id;
   history.pushState({tab: id}, '', url);
+
+  // Fire a virtual pageview to Google Analytics
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'page_view', {
+      page_title: id.charAt(0).toUpperCase() + id.slice(1),
+      page_path: '/?tab=' + id
+    });
+  }
 }
 
 // Handle browser back/forward
