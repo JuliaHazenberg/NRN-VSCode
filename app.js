@@ -71,7 +71,7 @@ const cityMapData = {
 
       // -- Restaurants --
       { lat:43.0725, lng:-89.4526, type:'food',  name:'Hollander Hilldale',      note:'' },
-      { lat:43.0725, lng:-89.4526, type:'food',  name:'Prost!',      note:'' },
+      { lat:43.077, lng:-89.3798, type:'food',  name:'Prost!',      note:'' },
 
       // -- Cafes --
       { lat:43.0809, lng:-89.3758, type:'cafe',  name:'Cargo Coffee',           note:'Free Drip · Bike-friendly' },
