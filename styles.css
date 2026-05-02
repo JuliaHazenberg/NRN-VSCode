@@ -690,6 +690,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
   flex-wrap: wrap;
   margin-bottom: 32px;
   padding-top: var(--bar-total);
+  justify-content: center;
 }
 
 .filter-btn {
