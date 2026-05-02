@@ -33,6 +33,17 @@ const cityMapData = {
   chicago: {
     center: [41.910, -87.640], zoom: 12,
     pins: [
+
+
+      // -- Rides --
+
+      // -- Bike Shops --
+
+      // -- Restaurants --
+
+      // -- Cafes --
+
+      // -- Hotels --
       { lat:41.892, lng:-87.612, type:'ride',  name:'Lakefront Path',        note:'Sat 6:30am ride start' },
       { lat:41.882, lng:-87.623, type:'ride',  name:'Millennium Park',        note:'Sun 7am ride start' },
       { lat:41.876, lng:-87.619, type:'ride',  name:'Grant Park',             note:'Tue 6pm ride start' },
@@ -49,26 +60,45 @@ const cityMapData = {
   madison: {
     center: [43.060, -89.450], zoom: 11,
     pins: [
+      // -- Rides --
       { lat:43.075, lng:-89.384, type:'ride',  name:'State Capitol',          note:'Sat 7am ride start' },
       { lat:43.014, lng:-89.533, type:'ride',  name:'Verona Trailhead',       note:'Sun 7:30am ride start' },
+
+      // -- Bike Shops --
       { lat:43.043416, lng:-89.405671, type:'shop',  name:'Neff Cycle Service',  note:'Partner · Bike shop' },
       { lat:43.096, lng:-89.4959, type:'shop',  name:'Wheel & Sprocket',       note:'Partner · Full service' },
-      { lat:43.0809, lng:-89.3758, type:'cafe',  name:'Cargo Coffee',           note:'Free Drip · Bike-friendly' },
-      { lat:43.076, lng:-89.397, type:'hotel', name:'Graduate Madison',        note:'15% Off · Bike storage' },
-      { lat:43.068, lng:-89.393, type:'food',  name:'The Old Fashioned',      note:'10% Off · Wisconsin comfort' },
       { lat:43.069, lng:-89.393, type:'shop',  name:'Machinery Row Bicycles', note:'20% Off · Rentals' },
+
+      // -- Restaurants --
+      { lat:43.0725, lng:-89.4526, type:'food',  name:'Hollander Hilldale',      note:'' },
+      { lat:43.0725, lng:-89.4526, type:'food',  name:'Prost!',      note:'' },
+
+      // -- Cafes --
+      { lat:43.0809, lng:-89.3758, type:'cafe',  name:'Cargo Coffee',           note:'Free Drip · Bike-friendly' },
+
+      // -- Hotels --
+      // { lat:43.076, lng:-89.397, type:'hotel', name:'Graduate Madison',        note:'15% Off · Bike storage' },
     ]
   },
   milwaukee: {
     center: [43.078, -87.900], zoom: 11,
     pins: [
+
+      // -- Rides --
       { lat:43.063, lng:-87.876, type:'ride',  name:'Bradford Beach',         note:'Sat 7am ride start' },
       { lat:43.093, lng:-87.900, type:'ride',  name:'Estabrook Park',         note:'Sun 8am ride start' },
+      // -- Bike Shops --
       { lat:43.135, lng:-87.898, type:'shop',  name:'Wheel & Sprocket MKE',   note:'10% Off · Bike shop' },
-      { lat:43.029, lng:-87.910, type:'cafe',  name:'Anodyne Coffee',         note:"Free Drip · Walker's Point" },
-      { lat:43.022, lng:-87.919, type:'hotel', name:'Iron Horse Hotel',        note:'15% Off · Bike culture' },
-      { lat:43.048, lng:-87.897, type:'food',  name:'Lakefront Brewery',      note:'10% Off · Post-ride pints' },
       { lat:43.135, lng:-87.898, type:'shop',  name:'Bublr Bikes',            note:'20% Off · E-bike rentals' },
+
+      // -- Restaurants --
+      { lat:43.048, lng:-87.897, type:'food',  name:'Lakefront Brewery',      note:'10% Off · Post-ride pints' },
+
+      // -- Cafes --
+      { lat:43.029, lng:-87.910, type:'cafe',  name:'Anodyne Coffee',         note:"Free Drip · Walker's Point" },
+
+      // -- Hotels --
+      // { lat:43.022, lng:-87.919, type:'hotel', name:'Iron Horse Hotel',        note:'15% Off · Bike culture' },
     ]
   }
 };
