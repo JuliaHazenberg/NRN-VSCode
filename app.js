@@ -3,17 +3,31 @@ const cityMapData = {
   sandiego: {
     center: [32.74, -117.17], zoom: 10,
     pins: [
+
+      // -- Rides --
       { lat:32.740, lng:-117.198, type:'ride',  name:'Oceanside Pier',       note:'Sat 7am ride start' },
       { lat:32.721, lng:-117.155, type:'ride',  name:'Mission Valley',        note:'Sun 6:30am ride start' },
       { lat:32.894, lng:-117.141, type:'ride',  name:'Miramar',               note:'Sat 8am MTB start' },
-      { lat:32.742, lng:-117.189, type:'shop',  name:'Moment Cycle Sport',    note:'10% Off · Bike shop' },
-      { lat:32.738, lng:-117.187, type:'shop',  name:'Trek Bicycle SD',       note:'Partner · Rentals' },
-      { lat:32.833, lng:-117.273, type:'cafe',  name:'Bird Rock Coffee',      note:'Free Drip · Post-ride' },
-      { lat:32.732, lng:-117.130, type:'cafe',  name:'Communal Coffee',       note:'Partner · Breakfast' },
-      { lat:32.713, lng:-117.157, type:'hotel', name:'Hilton Gaslamp',        note:'15% Off · Bike storage' },
-      { lat:32.681, lng:-117.177, type:'hotel', name:'Hotel del Coronado',    note:'Partner · Beach access' },
+
+      // -- Bike Shops --
+      { lat:33.0524, lng:-117.296, type:'shop',  name:'Cadence Cyclery Encinitas',    note:'' },
+      { lat:32.7984, lng:-117.2519, type:'shop',  name:'San Diego Cyclery',       note:'' },
+      { lat:32.7441, lng:-117.1895, type:'shop',  name:'Moment Cycles (Old Town)',       note:'' },
+      { lat:32.9698, lng:-117.0423, type:'shop',  name:'Poway Bicycle',       note:'' },
+      { lat:32.9069, lng:-117.1197, type:'shop',  name:'Black Mountain Bicycles Diego Cyclery',       note:'' },
+      { lat:33.1232, lng:-117.0781, type:'shop',  name:'Bike Blink (Escondido)',       note:'' },
+
+      // -- Restaurants --
       { lat:32.732, lng:-117.130, type:'food',  name:'Puesto',                note:'10% Off · Post-ride tacos' },
       { lat:32.732, lng:-117.131, type:'food',  name:"Carnitas' Snack Shack", note:'Partner · Recovery meals' },
+
+      // -- Cafes --
+      { lat:32.833, lng:-117.273, type:'cafe',  name:'Bird Rock Coffee',      note:'Free Drip · Post-ride' },
+      { lat:32.732, lng:-117.130, type:'cafe',  name:'Communal Coffee',       note:'Partner · Breakfast' },
+
+      // -- Hotels --
+      { lat:32.713, lng:-117.157, type:'hotel', name:'Hilton Gaslamp',        note:'15% Off · Bike storage' },
+      { lat:32.681, lng:-117.177, type:'hotel', name:'Hotel del Coronado',    note:'Partner · Beach access' },
     ]
   },
   chicago: {
