@@ -120,7 +120,8 @@ function switchTab(id, btn) {
     });
   }
   if(id !== 'home') window.scrollTo({top:0, behavior:'smooth'});
-  history.pushState({tab: id}, '', id === 'home' ? '/' : '/' + id);
+  const url = id === 'home' ? window.location.pathname : window.location.pathname + '?tab=' + id;
+  history.pushState({tab: id}, '', url);
 }
 
 // Handle browser back/forward
@@ -129,6 +130,14 @@ window.addEventListener('popstate', function(e) {
   switchTab(id, null);
 });
 
+// On page load, read ?tab= param (set by 404.html redirect) and open the right tab
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const tab = params.get('tab');
+  if (tab && document.getElementById('tab-' + tab)) {
+    switchTab(tab, null);
+  }
+})();
 
 // ── City hub switcher ──
 function switchToCity(id){

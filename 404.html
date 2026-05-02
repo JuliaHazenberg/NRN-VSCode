@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>National Ride Network</title>
+  <script>
+    // GitHub Pages 404 redirect trick for single-page apps.
+    // When GitHub can't find a path like /about, it serves this file.
+    // We read the path, extract the last segment as the tab name,
+    // then redirect to /?tab=about so index.html can handle it.
+    (function() {
+      var path = window.location.pathname;
+      // Strip leading slash and any trailing slash, e.g. "/about" -> "about"
+      var tab = path.replace(/^\/|\/$/g, '');
+      // If there's a repo subfolder (e.g. /nationalridenetwork/about), grab just the last part
+      var parts = tab.split('/');
+      tab = parts[parts.length - 1];
+
+      var validTabs = ['home', 'rides', 'routes', 'races', 'partners', 'store', 'about'];
+      if (tab && validTabs.indexOf(tab) !== -1) {
+        window.location.replace('/?tab=' + tab);
+      } else {
+        window.location.replace('/');
+      }
+    })();
+  </script>
+</head>
+<body></body>
+</html>
