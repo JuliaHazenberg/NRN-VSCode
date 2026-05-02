@@ -225,10 +225,19 @@ function initCityFilter(tabId) {
     btn.addEventListener('click', () => {
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+
       const filter = btn.dataset.filter;
+
       cards.forEach(card => {
         const match = filter === 'all' || card.dataset.city === filter;
         card.style.display = match ? '' : 'none';
+      });
+
+      // Hide/show city headers based on whether any cards are visible
+      container.querySelectorAll('.rides-city-header').forEach(header => {
+        const city = header.dataset.city;
+        const hasVisible = filter === 'all' || city === filter;
+        header.style.display = hasVisible ? '' : 'none';
       });
     });
   });

@@ -415,24 +415,6 @@
       <div class="hs-nav"><button class="hs-btn" id="hsL">←</button><button class="hs-btn" id="hsR">→</button></div>
     </section>
 
-    <!-- PASSPORT
-    <section class="sec" style="background:var(--bg2);border-top:1px solid var(--border)"><div class="wrap">
-      <div class="sec-eye rev">Gamification</div>
-      <h2 class="rev d1">The Hub <em>Passport</em></h2>
-      <div class="pass-grid">
-        <div>
-          <p class="rev d1" style="color:var(--muted);font-size:.88rem;line-height:1.78;margin:13px 0 24px">Every city you ride earns a stamp. Collect achievements, unlock city-specific jersey patches, and build a national riding identity that follows you everywhere.</p>
-          <div class="ach-list rev d2">
-            <div class="ach-row"><div class="ach-ic" style="background:rgba(245,166,35,.12)">🏆</div><div><div class="ach-nm">Rider of 5 Cities</div><div class="ach-sb">Complete a group ride in 5 NRN hubs</div></div><div class="ach-pill apy">Earned</div></div>
-            <div class="ach-row"><div class="ach-ic" style="background:rgba(0,201,167,.1)">⭐</div><div><div class="ach-nm">Top Local Contributor</div><div class="ach-sb">Lead 10+ rides in your home city</div></div><div class="ach-pill apy">Earned</div></div>
-            <div class="ach-row"><div class="ach-ic" style="background:rgba(77,184,255,.1)">🗺️</div><div><div class="ach-nm">Coast to Coast</div><div class="ach-sb">Ride on both the Atlantic and Pacific coasts</div></div><div class="ach-pill app">1 / 2</div></div>
-            <div class="ach-row"><div class="ach-ic" style="background:rgba(255,107,91,.1)">🎽</div><div><div class="ach-nm">Jersey Collector</div><div class="ach-sb">Own jerseys from 3 different NRN cities</div></div><div class="ach-pill app">2 / 3</div></div>
-          </div>
-        </div>
-        <div class="rev d2"><div class="pb-book"><div class="pb-hdr">◆ Your Hub Passport</div><div class="sg"><div class="stamp on"><span class="st-em">🌊</span><span class="st-nm">San Diego</span></div><div class="stamp on"><span class="st-em">🌬️</span><span class="st-nm">Chicago</span></div><div class="stamp on"><span class="st-em">🧀</span><span class="st-nm">Madison</span></div><div class="stamp on"><span class="st-em">🍺</span><span class="st-nm">Milwaukee</span></div><div class="stamp off"><span class="st-em">🌴</span><span class="st-nm">Los Angeles</span></div><div class="stamp off"><span class="st-em">🗽</span><span class="st-nm">New York</span></div><div class="stamp off"><span class="st-em">🎸</span><span class="st-nm">Nashville</span></div><div class="stamp off"><span class="st-em">☀️</span><span class="st-nm">Miami</span></div></div></div></div>
-      </div>
-    </div></section> -->
-
     <!-- MEMBERSHIP -->
     <div class="mem-sec sec" id="membership"><div class="wrap">
       <div class="sec-eye rev">Pricing</div>
@@ -480,7 +462,7 @@
     <button class="filter-btn" data-filter="desmoines">Des Moines</button>
   </div>
 
-      <div class="rides-city-header" style="margin-top:0">
+      <div class="rides-city-header" data-city="sandiego" style="margin-top:0">
         <span class="rides-city-emoji">🌊</span>
         <div><div class="rides-city-name">San Diego</div><div class="rides-city-sub">California · 24 rides/week</div></div>
       </div>
@@ -490,7 +472,7 @@
         <div class="ride-card ride-mtb" data-city ="sandiego"><div class="ride-type ride-type-mtb">● MTB</div><div class="ride-name">Sycamore Canyon Shred</div><div class="ride-meta">Sat 8:00am · Miramar</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">22</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">12</div><div class="ride-stat-l">Avg mph</div></div></div></div>
       </div>
 
-      <div class="rides-city-header">
+      <div class="rides-city-header" data-city="chicago">
         <span class="rides-city-emoji">🌬️</span>
         <div><div class="rides-city-name">Chicago</div><div class="rides-city-sub">Illinois · 52 rides/week</div></div>
       </div>
@@ -500,7 +482,7 @@
         <div class="ride-card ride-road" data-city ="chicago"><div class="ride-type ride-type-road">● Road</div><div class="ride-name">Tuesday Twilight Worlds</div><div class="ride-meta">Tue 6:00pm · Grant Park</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">28</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">22</div><div class="ride-stat-l">Avg mph</div></div></div></div>
       </div>
 
-      <div class="rides-city-header">
+      <div class="rides-city-header" data-city="madison">
         <span class="rides-city-emoji">🧀</span>
         <div><div class="rides-city-name">Madison</div><div class="rides-city-sub">Wisconsin · 22 rides/week</div></div>
       </div>
@@ -509,7 +491,7 @@
         <div class="ride-card ride-gravel" data-city ="madison"><div class="ride-type ride-type-gravel">● Gravel</div><div class="ride-name">Military Ridge Trail</div><div class="ride-meta">Sun 7:30am · Verona Trailhead</div><div class="ride-info"><div class="ride-stat"><div class="ride-stat-n">52</div><div class="ride-stat-l">Miles</div></div><div class="ride-stat"><div class="ride-stat-n">15</div><div class="ride-stat-l">Avg mph</div></div></div></div>
       </div>
 
-      <div class="rides-city-header">
+      <div class="rides-city-header" data-city="milwaukee">
         <span class="rides-city-emoji">🍺</span>
         <div><div class="rides-city-name">Milwaukee</div><div class="rides-city-sub">Wisconsin · 19 rides/week</div></div>
       </div>
@@ -538,8 +520,8 @@
     <button class="filter-btn" data-filter="madison">Madison</button>
     <button class="filter-btn" data-filter="desmoines">Des Moines</button>
   </div>   
-    
-      <div class="rides-city-header" style="margin-top:0">
+
+      <div class="rides-city-header" data-city="sandiego" style="margin-top:0">
         <span class="rides-city-emoji">🌊</span>
         <div><div class="rides-city-name">San Diego</div><div class="rides-city-sub">California · 2 routes</div></div>
       </div>
@@ -548,7 +530,7 @@
         <div class="route-card" data-city ="sandiego"><div class="route-map"><svg viewBox="0 0 310 110" style="width:100%;height:100%;display:block"><rect width="310" height="110" fill="#0d1b2a"/><polyline points="20,85 50,65 85,72 115,50 150,60 185,38 220,55 255,42 290,30 300,28" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="85" r="5" fill="#f5a623"/><circle cx="300" cy="28" r="5" fill="#f5a623"/></svg></div><div class="route-body"><div class="route-name">Laguna Mountains Gravel</div><div class="route-stats"><div class="rstat"><strong>55mi</strong> Distance</div><div class="rstat"><strong>6,800ft</strong> Elev</div><div class="rstat"><strong>Epic</strong> Difficulty</div></div><div class="route-chips"><span class="route-chip">Gravel</span><span class="route-chip">Mountains</span></div><button class="route-save" onclick="saveRoute(this)">Save Route</button></div></div>
       </div>
 
-      <div class="rides-city-header">
+      <div class="rides-city-header" data-city="chicago">
         <span class="rides-city-emoji">🌬️</span>
         <div><div class="rides-city-name">Chicago</div><div class="rides-city-sub">Illinois · 1 route</div></div>
       </div>
@@ -556,7 +538,7 @@
         <div class="route-card" data-city ="chicago"><div class="route-map"><svg viewBox="0 0 310 110" style="width:100%;height:100%;display:block"><rect width="310" height="110" fill="#0d1b2a"/><polyline points="20,55 50,50 80,58 110,42 150,45 190,38 230,55 260,48 300,52" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="55" r="5" fill="#f5a623"/><circle cx="300" cy="52" r="5" fill="#f5a623"/></svg></div><div class="route-body"><div class="route-name">Lakefront Path North</div><div class="route-stats"><div class="rstat"><strong>28mi</strong> Distance</div><div class="rstat"><strong>320ft</strong> Elev</div><div class="rstat"><strong>Easy</strong> Difficulty</div></div><div class="route-chips"><span class="route-chip">Road</span><span class="route-chip">Flat</span></div><button class="route-save" onclick="saveRoute(this)">Save Route</button></div></div>
       </div>
 
-      <div class="rides-city-header">
+      <div class="rides-city-header" data-city="madison">
         <span class="rides-city-emoji">🧀</span>
         <div><div class="rides-city-name">Madison</div><div class="rides-city-sub">Wisconsin · 1 route</div></div>
       </div>
@@ -564,7 +546,7 @@
         <div class="route-card" data-city ="madison"><div class="route-map"><svg viewBox="0 0 310 110" style="width:100%;height:100%;display:block"><rect width="310" height="110" fill="#0d1b2a"/><polyline points="20,60 60,55 100,62 140,50 180,56 220,48 260,54 300,50" fill="none" stroke="#00c9a7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="60" r="5" fill="#f5a623"/><circle cx="300" cy="50" r="5" fill="#f5a623"/></svg></div><div class="route-body"><div class="route-name">Military Ridge Trail</div><div class="route-stats"><div class="rstat"><strong>52mi</strong> Distance</div><div class="rstat"><strong>1,400ft</strong> Elev</div><div class="rstat"><strong>Mod</strong> Difficulty</div></div><div class="route-chips"><span class="route-chip">Gravel</span><span class="route-chip">Trail</span></div><button class="route-save" onclick="saveRoute(this)">Save Route</button></div></div>
       </div>
 
-      <div class="rides-city-header">
+      <div class="rides-city-header" data-city="milwaukee">
         <span class="rides-city-emoji">🍺</span>
         <div><div class="rides-city-name">Milwaukee</div><div class="rides-city-sub">Wisconsin · 1 route</div></div>
       </div>
