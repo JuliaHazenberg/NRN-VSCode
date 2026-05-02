@@ -1,7 +1,7 @@
 // ── City Maps ──
 const cityMapData = {
   sandiego: {
-    center: [32.74, -117.17], zoom: 9.5,
+    center: [32.74, -117.17], zoom: 9.4,
     pins: [
 
       // -- Rides --
