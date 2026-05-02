@@ -165,7 +165,7 @@ h1 .hollow{-webkit-text-stroke:2px var(--teal);color:transparent}
 
 /* TICKER */
 .ticker{background:var(--amber);overflow:hidden}
-.ticker-inner{display:flex;animation:tickrun 30s linear infinite;white-space:nowrap}
+.ticker-inner{display:flex;animation:tickrun 45s linear infinite;white-space:nowrap}
 @keyframes tickrun{to{transform:translateX(-50%)}}
 .tk{font-family:'Bebas Neue',sans-serif;font-size:.86rem;letter-spacing:.18em;padding:10px 24px;color:#0d1b2a}
 .tk-link{cursor:pointer;text-decoration:none;border-bottom:1.5px solid rgba(13,27,42,.3);transition:border-color .15s}
