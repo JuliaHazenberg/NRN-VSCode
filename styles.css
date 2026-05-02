@@ -725,3 +725,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
     margin-bottom: 20px;
   }
 }
+
+.tab-panel {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-panel footer {
+  margin-top: auto;
+}
