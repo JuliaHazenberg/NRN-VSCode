@@ -214,6 +214,26 @@ function switchCity(id, el){
   }, 50);
 }
 
+// ── City Filter ──
+function initCityFilter(tabId) {
+  const container = document.getElementById(tabId);
+  if (!container) return;
+  const btns = container.querySelectorAll('.filter-btn');
+  const cards = container.querySelectorAll('[data-city]');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.city === filter;
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  });
+}
+
 // ── City hub collapsibles — show max 2 items, collapse rest ──
 function initCollapsibles() {
   document.querySelectorAll('.cpb').forEach(block => {
@@ -250,6 +270,9 @@ function initCollapsibles() {
 window.addEventListener('load', () => {
   setTimeout(() => initCityMap('sandiego'), 400);
   initCollapsibles();
+  initCityFilter('tab-rides');   
+  initCityFilter('tab-routes');  
+  initCityFilter('tab-races'); 
 });
 
 // ── Rides RSVP ──

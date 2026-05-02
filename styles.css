@@ -682,3 +682,45 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
   .races-list{padding:28px 18px}
   .partners-grid{grid-template-columns:1fr 1fr}
 }
+
+/* CITY FILTER BAR */
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  padding-top: var(--bar-total);
+}
+
+.filter-btn {
+  padding: 6px 18px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(245,166,35,.35);
+  background: transparent;
+  color: var(--amber);
+  cursor: pointer;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transition: all .2s;
+}
+
+.filter-btn:hover {
+  background: rgba(245,166,35,.1);
+  border-color: var(--amber);
+}
+
+.filter-btn.active {
+  background: var(--amber);
+  color: #0d1b2a;
+  border-color: var(--amber);
+}
+
+@media(max-width:900px) {
+  .filter-bar {
+    padding-top: 0;
+    margin-bottom: 20px;
+  }
+}
