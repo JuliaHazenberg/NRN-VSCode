@@ -73,7 +73,7 @@
     </svg>
     <span class="logo-text" style="margin-left:9px">National <span>Ride</span> Network</span>
   </div>
-  <button class="nav-cta" onclick="window.location.href='index.html'">Join — $99/yr</button>
+  <button class="nav-cta" onclick="window.location.href='index.html#membership'">Join — $99/yr</button>
 </nav>
 
 <div class="chain-bar">
@@ -228,6 +228,19 @@ function handleSave(btn) {
   const saved = btn.classList.toggle('saved');
   btn.textContent = saved ? '♥ Saved' : '♡ Save Route';
 }
+
+function setHeights() {
+  const navEl = document.querySelector('nav');
+  const chainEl = document.querySelector('.chain-bar');
+  if (!navEl || !chainEl) return;
+  const navH = navEl.offsetHeight;
+  const chainH = chainEl.offsetHeight;
+  document.documentElement.style.setProperty('--nav-h', navH + 'px');
+  document.documentElement.style.setProperty('--chain-h', chainH + 'px');
+  document.documentElement.style.setProperty('--bar-total', (navH + chainH + 10) + 'px');
+}
+setHeights();
+window.addEventListener('resize', setHeights);
 </script>
 </body>
 </html>
