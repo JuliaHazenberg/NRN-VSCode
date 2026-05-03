@@ -735,3 +735,41 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 .tab-panel footer {
   margin-top: auto;
 }
+
+/* ══ ROUTE DETAIL TAB (Afternoon Ride) ══ */
+.rdtab-map{margin-top:var(--bar-total);height:52vh;min-height:300px;max-height:520px;width:100%;position:relative;z-index:0}
+#rdtab-map{width:100%;height:100%}
+.rdtab-tag{position:absolute;bottom:14px;left:14px;z-index:10;background:rgba(8,16,28,.82);border:1px solid var(--border);border-radius:4px;padding:5px 12px;font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);pointer-events:none}
+.rdtab-body{max-width:860px;width:100%;margin:0 auto;padding:0 32px 80px}
+.rdtab-rte-header{padding:36px 0 24px;border-bottom:1px solid var(--border)}
+.rdtab-chips{display:flex;gap:6px;margin-bottom:12px}
+.rdtab-chip{font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:100px;background:rgba(77,184,255,.1);color:var(--sky);border:1px solid rgba(77,184,255,.2)}
+.rdtab-rte-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,5vw,3.2rem);letter-spacing:.04em;line-height:1;margin-bottom:6px}
+.rdtab-rte-loc{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rdtab-actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.btn-primary{background:var(--amber);color:#0d1b2a;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:11px 24px;border:none;border-radius:4px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:background .2s}
+.btn-primary:hover{background:var(--amber2)}
+.btn-secondary{background:rgba(238,242,247,.06);color:var(--text);font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:11px 24px;border:1px solid var(--border);border-radius:4px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .2s}
+.btn-secondary:hover{border-color:rgba(245,166,35,.4);background:rgba(245,166,35,.06)}
+.rdtab-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:28px 0}
+.rdtab-stat-cell{background:var(--bg2);padding:20px 16px;text-align:center}
+.rdtab-stat-val{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.04em;color:var(--text);line-height:1;margin-bottom:4px}
+.rdtab-stat-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rdtab-section{margin-top:32px}
+.rdtab-section-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+.rdtab-elev-wrap{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 16px 8px 46px;height:110px}
+#rdtab-elev-canvas{width:100%;height:100%;display:block}
+.rdtab-elev-ylabels{position:absolute;left:6px;top:8px;bottom:8px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
+.rdtab-elev-ylabels span{font-family:'Barlow Condensed',sans-serif;font-size:.55rem;letter-spacing:.06em;color:var(--muted);line-height:1;white-space:nowrap}
+.rdtab-send-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rdtab-send-btn{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s,background .2s;cursor:pointer}
+.rdtab-send-btn:hover{border-color:rgba(245,166,35,.35);background:rgba(245,166,35,.04)}
+.rdtab-send-icon{font-size:1.3rem;line-height:1;flex-shrink:0}
+.rdtab-send-label{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.rdtab-send-sub{font-family:'Barlow',sans-serif;font-size:.62rem;color:var(--muted);margin-top:1px}
+.rdtab-send-note{font-size:.68rem;color:var(--muted);margin-top:12px;line-height:1.6}
+@media(max-width:640px){
+  .rdtab-body{padding:0 18px 60px}
+  .rdtab-send-grid{grid-template-columns:1fr}
+  .rdtab-actions{flex-direction:column}
+}

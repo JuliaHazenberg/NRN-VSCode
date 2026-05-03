@@ -789,11 +789,82 @@ function initAfternoonRideCard() {
   m.fitBounds(cardPoly.getBounds(), { padding: [12, 12] });
 }
 
+// ── Afternoon Ride detail tab ──
+let rdtabMap = null;
+
+function initRdtabMap() {
+  const el = document.getElementById('rdtab-map');
+  if (!el) return;
+  if (!rdtabMap) {
+    rdtabMap = L.map(el, {
+      zoomControl: true, attributionControl: false,
+      scrollWheelZoom: false,
+    });
+    L.tileLayer(TILE_URL, {maxZoom:18}).addTo(rdtabMap);
+    const poly = L.polyline(AFTERNOON_RIDE_COORDS, {color:'#1a78e8', weight:3.5, opacity:.95}).addTo(rdtabMap);
+    L.circleMarker(AFTERNOON_RIDE_COORDS[0], {radius:7,color:'#1a78e8',fillColor:'#0a1626',fillOpacity:1,weight:2.5}).addTo(rdtabMap);
+    L.circleMarker(AFTERNOON_RIDE_COORDS[AFTERNOON_RIDE_COORDS.length-1], {radius:7,color:'#1a78e8',fillColor:'#1a78e8',fillOpacity:1,weight:2}).addTo(rdtabMap);
+    rdtabMap.fitBounds(poly.getBounds(), {padding:[32,32]});
+  } else {
+    rdtabMap.invalidateSize();
+  }
+  drawRdtabElevation();
+}
+
+function drawRdtabElevation() {
+  const canvas = document.getElementById('rdtab-elev-canvas');
+  if (!canvas) return;
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.offsetWidth;
+  const h = canvas.offsetHeight;
+  if (!w || !h) return;
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  const ELEV = AFTERNOON_ELEVATION_FT;
+  const min = 799 - 20, max = 1059 + 30;
+  const pad = {t:4,b:4,l:2,r:2};
+  const cw = w - pad.l - pad.r;
+  const ch = h - pad.t - pad.b;
+  const pts = ELEV.map((v,i) => [
+    pad.l + (i / (ELEV.length - 1)) * cw,
+    pad.t + ch - ((v - min) / (max - min)) * ch,
+  ]);
+  const grad = ctx.createLinearGradient(0, pad.t, 0, pad.t + ch);
+  grad.addColorStop(0, 'rgba(26,120,232,.35)');
+  grad.addColorStop(1, 'rgba(26,120,232,.03)');
+  ctx.beginPath();
+  ctx.moveTo(pts[0][0], pad.t + ch);
+  pts.forEach(([x,y]) => ctx.lineTo(x, y));
+  ctx.lineTo(pts[pts.length-1][0], pad.t + ch);
+  ctx.closePath();
+  ctx.fillStyle = grad;
+  ctx.fill();
+  ctx.beginPath();
+  pts.forEach(([x,y],i) => i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y));
+  ctx.strokeStyle = '#1a78e8';
+  ctx.lineWidth = 2;
+  ctx.lineJoin = 'round';
+  ctx.stroke();
+  document.getElementById('rdtab-ele-min').textContent = '799 ft';
+  document.getElementById('rdtab-ele-max').textContent = '1,059 ft';
+}
+
+function handleRdtabSave(btn) {
+  const saved = btn.classList.toggle('saved');
+  btn.textContent = saved ? '♥ Saved' : '♡ Save Route';
+}
+
 // Hook into switchTab (already defined above) via a post-load wrapper
 const _switchTabOrig = window.switchTab;
 window.switchTab = function(id, btn) {
   _switchTabOrig(id, btn);
   if (id === 'routes') setTimeout(initAfternoonRideCard, 120);
+  if (id === 'route-afternoon') {
+    window.scrollTo(0, 0);
+    setTimeout(initRdtabMap, 120);
+  }
 };
 // Also fire if routes tab is somehow active on load
 if (document.getElementById('tab-routes')?.classList.contains('tab-active')) {
