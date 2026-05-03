@@ -679,11 +679,11 @@ function openRouteDetail(routeId) {
     eleSection.style.display = 'none';
   }
 
-  // Show panel
+  // Show panel — double-rAF ensures display:block is painted before transition fires
   document.getElementById('route-detail-overlay').style.display = 'block';
   const panel = document.getElementById('route-detail-panel');
   panel.style.display = 'block';
-  requestAnimationFrame(() => panel.classList.add('rdp-open'));
+  requestAnimationFrame(() => requestAnimationFrame(() => panel.classList.add('rdp-open')));
   document.body.style.overflow = 'hidden';
 
   // Init or update map
@@ -771,3 +771,31 @@ function drawElevationChart(data, eleMin, eleMax) {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeRouteDetail();
 });
+
+// Init the single real-route card thumbnail (Afternoon Ride)
+let cardMapInited = false;
+function initAfternoonRideCard() {
+  if (cardMapInited) return;
+  const el = document.getElementById('rmap-afternoon');
+  if (!el) return;
+  cardMapInited = true;
+  const m = L.map(el, {
+    center: [43.013, -89.422], zoom: 10,
+    zoomControl: false, attributionControl: false,
+    dragging: false, scrollWheelZoom: false,
+    doubleClickZoom: false, touchZoom: false, keyboard: false,
+  });
+  L.tileLayer(TILE_URL, { maxZoom: 18 }).addTo(m);
+  L.polyline(AFTERNOON_RIDE_COORDS, { color: '#f5a623', weight: 2.5, opacity: .9 }).addTo(m);
+}
+
+// Hook into switchTab (already defined above) via a post-load wrapper
+const _switchTabOrig = window.switchTab;
+window.switchTab = function(id, btn) {
+  _switchTabOrig(id, btn);
+  if (id === 'routes') setTimeout(initAfternoonRideCard, 120);
+};
+// Also fire if routes tab is somehow active on load
+if (document.getElementById('tab-routes')?.classList.contains('tab-active')) {
+  setTimeout(initAfternoonRideCard, 200);
+}
