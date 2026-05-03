@@ -33,10 +33,10 @@
 
     .section{margin-top:32px}
     .section-label{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
-    .elev-wrap{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px 16px 8px;height:110px}
+    .elev-wrap{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 16px 8px 46px;height:110px}
     #elev-canvas{width:100%;height:100%;display:block}
-    .elev-labels{display:flex;justify-content:space-between;margin-top:4px;padding:0 2px}
-    .elev-labels span{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;letter-spacing:.06em;color:var(--muted)}
+    .elev-ylabels{position:absolute;left:6px;top:8px;bottom:8px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
+    .elev-ylabels span{font-family:'Barlow Condensed',sans-serif;font-size:.55rem;letter-spacing:.06em;color:var(--muted);line-height:1;white-space:nowrap}
 
     .send-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
     .send-btn{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s,background .2s;cursor:pointer}
@@ -116,9 +116,12 @@
   <div class="section">
     <div class="section-label">Elevation Profile</div>
     <div class="elev-wrap">
+      <div class="elev-ylabels">
+        <span id="ele-max"></span>
+        <span id="ele-min"></span>
+      </div>
       <canvas id="elev-canvas"></canvas>
     </div>
-    <div class="elev-labels"><span id="ele-min"></span><span id="ele-max"></span></div>
   </div>
 
   <div class="section">
