@@ -785,7 +785,7 @@ function initAfternoonRideCard() {
     doubleClickZoom: false, touchZoom: false, keyboard: false,
   });
   L.tileLayer(TILE_URL, { maxZoom: 18 }).addTo(m);
-  const cardPoly = L.polyline(AFTERNOON_RIDE_COORDS, { color: '#f5a623', weight: 2.5, opacity: .9 }).addTo(m);
+  const cardPoly = L.polyline(AFTERNOON_RIDE_COORDS, { color: '#4db8ff', weight: 2.5, opacity: .9 }).addTo(m);
   m.fitBounds(cardPoly.getBounds(), { padding: [12, 12] });
 }
 

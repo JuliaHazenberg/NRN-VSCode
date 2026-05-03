@@ -26,7 +26,7 @@
     .btn-secondary{background:rgba(238,242,247,.06);color:var(--text);font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:11px 24px;border:1px solid var(--border);border-radius:4px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .2s}
     .btn-secondary:hover{border-color:rgba(245,166,35,.4);background:rgba(245,166,35,.06)}
 
-    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:28px 0}
+    .stats-row{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:28px 0}
     .stat-cell{background:var(--bg2);padding:20px 16px;text-align:center}
     .stat-val{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.04em;color:var(--text);line-height:1;margin-bottom:4px}
     .stat-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
@@ -111,8 +111,6 @@
   <div class="stats-row">
     <div class="stat-cell"><div class="stat-val">43.5</div><div class="stat-lbl">Miles</div></div>
     <div class="stat-cell"><div class="stat-val">2,233</div><div class="stat-lbl">Ft Elevation</div></div>
-    <div class="stat-cell"><div class="stat-val">2:36</div><div class="stat-lbl">Est. Time</div></div>
-    <div class="stat-cell"><div class="stat-val">Mod</div><div class="stat-lbl">Difficulty</div></div>
   </div>
 
   <div class="section">
@@ -174,9 +172,9 @@ const map = L.map('route-map', {
   zoomControl: true, attributionControl: false,
 });
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:18}).addTo(map);
-const poly = L.polyline(COORDS, {color:'#f5a623', weight:3.5, opacity:.95}).addTo(map);
-L.circleMarker(COORDS[0], {radius:7,color:'#f5a623',fillColor:'#0a1626',fillOpacity:1,weight:2.5}).addTo(map);
-L.circleMarker(COORDS[COORDS.length-1], {radius:7,color:'#f5a623',fillColor:'#f5a623',fillOpacity:1,weight:2}).addTo(map);
+const poly = L.polyline(COORDS, {color:'#4db8ff', weight:3.5, opacity:.95}).addTo(map);
+L.circleMarker(COORDS[0], {radius:7,color:'#4db8ff',fillColor:'#0a1626',fillOpacity:1,weight:2.5}).addTo(map);
+L.circleMarker(COORDS[COORDS.length-1], {radius:7,color:'#4db8ff',fillColor:'#4db8ff',fillOpacity:1,weight:2}).addTo(map);
 map.fitBounds(poly.getBounds(), {padding:[32,32]});
 
 function drawElevation() {
@@ -200,8 +198,8 @@ function drawElevation() {
   ]);
 
   const grad = ctx.createLinearGradient(0, pad.t, 0, pad.t + ch);
-  grad.addColorStop(0, 'rgba(245,166,35,.35)');
-  grad.addColorStop(1, 'rgba(245,166,35,.03)');
+  grad.addColorStop(0, 'rgba(77,184,255,.35)');
+  grad.addColorStop(1, 'rgba(77,184,255,.03)');
 
   ctx.beginPath();
   ctx.moveTo(pts[0][0], pad.t + ch);
@@ -213,7 +211,7 @@ function drawElevation() {
 
   ctx.beginPath();
   pts.forEach(([x,y],i) => i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y));
-  ctx.strokeStyle = '#f5a623';
+  ctx.strokeStyle = '#4db8ff';
   ctx.lineWidth = 2;
   ctx.lineJoin = 'round';
   ctx.stroke();
