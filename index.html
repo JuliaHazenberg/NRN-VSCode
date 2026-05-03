@@ -604,66 +604,7 @@
 
     </div>
 
-    <!-- ── ROUTE DETAIL PANEL ── -->
-    <div id="route-detail-overlay" onclick="closeRouteDetail()"></div>
-    <div id="route-detail-panel">
-      <div id="rdp-inner">
-        <button id="rdp-close" onclick="closeRouteDetail()">✕</button>
-
-        <div id="rdp-map-wrap">
-          <div id="rdp-map"></div>
-        </div>
-
-        <div id="rdp-content">
-          <div id="rdp-header">
-            <div>
-              <div id="rdp-chips"></div>
-              <h2 id="rdp-title"></h2>
-              <div id="rdp-location"></div>
-            </div>
-            <div id="rdp-actions">
-              <a id="rdp-gpx-btn" href="#" download class="rdp-btn rdp-btn-primary">⬇ Download GPX</a>
-              <button class="rdp-btn rdp-btn-secondary" onclick="saveRoute(this)">♡ Save Route</button>
-            </div>
-          </div>
-
-          <div id="rdp-stats-row">
-            <div class="rdp-stat"><div class="rdp-stat-val" id="rdp-dist"></div><div class="rdp-stat-lbl">Distance</div></div>
-            <div class="rdp-stat"><div class="rdp-stat-val" id="rdp-elev"></div><div class="rdp-stat-lbl">Elevation Gain</div></div>
-            <div class="rdp-stat"><div class="rdp-stat-val" id="rdp-time"></div><div class="rdp-stat-lbl">Est. Time</div></div>
-            <div class="rdp-stat"><div class="rdp-stat-val" id="rdp-diff"></div><div class="rdp-stat-lbl">Difficulty</div></div>
-          </div>
-
-          <div id="rdp-elev-section">
-            <div class="rdp-section-label">Elevation Profile</div>
-            <div id="rdp-elev-chart-wrap">
-              <canvas id="rdp-elev-canvas"></canvas>
-              <div id="rdp-elev-labels">
-                <span id="rdp-ele-min"></span>
-                <span id="rdp-ele-max"></span>
-              </div>
-            </div>
-          </div>
-
-          <div id="rdp-send-section">
-            <div class="rdp-section-label">Send to Device</div>
-            <div id="rdp-send-btns">
-              <a class="rdp-send-btn" id="rdp-rwgps-btn" href="#" target="_blank">
-                <span>🗺️</span><span>Open in RideWithGPS</span>
-              </a>
-              <a class="rdp-send-btn" id="rdp-komoot-btn" href="#" target="_blank">
-                <span>🏔️</span><span>Open in Komoot</span>
-              </a>
-              <a class="rdp-send-btn" id="rdp-gpx-dl" href="#" download>
-                <span>📥</span><span>Download GPX</span>
-              </a>
-            </div>
-            <p class="rdp-send-note">Download GPX works with Garmin, Wahoo, Hammerhead, and most GPS devices.</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    <!-- ── ROUTE DETAIL PANEL moved outside tab-panels — see below sync-modal ── -->
 
     <footer>
     <div style="display:flex;align-items:center;gap:9px">
@@ -947,6 +888,55 @@
   </div><!-- /tab-about -->
 
 </div><!-- /tab-panels -->
+
+<!-- ROUTE DETAIL PANEL — must live outside tab-panels so position:fixed isn't clipped by display:none parent -->
+<div id="route-detail-overlay" onclick="closeRouteDetail()"></div>
+<div id="route-detail-panel">
+  <div id="rdp-inner">
+    <button id="rdp-close" onclick="closeRouteDetail()">✕</button>
+    <div id="rdp-map-wrap">
+      <div id="rdp-map"></div>
+    </div>
+    <div id="rdp-content">
+      <div id="rdp-header">
+        <div>
+          <div id="rdp-chips"></div>
+          <h2 id="rdp-title"></h2>
+          <div id="rdp-location"></div>
+        </div>
+        <div id="rdp-actions">
+          <a id="rdp-gpx-btn" href="#" download class="rdp-btn rdp-btn-primary">⬇ Download GPX</a>
+          <button class="rdp-btn rdp-btn-secondary" onclick="saveRoute(this)">♡ Save Route</button>
+        </div>
+      </div>
+      <div id="rdp-stats-row">
+        <div class="rdp-stat"><div class="rdp-stat-val" id="rdp-dist"></div><div class="rdp-stat-lbl">Distance</div></div>
+        <div class="rdp-stat"><div class="rdp-stat-val" id="rdp-elev"></div><div class="rdp-stat-lbl">Elevation Gain</div></div>
+        <div class="rdp-stat"><div class="rdp-stat-val" id="rdp-time"></div><div class="rdp-stat-lbl">Est. Time</div></div>
+        <div class="rdp-stat"><div class="rdp-stat-val" id="rdp-diff"></div><div class="rdp-stat-lbl">Difficulty</div></div>
+      </div>
+      <div id="rdp-elev-section">
+        <div class="rdp-section-label">Elevation Profile</div>
+        <div id="rdp-elev-chart-wrap">
+          <canvas id="rdp-elev-canvas"></canvas>
+          <div id="rdp-elev-labels">
+            <span id="rdp-ele-min"></span>
+            <span id="rdp-ele-max"></span>
+          </div>
+        </div>
+      </div>
+      <div id="rdp-send-section">
+        <div class="rdp-section-label">Send to Device</div>
+        <div id="rdp-send-btns">
+          <a class="rdp-send-btn" id="rdp-rwgps-btn" href="#" target="_blank"><span>🗺️</span><span>Open in RideWithGPS</span></a>
+          <a class="rdp-send-btn" id="rdp-komoot-btn" href="#" target="_blank"><span>🏔️</span><span>Open in Komoot</span></a>
+          <a class="rdp-send-btn" id="rdp-gpx-dl" href="#" download><span>📥</span><span>Download GPX</span></a>
+        </div>
+        <p class="rdp-send-note">Download GPX works with Garmin, Wahoo, Hammerhead, and most GPS devices.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- SYNC OAUTH MODAL -->
 <div id="sync-modal">
