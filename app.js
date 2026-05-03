@@ -106,7 +106,7 @@ const cityMapData = {
 const pinColors = {
   ride:  { bg:'#f5a623', emoji:'🚴' },
   shop:  { bg:'#00c9a7', emoji:'🔧' },
-  cafe:  { bg:'#4db8ff', emoji:'☕' },
+  cafe:  { bg:'#1a78e8', emoji:'☕' },
   hotel: { bg:'#c084fc', emoji:'🏨' },
   food:  { bg:'#ff6b5b', emoji:'🍽️' },
 };
@@ -785,7 +785,7 @@ function initAfternoonRideCard() {
     doubleClickZoom: false, touchZoom: false, keyboard: false,
   });
   L.tileLayer(TILE_URL, { maxZoom: 18 }).addTo(m);
-  const cardPoly = L.polyline(AFTERNOON_RIDE_COORDS, { color: '#4db8ff', weight: 2.5, opacity: .9 }).addTo(m);
+  const cardPoly = L.polyline(AFTERNOON_RIDE_COORDS, { color: '#1a78e8', weight: 2.5, opacity: .9 }).addTo(m);
   m.fitBounds(cardPoly.getBounds(), { padding: [12, 12] });
 }
 

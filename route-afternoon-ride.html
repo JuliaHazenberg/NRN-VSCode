@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
   <link rel="stylesheet" href="styles.css"/>
   <style>
-    .map-hero{height:52vh;min-height:320px;max-height:540px;width:100%;margin-top:var(--bar-total);position:relative}
+    .map-hero{height:52vh;min-height:320px;max-height:540px;width:100%;margin-top:var(--bar-total);position:relative;z-index:0}
     #route-map{width:100%;height:100%}
     .map-overlay-tag{position:absolute;bottom:14px;left:14px;z-index:400;background:rgba(8,16,28,.82);border:1px solid #254060;border-radius:4px;padding:5px 12px;font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);pointer-events:none}
 
@@ -170,11 +170,12 @@ const ELEV = [866.1,875.3,830.7,823.5,826.8,839.9,836,839.9,837.9,837.3,841.2,85
 const map = L.map('route-map', {
   center: [43.013, -89.422], zoom: 10,
   zoomControl: true, attributionControl: false,
+  scrollWheelZoom: false,
 });
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:18}).addTo(map);
-const poly = L.polyline(COORDS, {color:'#4db8ff', weight:3.5, opacity:.95}).addTo(map);
-L.circleMarker(COORDS[0], {radius:7,color:'#4db8ff',fillColor:'#0a1626',fillOpacity:1,weight:2.5}).addTo(map);
-L.circleMarker(COORDS[COORDS.length-1], {radius:7,color:'#4db8ff',fillColor:'#4db8ff',fillOpacity:1,weight:2}).addTo(map);
+const poly = L.polyline(COORDS, {color:'#1a78e8', weight:3.5, opacity:.95}).addTo(map);
+L.circleMarker(COORDS[0], {radius:7,color:'#1a78e8',fillColor:'#0a1626',fillOpacity:1,weight:2.5}).addTo(map);
+L.circleMarker(COORDS[COORDS.length-1], {radius:7,color:'#1a78e8',fillColor:'#1a78e8',fillOpacity:1,weight:2}).addTo(map);
 map.fitBounds(poly.getBounds(), {padding:[32,32]});
 
 function drawElevation() {
@@ -198,8 +199,8 @@ function drawElevation() {
   ]);
 
   const grad = ctx.createLinearGradient(0, pad.t, 0, pad.t + ch);
-  grad.addColorStop(0, 'rgba(77,184,255,.35)');
-  grad.addColorStop(1, 'rgba(77,184,255,.03)');
+  grad.addColorStop(0, 'rgba(26,120,232,.35)');
+  grad.addColorStop(1, 'rgba(26,120,232,.03)');
 
   ctx.beginPath();
   ctx.moveTo(pts[0][0], pad.t + ch);
@@ -211,7 +212,7 @@ function drawElevation() {
 
   ctx.beginPath();
   pts.forEach(([x,y],i) => i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y));
-  ctx.strokeStyle = '#4db8ff';
+  ctx.strokeStyle = '#1a78e8';
   ctx.lineWidth = 2;
   ctx.lineJoin = 'round';
   ctx.stroke();

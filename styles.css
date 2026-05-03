@@ -422,7 +422,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 
 /* ROUTES */
 .routes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:52px 48px;max-width:1240px;margin:0 auto}
-.route-card{background:var(--card);border:1px solid var(--border);border-radius:9px;overflow:hidden;cursor:pointer;transition:transform .18s,border-color .18s}
+.route-card{background:var(--card);border:1px solid var(--border);border-radius:9px;overflow:hidden;cursor:pointer;transition:transform .18s,border-color .18s;isolation:isolate}
 .route-card:hover{transform:translateY(-3px);border-color:rgba(77,184,255,.3)}
 .route-map{height:110px;position:relative;overflow:hidden;background:var(--bg)}
 .route-body{padding:16px}
