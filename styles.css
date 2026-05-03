@@ -406,7 +406,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 48px
 .fc{font-size:.66rem;letter-spacing:.05em;color:var(--muted)}
 
 /* RIDES */
-.rides-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0;max-width:1240px;margin:0 auto}
+.rides-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;padding:0;max-width:1240px;margin:0 auto}
 .ride-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:20px;cursor:pointer;transition:transform .18s,border-color .18s;position:relative;overflow:hidden}
 .ride-card:hover{transform:translateY(-3px);border-color:rgba(245,166,35,.3)}
 .ride-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
