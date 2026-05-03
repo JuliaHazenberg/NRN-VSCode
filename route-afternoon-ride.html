@@ -7,34 +7,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&family=Barlow+Condensed:wght@400;600;700&family=Bebas+Neue&display=swap"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
   <style>
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    :root{
-      --bg:#0d1b2a;--bg2:#112030;--card:#1c3050;--border:#254060;
-      --amber:#f5a623;--amber2:#ffc04d;--teal:#00c9a7;--sky:#4db8ff;
-      --text:#eef2f7;--muted:#7a9ab8;
-    }
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;min-height:100vh}
-    ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-thumb{background:var(--amber);border-radius:2px}
-
-    /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(13,27,42,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,166,35,.1)}
-    .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.18em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:9px}
-    .nav-logo span{color:var(--amber)}
-    .nav-back{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:6px}
-    .nav-back:hover{color:var(--amber)}
-    .nav-back svg{flex-shrink:0}
-
-    /* MAP */
-    .map-hero{height:52vh;min-height:320px;max-height:540px;width:100%;margin-top:64px;position:relative}
+    .map-hero{height:52vh;min-height:320px;max-height:540px;width:100%;margin-top:var(--bar-total);position:relative}
     #route-map{width:100%;height:100%}
     .map-overlay-tag{position:absolute;bottom:14px;left:14px;z-index:400;background:rgba(8,16,28,.82);border:1px solid #254060;border-radius:4px;padding:5px 12px;font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);pointer-events:none}
 
-    /* CONTENT */
     .page-content{max-width:860px;width:100%;margin:0 auto;padding:0 32px 80px}
 
-    /* HEADER */
     .route-header{padding:36px 0 24px;border-bottom:1px solid var(--border)}
     .route-chips{display:flex;gap:6px;margin-bottom:12px}
     .rchip{font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:100px;background:rgba(77,184,255,.1);color:var(--sky);border:1px solid rgba(77,184,255,.2)}
@@ -46,13 +26,11 @@
     .btn-secondary{background:rgba(238,242,247,.06);color:var(--text);font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:11px 24px;border:1px solid var(--border);border-radius:4px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;transition:all .2s}
     .btn-secondary:hover{border-color:rgba(245,166,35,.4);background:rgba(245,166,35,.06)}
 
-    /* STATS */
     .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:28px 0}
     .stat-cell{background:var(--bg2);padding:20px 16px;text-align:center}
     .stat-val{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:.04em;color:var(--text);line-height:1;margin-bottom:4px}
     .stat-lbl{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
-    /* ELEVATION */
     .section{margin-top:32px}
     .section-label{font-family:'Barlow Condensed',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
     .elev-wrap{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px 16px 8px;height:110px}
@@ -60,7 +38,6 @@
     .elev-labels{display:flex;justify-content:space-between;margin-top:4px;padding:0 2px}
     .elev-labels span{font-family:'Barlow Condensed',sans-serif;font-size:.58rem;letter-spacing:.06em;color:var(--muted)}
 
-    /* DEVICE / SEND */
     .send-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
     .send-btn{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none;color:var(--text);transition:border-color .2s,background .2s;cursor:pointer}
     .send-btn:hover{border-color:rgba(245,166,35,.35);background:rgba(245,166,35,.04)}
@@ -70,7 +47,6 @@
     .send-note{font-size:.68rem;color:var(--muted);margin-top:12px;line-height:1.6}
 
     @media(max-width:640px){
-      nav{padding:14px 18px}
       .page-content{padding:0 18px 60px}
       .stats-row{grid-template-columns:repeat(2,1fr)}
       .send-grid{grid-template-columns:1fr}
@@ -82,15 +58,35 @@
 <body>
 
 <nav>
-  <a class="nav-logo" href="index.html">
-    <svg width="22" height="22" viewBox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="13.5" stroke="#f5a623" stroke-width="1.1"/><circle cx="15" cy="15" r="2.8" fill="#f5a623"/><line x1="15" y1="1.5" x2="15" y2="12.2" stroke="#f5a623" stroke-width=".9"/><line x1="15" y1="17.8" x2="15" y2="28.5" stroke="#f5a623" stroke-width=".9"/><line x1="1.5" y1="15" x2="12.2" y2="15" stroke="#f5a623" stroke-width=".9"/><line x1="17.8" y1="15" x2="28.5" y2="15" stroke="#f5a623" stroke-width=".9"/><line x1="4.4" y1="4.4" x2="12.1" y2="12.1" stroke="#f5a623" stroke-width=".9"/><line x1="17.9" y1="17.9" x2="25.6" y2="25.6" stroke="#f5a623" stroke-width=".9"/><line x1="25.6" y1="4.4" x2="17.9" y2="12.1" stroke="#f5a623" stroke-width=".9"/><line x1="12.1" y1="17.9" x2="4.4" y2="25.6" stroke="#f5a623" stroke-width=".9"/></svg>
-    National <span>Ride</span> Network
-  </a>
-  <a class="nav-back" href="index.html#routes">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    Back to Routes
-  </a>
+  <div class="logo">
+    <svg width="28" height="28" viewBox="0 0 30 30" fill="none" style="flex-shrink:0;margin-top:-2px">
+      <circle cx="15" cy="15" r="13.5" stroke="#f5a623" stroke-width="1.1"/>
+      <circle cx="15" cy="15" r="2.8" fill="#f5a623"/>
+      <line x1="15" y1="1.5" x2="15" y2="12.2" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="15" y1="17.8" x2="15" y2="28.5" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="1.5" y1="15" x2="12.2" y2="15" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="17.8" y1="15" x2="28.5" y2="15" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="4.4" y1="4.4" x2="12.1" y2="12.1" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="17.9" y1="17.9" x2="25.6" y2="25.6" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="25.6" y1="4.4" x2="17.9" y2="12.1" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="12.1" y1="17.9" x2="4.4" y2="25.6" stroke="#f5a623" stroke-width=".9"/>
+    </svg>
+    <span class="logo-text" style="margin-left:9px">National <span>Ride</span> Network</span>
+  </div>
+  <button class="nav-cta" onclick="window.location.href='index.html'">Join — $99/yr</button>
 </nav>
+
+<div class="chain-bar">
+  <div class="chain-tabs" id="chain-tabs">
+    <button class="ctab-nav" onclick="window.location.href='index.html'">Home</button>
+    <button class="ctab-nav" onclick="window.location.href='index.html'">Rides</button>
+    <button class="ctab-nav active">Routes</button>
+    <button class="ctab-nav" onclick="window.location.href='index.html'">Races</button>
+    <button class="ctab-nav" onclick="window.location.href='index.html'">Partners</button>
+    <button class="ctab-nav" onclick="window.location.href='index.html'">Store</button>
+    <button class="ctab-nav" onclick="window.location.href='index.html'">About</button>
+  </div>
+</div>
 
 <div class="map-hero">
   <div id="route-map"></div>
@@ -148,13 +144,31 @@
 
 </div>
 
+<footer>
+  <div style="display:flex;align-items:center;gap:9px">
+    <svg width="22" height="22" viewBox="0 0 30 30" fill="none" style="flex-shrink:0;margin-top:-2px">
+      <circle cx="15" cy="15" r="13.5" stroke="#f5a623" stroke-width="1.1"/>
+      <circle cx="15" cy="15" r="2.8" fill="#f5a623"/>
+      <line x1="15" y1="1.5" x2="15" y2="12.2" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="15" y1="17.8" x2="15" y2="28.5" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="1.5" y1="15" x2="12.2" y2="15" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="17.8" y1="15" x2="28.5" y2="15" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="4.4" y1="4.4" x2="12.1" y2="12.1" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="17.9" y1="17.9" x2="25.6" y2="25.6" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="25.6" y1="4.4" x2="17.9" y2="12.1" stroke="#f5a623" stroke-width=".9"/>
+      <line x1="12.1" y1="17.9" x2="4.4" y2="25.6" stroke="#f5a623" stroke-width=".9"/>
+    </svg>
+    <span style="font-size:1.05rem;font-family:'Bebas Neue',sans-serif;letter-spacing:.18em;color:#f5a623">National <span style="color:#f5a623">Ride</span> Network</span>
+  </div>
+  <div class="fc">© 2026 NRN · Find every ride, unlock every city, reclaim every dollar.</div>
+</footer>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 const COORDS = [[43.077488,-89.382637],[43.07676,-89.38299],[43.076184,-89.381964],[43.077117,-89.379931],[43.076021,-89.37854],[43.075502,-89.377197],[43.075998,-89.375467],[43.07462,-89.376701],[43.073074,-89.377989],[43.072076,-89.3791],[43.073491,-89.377775],[43.074881,-89.376366],[43.075689,-89.374966],[43.075367,-89.375806],[43.073864,-89.377519],[43.072283,-89.378911],[43.070954,-89.38049],[43.069643,-89.382698],[43.068106,-89.384536],[43.066817,-89.386487],[43.065639,-89.388652],[43.0641,-89.390201],[43.063513,-89.392353],[43.064389,-89.395114],[43.063519,-89.397544],[43.062749,-89.399688],[43.060965,-89.399942],[43.060993,-89.401229],[43.060992,-89.403694],[43.059604,-89.404116],[43.057391,-89.404098],[43.056167,-89.405548],[43.056153,-89.408538],[43.053899,-89.409437],[43.051455,-89.410161],[43.049655,-89.41175],[43.049727,-89.415288],[43.049153,-89.417941],[43.048665,-89.421053],[43.046539,-89.421201],[43.045596,-89.423296],[43.045733,-89.42584],[43.04543,-89.427649],[43.044138,-89.43051],[43.042417,-89.432671],[43.04075,-89.432677],[43.038872,-89.432897],[43.038238,-89.435018],[43.038381,-89.437298],[43.039067,-89.438872],[43.039428,-89.441199],[43.039463,-89.443488],[43.03866,-89.443336],[43.03773,-89.443364],[43.036729,-89.44368],[43.035242,-89.443726],[43.032605,-89.444638],[43.029956,-89.446209],[43.027793,-89.447449],[43.025391,-89.448384],[43.023215,-89.449263],[43.021606,-89.450381],[43.020558,-89.452223],[43.019466,-89.454137],[43.017952,-89.455355],[43.016111,-89.455385],[43.014097,-89.45586],[43.012391,-89.456295],[43.010573,-89.456803],[43.008718,-89.457259],[43.006744,-89.457823],[43.005526,-89.459253],[43.004691,-89.460661],[43.002655,-89.460523],[43.000758,-89.460394],[42.998762,-89.460279],[42.996821,-89.460165],[42.995105,-89.460146],[42.993157,-89.460383],[42.991105,-89.46072],[42.989034,-89.461054],[42.986992,-89.461392],[42.984987,-89.46173],[42.984189,-89.463026],[42.984311,-89.464847],[42.983898,-89.466184],[42.982146,-89.467952],[42.980439,-89.469676],[42.978971,-89.471003],[42.977028,-89.472488],[42.975288,-89.473801],[42.973685,-89.474977],[42.972662,-89.475726],[42.971051,-89.476162],[42.968805,-89.476273],[42.966666,-89.476358],[42.964748,-89.476427],[42.962985,-89.476486],[42.961293,-89.476527],[42.959552,-89.476605],[42.960254,-89.478698],[42.961113,-89.480742],[42.959505,-89.481704],[42.957843,-89.482367],[42.956138,-89.4826],[42.954501,-89.483186],[42.953091,-89.484298],[42.95128,-89.48542],[42.949231,-89.485462],[42.947836,-89.485537],[42.945913,-89.485573],[42.944022,-89.48555],[42.943383,-89.483872],[42.942715,-89.481975],[42.941585,-89.483652],[42.940604,-89.485324],[42.939363,-89.487483],[42.937935,-89.490535],[42.936469,-89.493596],[42.934681,-89.494534],[42.933325,-89.495656],[42.931774,-89.498085],[42.930953,-89.499345],[42.929042,-89.500603],[42.92863,-89.504033],[42.928784,-89.506112],[42.929014,-89.50909],[42.929143,-89.512562],[42.92922,-89.515635],[42.929338,-89.519822],[42.929407,-89.522578],[42.929446,-89.525456],[42.930927,-89.526235],[42.933119,-89.526202],[42.935359,-89.526314],[42.937555,-89.526235],[42.939532,-89.526748],[42.941295,-89.52735],[42.943124,-89.5279],[42.944335,-89.527953],[42.946139,-89.526761],[42.947842,-89.526207],[42.950001,-89.526531],[42.951565,-89.525997],[42.953595,-89.524292],[42.955758,-89.524113],[42.957344,-89.523939],[42.958312,-89.524139],[42.959358,-89.524084],[42.962201,-89.523719],[42.963233,-89.523229],[42.964796,-89.523138],[42.967445,-89.523226],[42.970129,-89.523478],[42.97235,-89.522897],[42.97347,-89.524914],[42.975767,-89.526647],[42.977288,-89.526459],[42.978114,-89.524042],[42.978729,-89.521483],[42.979478,-89.518405],[42.980894,-89.516685],[42.982984,-89.516716],[42.985268,-89.516296],[42.987209,-89.516317],[42.988001,-89.513852],[42.990234,-89.51384],[42.99228,-89.51329],[42.993453,-89.511001],[42.992862,-89.508377],[42.993635,-89.50572],[42.994891,-89.50333],[42.99617,-89.500849],[42.997435,-89.498417],[42.998694,-89.495985],[42.999948,-89.493565],[43.001165,-89.491212],[43.002348,-89.488921],[43.003565,-89.486592],[43.004779,-89.484231],[43.006053,-89.481752],[43.007292,-89.479366],[43.008527,-89.476997],[43.010139,-89.475034],[43.012002,-89.473392],[43.013757,-89.471652],[43.01529,-89.470341],[43.01718,-89.468674],[43.019313,-89.46668],[43.02146,-89.464768],[43.023262,-89.462707],[43.024032,-89.459596],[43.024422,-89.456133],[43.0248,-89.452868],[43.025151,-89.449771],[43.025983,-89.447991],[43.027981,-89.447188],[43.030002,-89.446059],[43.031863,-89.444967],[43.033356,-89.444045],[43.034905,-89.44355],[43.037228,-89.443529],[43.039531,-89.443176],[43.0394,-89.440112],[43.038298,-89.437153],[43.038536,-89.433273],[43.040771,-89.432661],[43.042718,-89.432374],[43.044267,-89.430128],[43.045119,-89.428101],[43.045621,-89.424892],[43.045809,-89.42125],[43.048099,-89.421535],[43.048815,-89.41916],[43.049527,-89.41597],[43.049624,-89.412768],[43.050727,-89.41058],[43.052688,-89.409305],[43.054917,-89.40939],[43.056201,-89.407455],[43.056214,-89.404562],[43.057366,-89.4024],[43.058817,-89.399366],[43.057458,-89.398059],[43.057048,-89.395489],[43.056891,-89.392508],[43.056805,-89.389616],[43.056037,-89.388164],[43.055993,-89.385357],[43.055957,-89.381488],[43.054539,-89.380005],[43.052856,-89.378201],[43.05112,-89.377553],[43.049373,-89.376741],[43.047706,-89.375299],[43.046121,-89.372874],[43.044785,-89.370711],[43.044091,-89.368102],[43.044742,-89.365684],[43.046037,-89.363874],[43.04691,-89.361547],[43.046656,-89.358679],[43.047695,-89.355864],[43.049156,-89.354634],[43.0494,-89.351184],[43.049959,-89.348299],[43.049809,-89.345169],[43.05021,-89.342561],[43.050948,-89.339728],[43.050309,-89.337737],[43.050258,-89.33621],[43.052537,-89.336876],[43.054676,-89.336744],[43.056612,-89.336949],[43.058812,-89.338088],[43.058724,-89.340818],[43.05885,-89.343024],[43.060229,-89.346015],[43.05862,-89.347793],[43.057062,-89.349528],[43.058228,-89.350465],[43.059755,-89.350581],[43.061787,-89.34965],[43.064014,-89.348195],[43.065666,-89.346082],[43.066716,-89.34378],[43.066919,-89.341911],[43.068301,-89.340063],[43.069591,-89.338343],[43.070984,-89.336538],[43.071325,-89.333361],[43.07222,-89.330875],[43.073731,-89.329064],[43.072886,-89.327754],[43.072861,-89.32497],[43.072904,-89.322152],[43.073389,-89.320004],[43.074862,-89.318196],[43.076016,-89.316462],[43.077561,-89.317119],[43.079146,-89.316968],[43.081254,-89.316328],[43.083545,-89.316364],[43.085782,-89.316444],[43.087016,-89.318171],[43.08824,-89.320981],[43.089603,-89.324045],[43.090453,-89.326528],[43.091735,-89.329424],[43.09301,-89.332341],[43.094228,-89.33512],[43.095404,-89.337807],[43.096642,-89.340629],[43.09655,-89.34316],[43.095439,-89.345239],[43.09428,-89.347435],[43.0932,-89.349709],[43.092507,-89.352767],[43.091991,-89.355617],[43.091004,-89.357575],[43.09163,-89.36041],[43.089898,-89.362831],[43.08822,-89.365216],[43.086571,-89.367571],[43.085004,-89.369814],[43.083415,-89.372029],[43.081807,-89.374314],[43.080254,-89.376589],[43.078647,-89.378852]];
 
 const ELEV = [866.1,875.3,830.7,823.5,826.8,839.9,836,839.9,837.9,837.3,841.2,857.6,853.7,852.4,854.3,875.3,900.9,910.1,903.5,937.7,953.4,1000.7,1004.6,960.6,970.5,1000.7,1027.6,1039.4,1032.8,1029.5,1027.6,1028.2,1028.2,1059.1,1047.2,1027.6,1044,1021,1002.6,998.7,1023.6,1024.3,1023.6,1028.9,1017.7,1009.2,984.9,984.3,1006.6,952.1,938.3,894.4,888.5,893,910.1,931.8,954.1,942.3,1011.2,1004.6,991.5,986.9,981.6,976.4,963.9,927.8,919.9,921.9,924.5,930.4,934.4,941.6,948.2,957.3,946.2,916.7,892.4,899.6,912.1,949.5,880.6,830.1,841.2,811,822.2,799.2,803.1,811.7,805.8,809.7,815,813,820.2,815,836,830.7,825.5,832,827.4,824.1,833.3,837.9,829.4,873.4,833.3,838.6,849.7,843.2,878.6,879.9,871.4,862.2,858.3,853.7,849.1,857.6,868.1,855,857,844.5,845.8,847.8];
 
-// Map
 const map = L.map('route-map', {
   center: [43.013, -89.422], zoom: 10,
   zoomControl: true, attributionControl: false,
@@ -165,7 +179,6 @@ L.circleMarker(COORDS[0], {radius:7,color:'#f5a623',fillColor:'#0a1626',fillOpac
 L.circleMarker(COORDS[COORDS.length-1], {radius:7,color:'#f5a623',fillColor:'#f5a623',fillOpacity:1,weight:2}).addTo(map);
 map.fitBounds(poly.getBounds(), {padding:[32,32]});
 
-// Elevation chart
 function drawElevation() {
   const canvas = document.getElementById('elev-canvas');
   const dpr = window.devicePixelRatio || 1;
@@ -211,7 +224,6 @@ function drawElevation() {
 window.addEventListener('load', drawElevation);
 window.addEventListener('resize', drawElevation);
 
-// Save button
 function handleSave(btn) {
   const saved = btn.classList.toggle('saved');
   btn.textContent = saved ? '♥ Saved' : '♡ Save Route';
