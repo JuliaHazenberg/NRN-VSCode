@@ -987,7 +987,16 @@ window.switchTab = function(id, btn) {
   if (id === 'routes') setTimeout(initAfternoonRideCard, 120);
   if (id === 'route-afternoon') {
     window.scrollTo(0, 0);
-    setTimeout(initRdtabMap, 120);
+    setTimeout(() => {
+      initRdtabMap();
+      // sync save button from localStorage state
+      const rdBtn = document.querySelector('#tab-route-afternoon .btn-secondary');
+      if (rdBtn) {
+        const isSaved = _getSaved().some(r => r.id === 'afternoon-ride');
+        rdBtn.textContent = isSaved ? '♥ Saved' : '♡ Save Route';
+        rdBtn.classList.toggle('saved', isSaved);
+      }
+    }, 120);
   }
 };
 // Also fire if routes tab is somehow active on load
