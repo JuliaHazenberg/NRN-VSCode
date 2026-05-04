@@ -314,6 +314,15 @@ function saveRoute(btn) {
   const chips = [...card.querySelectorAll('.route-chip')].map(c => c.textContent.trim());
   const tabId = id.includes('afternoon') ? 'route-afternoon' : null;
   _toggleSaved({id, name, location, stats, chips, tabId}, btn, 'Save Route', 'Save Route');
+  // sync detail tab save button
+  if (id === 'afternoon-ride') {
+    const rdBtn = document.querySelector('#tab-route-afternoon .btn-secondary');
+    if (rdBtn) {
+      const isSaved = _getSaved().some(r => r.id === 'afternoon-ride');
+      rdBtn.textContent = isSaved ? '♥ Saved' : '♡ Save Route';
+      rdBtn.classList.toggle('saved', isSaved);
+    }
+  }
 }
 
 function handleRdtabSave(btn) {
@@ -385,12 +394,17 @@ function renderSavedDrawer() {
 
 function removeSaved(id) {
   _setSaved(_getSaved().filter(r => r.id !== id));
-  // un-highlight any visible save buttons for this route
+  // un-highlight card save buttons
   document.querySelectorAll('.route-save.saved').forEach(btn => {
     const card = btn.closest('.route-card');
     const btnId = card?.querySelector('.route-name')?.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
     if (btnId === id) { btn.textContent = 'Save Route'; btn.classList.remove('saved'); }
   });
+  // reset detail tab save button if it matches
+  if (id === 'afternoon-ride') {
+    const rdBtn = document.querySelector('#tab-route-afternoon .btn-secondary');
+    if (rdBtn) { rdBtn.textContent = '♡ Save Route'; rdBtn.classList.remove('saved'); }
+  }
   updateSavedBadge();
   renderSavedDrawer();
 }
@@ -402,6 +416,11 @@ function restoreSavedStates() {
     const id = card?.querySelector('.route-name')?.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
     if (id && saved.find(r => r.id === id)) { btn.textContent = '♥ Saved'; btn.classList.add('saved'); }
   });
+  // restore detail tab save button
+  if (saved.find(r => r.id === 'afternoon-ride')) {
+    const rdBtn = document.querySelector('#tab-route-afternoon .btn-secondary');
+    if (rdBtn) { rdBtn.textContent = '♥ Saved'; rdBtn.classList.add('saved'); }
+  }
   updateSavedBadge();
 }
 restoreSavedStates();
@@ -959,11 +978,6 @@ function drawRdtabElevation() {
   ctx.stroke();
   document.getElementById('rdtab-ele-min').textContent = '799 ft';
   document.getElementById('rdtab-ele-max').textContent = '1,059 ft';
-}
-
-function handleRdtabSave(btn) {
-  const saved = btn.classList.toggle('saved');
-  btn.textContent = saved ? '♥ Saved' : '♡ Save Route';
 }
 
 // Hook into switchTab (already defined above) via a post-load wrapper
