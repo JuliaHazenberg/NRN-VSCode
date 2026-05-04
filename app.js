@@ -290,11 +290,121 @@ function rsvpRide(btn) {
 }
 
 // ── Routes Save ──
-function saveRoute(btn) {
-  if(btn.classList.contains('saved')) { btn.textContent='Save Route'; btn.classList.remove('saved'); return; }
-  btn.textContent = '✓ Saved';
-  btn.classList.add('saved');
+// ── Saved Routes ──
+function _getSaved() {
+  try { return JSON.parse(localStorage.getItem('nrn_saved_routes') || '[]'); } catch(e) { return []; }
 }
+function _setSaved(arr) { localStorage.setItem('nrn_saved_routes', JSON.stringify(arr)); }
+
+function updateSavedBadge() {
+  const n = _getSaved().length;
+  const badge = document.getElementById('saved-count');
+  const heartBtn = document.getElementById('nav-heart-btn');
+  if (badge) { badge.textContent = n || ''; badge.classList.toggle('visible', n > 0); }
+  if (heartBtn) heartBtn.classList.toggle('has-saved', n > 0);
+}
+
+function saveRoute(btn) {
+  const card = btn.closest('.route-card');
+  if (!card) return;
+  const name = card.querySelector('.route-name')?.textContent.trim() || '';
+  const id = name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+  const location = btn.closest('.city-section')?.querySelector('.rides-city-name')?.textContent.trim() || '';
+  const stats = [...card.querySelectorAll('.rstat')].map(s => s.textContent.trim());
+  const chips = [...card.querySelectorAll('.route-chip')].map(c => c.textContent.trim());
+  const tabId = id.includes('afternoon') ? 'route-afternoon' : null;
+  _toggleSaved({id, name, location, stats, chips, tabId}, btn, 'Save Route', 'Save Route');
+}
+
+function handleRdtabSave(btn) {
+  _toggleSaved({
+    id: 'afternoon-ride', name: 'Afternoon Ride 💨',
+    location: 'Madison, Wisconsin',
+    stats: ['43.5mi Distance','2,233ft Elev'],
+    chips: ['Road','Rolling'], tabId: 'route-afternoon'
+  }, btn, '♡ Save Route', '♥ Saved');
+  // keep the card button in sync
+  const cardBtn = document.querySelector('.route-card .route-save');
+  if (cardBtn) {
+    const isSaved = _getSaved().some(r => r.id === 'afternoon-ride');
+    cardBtn.textContent = isSaved ? '♥ Saved' : 'Save Route';
+    cardBtn.classList.toggle('saved', isSaved);
+  }
+}
+
+function _toggleSaved(route, btn, labelOff, labelOn) {
+  const saved = _getSaved();
+  const idx = saved.findIndex(r => r.id === route.id);
+  if (idx >= 0) {
+    saved.splice(idx, 1);
+    btn.textContent = labelOff;
+    btn.classList.remove('saved');
+  } else {
+    saved.push(route);
+    btn.textContent = labelOn === 'Save Route' ? '♥ Saved' : labelOn;
+    btn.classList.add('saved');
+  }
+  _setSaved(saved);
+  updateSavedBadge();
+  renderSavedDrawer();
+}
+
+function openSavedDrawer() {
+  renderSavedDrawer();
+  document.getElementById('saved-overlay').classList.add('open');
+  document.getElementById('saved-drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSavedDrawer() {
+  document.getElementById('saved-overlay').classList.remove('open');
+  document.getElementById('saved-drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function renderSavedDrawer() {
+  const body = document.getElementById('saved-drawer-body');
+  if (!body) return;
+  const saved = _getSaved();
+  if (!saved.length) {
+    body.innerHTML = '<div class="saved-empty"><div class="saved-empty-icon">🤍</div><p>No saved routes yet</p><p class="saved-hint">Hit Save on any route card to add it here.</p></div>';
+    return;
+  }
+  body.innerHTML = saved.map(r => `
+    <div class="saved-route-card">
+      <div class="saved-route-name">${r.name}</div>
+      ${r.location ? `<div class="saved-route-loc">${r.location}</div>` : ''}
+      <div class="saved-route-stats">${r.stats.map(s=>`<div class="saved-rstat">${s}</div>`).join('')}</div>
+      <div class="saved-route-chips">${r.chips.map(c=>`<span class="saved-route-chip">${c}</span>`).join('')}</div>
+      <div class="saved-route-btns">
+        <button class="saved-view-btn" onclick="closeSavedDrawer();${r.tabId ? `switchTab('${r.tabId}',document.querySelector('[data-tab=routes]'))` : `switchTab('routes',document.querySelector('[data-tab=routes]'))`}">View Route →</button>
+        <button class="saved-remove-btn" onclick="removeSaved('${r.id}')">Remove</button>
+      </div>
+    </div>`).join('');
+}
+
+function removeSaved(id) {
+  _setSaved(_getSaved().filter(r => r.id !== id));
+  // un-highlight any visible save buttons for this route
+  document.querySelectorAll('.route-save.saved').forEach(btn => {
+    const card = btn.closest('.route-card');
+    const btnId = card?.querySelector('.route-name')?.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+    if (btnId === id) { btn.textContent = 'Save Route'; btn.classList.remove('saved'); }
+  });
+  updateSavedBadge();
+  renderSavedDrawer();
+}
+
+function restoreSavedStates() {
+  const saved = _getSaved();
+  document.querySelectorAll('.route-save').forEach(btn => {
+    const card = btn.closest('.route-card');
+    const id = card?.querySelector('.route-name')?.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+    if (id && saved.find(r => r.id === id)) { btn.textContent = '♥ Saved'; btn.classList.add('saved'); }
+  });
+  updateSavedBadge();
+}
+restoreSavedStates();
 
 // ── Race Register ──
 function registerRace(btn) {
